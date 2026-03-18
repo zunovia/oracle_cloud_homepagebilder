@@ -1,0 +1,21 @@
+# Environment
+.env
+.env.local
+
+# Node
+node_modules/
+webstudio-project/build/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# SSL certificates (local)
+ssl/
