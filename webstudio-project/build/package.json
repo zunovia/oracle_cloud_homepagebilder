@@ -1,0 +1,16 @@
+{
+  "name": "ryota-kaneda-site",
+  "version": "1.0.0",
+  "description": "Ryota Kaneda - Personal Website",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "compression": "^1.7.5"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
