@@ -60,17 +60,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
         const successMsg = this.querySelector('.form-success');
+        const errorMsg = this.querySelector('.form-error');
+        const submitBtn = this.querySelector('button[type="submit"]');
         const inputs = this.querySelectorAll('input, textarea');
 
-        successMsg.classList.add('show');
-        inputs.forEach(input => { input.value = ''; });
+        successMsg.classList.remove('show');
+        errorMsg.classList.remove('show');
+        submitBtn.disabled = true;
+        submitBtn.textContent = '送信中...';
 
-        setTimeout(() => {
-            successMsg.classList.remove('show');
-        }, 5000);
+        const formData = {
+            name: this.querySelector('[name="name"]').value,
+            email: this.querySelector('[name="email"]').value,
+            company: this.querySelector('[name="company"]').value,
+            message: this.querySelector('[name="message"]').value
+        };
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (res.ok) {
+                successMsg.classList.add('show');
+                inputs.forEach(input => { input.value = ''; });
+                setTimeout(() => { successMsg.classList.remove('show'); }, 8000);
+            } else {
+                errorMsg.classList.add('show');
+                setTimeout(() => { errorMsg.classList.remove('show'); }, 8000);
+            }
+        } catch {
+            errorMsg.classList.add('show');
+            setTimeout(() => { errorMsg.classList.remove('show'); }, 8000);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = '送信する';
+        }
     });
 }
 
@@ -92,53 +122,3 @@ function createParticles() {
 }
 
 createParticles();
-
-// Counter animation for highlight numbers
-function animateCounters() {
-    const counters = document.querySelectorAll('.highlight-number');
-    counters.forEach(counter => {
-        const text = counter.textContent;
-        const match = text.match(/^([\d.]+)/);
-        if (!match) return;
-
-        const target = parseFloat(match[1]);
-        const suffix = text.slice(match[0].length);
-        const isDecimal = match[1].includes('.');
-        const duration = 1500;
-        const startTime = performance.now();
-
-        function update(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = target * eased;
-
-            if (isDecimal) {
-                counter.innerHTML = current.toFixed(1) + suffix;
-            } else {
-                counter.innerHTML = Math.floor(current) + suffix;
-            }
-
-            if (progress < 1) {
-                requestAnimationFrame(update);
-            }
-        }
-
-        requestAnimationFrame(update);
-    });
-}
-
-// Trigger counter animation when highlights become visible
-const highlightObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            highlightObserver.disconnect();
-        }
-    });
-}, { threshold: 0.3 });
-
-const highlightsSection = document.querySelector('.highlights');
-if (highlightsSection) {
-    highlightObserver.observe(highlightsSection);
-}
