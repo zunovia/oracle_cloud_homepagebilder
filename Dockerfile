@@ -5,7 +5,7 @@ FROM base AS deps
 WORKDIR /app
 
 COPY webstudio-project/build/package.json webstudio-project/build/package-lock.json* ./
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 
 # Production image
 FROM base AS runner
