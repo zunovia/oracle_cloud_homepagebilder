@@ -73,3 +73,72 @@ if (contactForm) {
         }, 5000);
     });
 }
+
+// Hero particles
+function createParticles() {
+    const container = document.getElementById('particles');
+    if (!container) return;
+
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('hero-particle');
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDuration = (Math.random() * 8 + 6) + 's';
+        particle.style.animationDelay = (Math.random() * 5) + 's';
+        particle.style.width = (Math.random() * 4 + 2) + 'px';
+        particle.style.height = particle.style.width;
+        container.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// Counter animation for highlight numbers
+function animateCounters() {
+    const counters = document.querySelectorAll('.highlight-number');
+    counters.forEach(counter => {
+        const text = counter.textContent;
+        const match = text.match(/^([\d.]+)/);
+        if (!match) return;
+
+        const target = parseFloat(match[1]);
+        const suffix = text.slice(match[0].length);
+        const isDecimal = match[1].includes('.');
+        const duration = 1500;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = target * eased;
+
+            if (isDecimal) {
+                counter.innerHTML = current.toFixed(1) + suffix;
+            } else {
+                counter.innerHTML = Math.floor(current) + suffix;
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
+    });
+}
+
+// Trigger counter animation when highlights become visible
+const highlightObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounters();
+            highlightObserver.disconnect();
+        }
+    });
+}, { threshold: 0.3 });
+
+const highlightsSection = document.querySelector('.highlights');
+if (highlightsSection) {
+    highlightObserver.observe(highlightsSection);
+}
