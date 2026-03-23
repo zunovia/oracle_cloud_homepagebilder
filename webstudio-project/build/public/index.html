@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryota Kaneda | Tennis Player</title>
-    <meta name="description" content="Ryota Kaneda - Collegiate Tennis Player at St. John's University, NCAA Division I">
-    <meta property="og:title" content="Ryota Kaneda | Tennis Player">
-    <meta property="og:description" content="Collegiate Tennis Player at St. John's University, NCAA Division I">
+    <title>一般社団法人サーコミュニケーション | 5S×AI 業務改善コンサルティング</title>
+    <meta name="description" content="一般社団法人サーコミュニケーション - Claude AIとトヨタ生産方式による業務改善。4Mを変えず、すき間にAIを挟むだけで劇的改善。">
+    <meta property="og:title" content="一般社団法人サーコミュニケーション | 5S×AI 業務改善">
+    <meta property="og:description" content="Claude AIとトヨタ生産方式による業務改善コンサルティング。初回無料相談受付中。">
     <meta property="og:type" content="website">
     <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <a href="#home" class="logo">Ryota Kaneda</a>
+        <a href="#home" class="logo">Sur Communication</a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#career">Career</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home">ホーム</a></li>
+            <li><a href="#about">法人概要</a></li>
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#pricing">料金</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
         </ul>
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">
             <span></span>
@@ -36,11 +36,15 @@
     <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-bg"></div>
+        <div class="hero-particles" id="particles"></div>
         <div class="hero-content">
-            <p class="hero-subtitle">Collegiate Tennis Player</p>
-            <h1>Ryota<br>Kaneda</h1>
-            <p class="hero-tagline">St. John's University &mdash; NCAA Division I</p>
-            <a href="#about" class="hero-cta">Discover More</a>
+            <p class="hero-subtitle">5S × AI 業務改善コンサルティング</p>
+            <h1>4Mを変えず、<br><span class="hero-accent">すき間にAIを挟む</span>だけ。</h1>
+            <p class="hero-tagline">Man・Machine・Material・Method はそのまま。<br>Claude AIとトヨタ生産方式で、現場を劇的に改善します。</p>
+            <div class="hero-cta-group">
+                <a href="#contact" class="hero-cta hero-cta-primary">無料相談を申し込む</a>
+                <a href="#services" class="hero-cta hero-cta-secondary">サービスを見る</a>
+            </div>
         </div>
         <div class="scroll-indicator">
             <span></span>
@@ -50,208 +54,281 @@
     <!-- Highlights -->
     <div class="highlights">
         <div class="highlight-card fade-in">
-            <div class="highlight-number">18-2</div>
-            <div class="highlight-label">Singles Record 2024-25</div>
+            <div class="highlight-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H5a2 2 0 0 0-2 2 2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zm12-2h-4a2 2 0 0 0-2 2 2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zM5 7H3a2 2 0 0 0-2 2 2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 2 2 0 0 0-2-2z"/><path d="M19 2h-4l-3 5h4l-1 4 5-6h-4z"/></svg>
+            </div>
+            <div class="highlight-number">87.5<span class="highlight-unit">%</span></div>
+            <div class="highlight-label">経理事務 工数削減</div>
         </div>
         <div class="highlight-card fade-in">
-            <div class="highlight-number">25+</div>
-            <div class="highlight-label">Season Wins</div>
+            <div class="highlight-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+            </div>
+            <div class="highlight-number">7<span class="highlight-unit">自治体</span></div>
+            <div class="highlight-label">運営管理の実績</div>
         </div>
         <div class="highlight-card fade-in">
-            <div class="highlight-number">All-BIG EAST</div>
-            <div class="highlight-label">Second Team 2024-25</div>
+            <div class="highlight-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="highlight-number">25<span class="highlight-unit">名+/年</span></div>
+            <div class="highlight-label">就職支援実績</div>
         </div>
     </div>
 
     <!-- About -->
     <div class="section" id="about">
         <div class="section-header fade-in">
-            <span class="section-label">Profile</span>
-            <h2 class="section-title">About</h2>
+            <span class="section-label">Corporate Profile</span>
+            <h2 class="section-title">法人概要</h2>
             <div class="section-divider"></div>
         </div>
 
         <div class="about-grid">
             <div class="about-image-wrapper fade-in-left">
                 <div class="about-image">
-                    <span class="initials">RK</span>
+                    <div class="about-logo-text">
+                        <span class="logo-sur">Sur</span>
+                        <span class="logo-comm">Communication</span>
+                    </div>
                 </div>
             </div>
             <div class="fade-in-right">
-                <p class="about-name">金田 諒大</p>
-                <h3 class="about-heading">テニスと共に歩む、<br>挑戦の日々。</h3>
+                <p class="about-name">一般社団法人サーコミュニケーション</p>
+                <h3 class="about-heading">人と現場に寄り添い、<br>テクノロジーで未来をひらく。</h3>
                 <p class="about-text">
-                    ニューヨーク、セントジョンズ大学の男子テニスチームで活動しています。
-                    日本でジュニア時代から各年代の大会で優勝を重ね、NCAA Division I の舞台へ。
-                    テニスを通じて、常に新しい挑戦を続けています。
+                    5SとAIを用いた現場改善、高次脳機能障害を持つ方の就労支援、
+                    そしてClaude AIとトヨタ生産方式を組み合わせた業務改善を通じて、
+                    すべての人が活躍できる社会の実現を目指しています。
                 </p>
                 <div class="about-info">
                     <div class="info-row">
-                        <span class="info-label">University</span>
-                        <span class="info-value">St. John's University</span>
+                        <span class="info-label">法人名</span>
+                        <span class="info-value">一般社団法人サーコミュニケーション</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Location</span>
-                        <span class="info-value">New York, USA</span>
+                        <span class="info-label">所在地</span>
+                        <span class="info-value">〒461-0002 愛知県名古屋市東区代官町39-18<br>日本陶磁器センタービル5階 中部リサイクル運動市民の会内</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">From</span>
-                        <span class="info-value">Japan</span>
+                        <span class="info-label">設立</span>
+                        <span class="info-value">2019年6月</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Sport</span>
-                        <span class="info-value">Men's Tennis (NCAA Division I)</span>
+                        <span class="info-label">代表者</span>
+                        <span class="info-value">代表理事　金田 亮太</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">会員数</span>
+                        <span class="info-value">5名</span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Activities -->
+        <div class="activities-grid fade-in">
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                </div>
+                <h4>高次脳機能障害を知る会</h4>
+                <p>高次脳機能障害への理解を広め、当事者とご家族を支援する活動を運営しています。</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h4>能力発見ツール開発</h4>
+                <p>障害を持つ方の働き方を広げ、一人ひとりの能力を発見するためのツールを組み立てています。</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h4>5S×AI 現場改善</h4>
+                <p>トヨタ生産方式の5SとClaude AIを組み合わせ、現場の業務改善を請け負っています。</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Career Timeline -->
-    <div class="section-full career-section" id="career">
+    <!-- Services -->
+    <div class="section-full services-section" id="services">
         <div class="section" style="padding-top: 0; padding-bottom: 0;">
             <div class="section-header fade-in">
-                <span class="section-label">History</span>
-                <h2 class="section-title">Career</h2>
+                <span class="section-label">Services</span>
+                <h2 class="section-title">サービス</h2>
                 <div class="section-divider"></div>
             </div>
 
-            <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2020</div>
-                        <p class="timeline-desc">日本ジュニアサーキットで3勝1敗。三木市大会で6勝を挙げ準決勝進出。</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2021</div>
-                        <p class="timeline-desc">ITF ジュニアランキング 437位。St. John's University に入学、NCAA Division I でのキャリアをスタート。</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2021-22</div>
-                        <p class="timeline-desc">シングルス 7-1。BIG EAST トーナメントで 3-0、No.6 スロットで決勝勝利。シーズン6連勝で締めくくる。</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2023-24</div>
-                        <p class="timeline-desc">シーズン通算25勝達成。ダブルス 10-6。Adam Groves とのペアで BIG EAST Doubles Team of the Week に選出。</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2024-25</div>
-                        <p class="timeline-desc">シングルス 18-2、ダブルス全勝。All-BIG EAST Second Team に選出。キャリアベストシーズン。</p>
-                    </div>
+            <div class="services-intro fade-in">
+                <div class="services-concept">
+                    <div class="concept-badge">コンセプト</div>
+                    <h3>4M（Man・Machine・Material・Method）を<br>変えず、すき間にAIを挟むだけ。</h3>
+                    <p>今いるスタッフ、今ある設備、今の材料、今のやり方。<br>
+                    すべてそのままに、業務の「すき間」にAIを配置するだけで、劇的な改善を実現します。</p>
                 </div>
             </div>
 
-            <!-- Stats Table -->
-            <div class="stats-wrapper fade-in">
-                <table class="stats-table">
-                    <thead>
-                        <tr>
-                            <th>Season</th>
-                            <th>Singles</th>
-                            <th>Doubles</th>
-                            <th>Highlights</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2021-22</td>
-                            <td>7-1</td>
-                            <td>&mdash;</td>
-                            <td>BIG EAST Tournament 3-0, 6 consecutive wins</td>
-                        </tr>
-                        <tr>
-                            <td>2023-24</td>
-                            <td>&mdash;</td>
-                            <td>10-6</td>
-                            <td>25+ season wins, Doubles Team of the Week</td>
-                        </tr>
-                        <tr>
-                            <td>2024-25</td>
-                            <td>18-2</td>
-                            <td>Undefeated</td>
-                            <td>All-BIG EAST Second Team</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-number">01</div>
+                    <h4>5S×AI 現場改善コンサルティング</h4>
+                    <p>整理・整頓・清掃・清潔・躾のトヨタ生産方式5Sに、Claude AIを統合。現場の無駄を可視化し、根本から改善します。</p>
+                    <ul class="service-features">
+                        <li>現場診断・ボトルネック分析</li>
+                        <li>AI導入設計・ワークフロー最適化</li>
+                        <li>定着支援・効果測定</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-number">02</div>
+                    <h4>Claude AI × トヨタ生産方式<br>業務改善</h4>
+                    <p>Claude AIの高度な分析力と、トヨタ生産方式の改善哲学を融合。事務作業から管理業務まで幅広く対応します。</p>
+                    <ul class="service-features">
+                        <li>経理・事務作業の自動化</li>
+                        <li>運営管理の効率化</li>
+                        <li>業務マニュアル自動生成</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-number">03</div>
+                    <h4>カウンセリング・就労支援</h4>
+                    <p>高次脳機能障害をお持ちの方を中心に、働き方の相談から就職までトータルで支援します。</p>
+                    <ul class="service-features">
+                        <li>キャリアカウンセリング</li>
+                        <li>能力発見・適職マッチング</li>
+                        <li>就職後フォローアップ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Case Study -->
+            <div class="case-study fade-in">
+                <div class="case-study-header">
+                    <span class="case-badge">導入事例</span>
+                    <h3>経理事務の工数を<span class="accent-text">87.5%</span>削減</h3>
+                </div>
+                <div class="case-study-content">
+                    <div class="case-before-after">
+                        <div class="case-item case-before">
+                            <span class="case-label">Before</span>
+                            <div class="case-value">月 40時間</div>
+                            <p>手作業での伝票入力・仕分け・チェック作業</p>
+                        </div>
+                        <div class="case-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </div>
+                        <div class="case-item case-after">
+                            <span class="case-label">After</span>
+                            <div class="case-value">月 5時間</div>
+                            <p>AIによる自動処理＋最終確認のみ</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Gallery -->
-    <div class="section" id="gallery">
+    <!-- Pricing -->
+    <div class="section" id="pricing">
         <div class="section-header fade-in">
-            <span class="section-label">Photos</span>
-            <h2 class="section-title">Gallery</h2>
+            <span class="section-label">Pricing</span>
+            <h2 class="section-title">料金プラン</h2>
             <div class="section-divider"></div>
         </div>
 
-        <div class="gallery-grid">
-            <div class="gallery-item fade-in">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="40" stroke="white" stroke-width="2"/>
-                    <path d="M50 10 C30 30, 30 70, 50 90" stroke="white" stroke-width="2" fill="none"/>
-                    <path d="M50 10 C70 30, 70 70, 50 90" stroke="white" stroke-width="2" fill="none"/>
-                </svg>
-                <span class="gallery-label">Featured</span>
+        <div class="pricing-grid">
+            <div class="pricing-card fade-in">
+                <div class="pricing-badge">おすすめ</div>
+                <h4 class="pricing-name">初回相談</h4>
+                <div class="pricing-price">
+                    <span class="pricing-amount">無料</span>
+                </div>
+                <p class="pricing-desc">まずはお気軽にご相談ください。現状のヒアリングと改善の方向性をご提案します。</p>
+                <ul class="pricing-features">
+                    <li>現状ヒアリング（60分）</li>
+                    <li>課題の整理・可視化</li>
+                    <li>改善方向性のご提案</li>
+                    <li>お見積もり</li>
+                </ul>
+                <a href="#contact" class="pricing-cta">相談を申し込む</a>
             </div>
-            <div class="gallery-item fade-in">
-                <span class="gallery-label">Match Day</span>
+            <div class="pricing-card pricing-featured fade-in">
+                <div class="pricing-badge">人気</div>
+                <h4 class="pricing-name">スポット改善</h4>
+                <div class="pricing-price">
+                    <span class="pricing-amount">10〜15<span class="pricing-unit">万円</span></span>
+                    <span class="pricing-period">/件</span>
+                </div>
+                <p class="pricing-desc">特定の業務課題をピンポイントで解決。短期間で成果を実感いただけます。</p>
+                <ul class="pricing-features">
+                    <li>対象業務の詳細分析</li>
+                    <li>AI導入設計・実装</li>
+                    <li>効果測定レポート</li>
+                    <li>導入後1ヶ月サポート</li>
+                </ul>
+                <a href="#contact" class="pricing-cta">詳細を相談する</a>
             </div>
-            <div class="gallery-item fade-in">
-                <span class="gallery-label">Competition</span>
+            <div class="pricing-card fade-in">
+                <h4 class="pricing-name">継続コンサルティング</h4>
+                <div class="pricing-price">
+                    <span class="pricing-amount">要相談</span>
+                </div>
+                <p class="pricing-desc">組織全体の業務改善を継続的に支援。中長期での劇的な変革を実現します。</p>
+                <ul class="pricing-features">
+                    <li>月次訪問・リモート対応</li>
+                    <li>全社的な業務改善設計</li>
+                    <li>社員研修・定着支援</li>
+                    <li>効果の継続モニタリング</li>
+                </ul>
+                <a href="#contact" class="pricing-cta">お問い合わせ</a>
             </div>
-            <div class="gallery-item fade-in">
-                <span class="gallery-label">Training</span>
-            </div>
-            <div class="gallery-item fade-in">
-                <span class="gallery-label">Team</span>
-            </div>
+        </div>
+
+        <div class="area-info fade-in">
+            <div class="area-badge">対応エリア</div>
+            <p><strong>東海3県</strong>（愛知・岐阜・三重）は訪問対応 ／ <strong>その他の地域</strong>はリモート対応が可能です。</p>
         </div>
     </div>
 
     <!-- Contact -->
-    <div class="section" id="contact">
-        <div class="section-header fade-in">
-            <span class="section-label">Get in Touch</span>
-            <h2 class="section-title">Contact</h2>
-            <div class="section-divider"></div>
-        </div>
+    <div class="section-full contact-section" id="contact">
+        <div class="section" style="padding-top: 0; padding-bottom: 0;">
+            <div class="section-header fade-in">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">お問い合わせ</h2>
+                <div class="section-divider"></div>
+            </div>
 
-        <div class="contact-grid">
-            <form class="contact-form fade-in-left" id="contactForm">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="text" placeholder="Subject">
-                <textarea placeholder="Message" required></textarea>
-                <button type="submit">Send Message</button>
-                <div class="form-success">Thank you for your message. I will get back to you soon.</div>
-            </form>
-            <div class="fade-in-right">
-                <h3 class="contact-info-heading">Let's Connect</h3>
-                <p class="contact-info-text">
-                    テニスに関するお問い合わせ、メディア取材、<br>
-                    その他のご連絡はお気軽にどうぞ。
-                </p>
-                <div class="contact-detail">
-                    <span class="contact-detail-icon">@</span>
-                    <span>email@example.com</span>
-                </div>
-                <div class="contact-detail">
-                    <span class="contact-detail-icon">&#9679;</span>
-                    <span>New York, USA</span>
-                </div>
-                <div class="social-links">
-                    <a href="#" title="Instagram">IG</a>
-                    <a href="#" title="Twitter/X">X</a>
-                    <a href="#" title="LinkedIn">IN</a>
+            <div class="contact-grid">
+                <form class="contact-form fade-in-left" id="contactForm">
+                    <input type="text" placeholder="お名前" required>
+                    <input type="email" placeholder="メールアドレス" required>
+                    <input type="text" placeholder="会社名・団体名（任意）">
+                    <textarea placeholder="お問い合わせ内容" required></textarea>
+                    <button type="submit">送信する</button>
+                    <div class="form-success">お問い合わせありがとうございます。2営業日以内にご連絡いたします。</div>
+                </form>
+                <div class="fade-in-right">
+                    <h3 class="contact-info-heading">まずはお気軽に<br>ご相談ください</h3>
+                    <p class="contact-info-text">
+                        初回のご相談は無料です。<br>
+                        業務改善・AI導入・就労支援など、<br>
+                        どんなことでもお気軽にお問い合わせください。
+                    </p>
+                    <div class="contact-detail">
+                        <span class="contact-detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </span>
+                        <span>kaneda@surc.net</span>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="contact-detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </span>
+                        <span>愛知県名古屋市東区代官町39-18<br>日本陶磁器センタービル5階</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -260,14 +337,15 @@
     <!-- Footer -->
     <footer>
         <div class="footer-inner">
-            <div class="footer-logo">Ryota Kaneda</div>
+            <a href="https://www.ryotakaneda.com/" class="footer-logo" target="_blank" rel="noopener noreferrer">Sur Communication Inc.</a>
             <ul class="footer-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#career">Career</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#about">法人概要</a></li>
+                <li><a href="#services">サービス</a></li>
+                <li><a href="#pricing">料金</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
             </ul>
-            <p class="footer-copy">&copy; 2026 Ryota Kaneda. All Rights Reserved.</p>
+            <p class="footer-copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
         </div>
     </footer>
 
