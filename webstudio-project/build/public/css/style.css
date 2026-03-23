@@ -506,7 +506,7 @@ body {
 .about-image {
     width: 100%;
     aspect-ratio: 4 / 3;
-    background: #0a0a1a;
+    background: var(--white);
     border-radius: var(--radius);
     display: flex;
     align-items: center;
@@ -530,10 +530,9 @@ body {
     left: 16px;
     right: -16px;
     bottom: -16px;
-    border: 2px solid var(--primary);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border-radius: var(--radius);
     z-index: -1;
-    opacity: 0.3;
 }
 
 .about-name {
