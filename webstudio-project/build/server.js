@@ -71,7 +71,19 @@ app.post('/api/contact', async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     console.error('Email send error:', err.message);
+    console.error('Email send error details:', err.code, err.responseCode, err.command);
     res.status(500).json({ error: 'メール送信に失敗しました' });
+  }
+});
+
+// SMTP接続テスト（デバッグ用）
+app.get('/api/contact/test', async (req, res) => {
+  try {
+    await transporter.verify();
+    res.json({ success: true, message: 'SMTP接続OK' });
+  } catch (err) {
+    console.error('SMTP verify error:', err.message, err.code);
+    res.status(500).json({ success: false, error: err.message, code: err.code });
   }
 });
 
