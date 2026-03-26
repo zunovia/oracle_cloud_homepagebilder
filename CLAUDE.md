@@ -90,9 +90,18 @@ docker compose build --no-cache && docker compose up -d
 - サーバー上の`.env`にも同じ設定が必要
 
 ## Vercel
-- チームID: `team_J2jOd1i0TvYQ9SYZPmvk9LCN`
-- このプロジェクトはVercelにはデプロイしていない（Oracle Cloud専用）
-- Vercelには別プロジェクト（dashboard, cv001, consultation-sales-materials-001）が存在
+- **チームID**: `team_J2jOd1i0TvYQ9SYZPmvk9LCN`
+- **設定ファイル**: `vercel.json`（ルートディレクトリ）
+- **静的ファイル**: `webstudio-project/build/public/` を公開
+- **APIルート**: `api/contact.js`（メール送信、Vercel Serverless Function）
+- **環境変数（Vercelで設定が必要）**: `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`
+- **他のVercelプロジェクト**: dashboard, cv001, consultation-sales-materials-001
+
+### Vercelプロジェクト作成手順
+1. https://vercel.com/new でGitHubリポジトリ `zunovia/oracle_cloud_homepagebilder` をインポート
+2. Framework Preset: `Other`
+3. Environment Variables にSMTP設定を追加
+4. Deploy → 以降はデフォルトブランチへのpushで自動デプロイ
 
 ## トラブルシューティング
 
