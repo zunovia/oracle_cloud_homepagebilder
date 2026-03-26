@@ -2,7 +2,7 @@ name: Deploy to Oracle Cloud
 
 on:
   push:
-    branches: [master]
+    branches: [claude/recreate-personal-website-OuXDy]
     paths:
       - 'webstudio-project/**'
       - 'Dockerfile'
@@ -25,7 +25,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/webstudio-site
-            git pull origin master
+            git pull origin claude/recreate-personal-website-OuXDy
             docker compose build
             docker compose up -d
             docker compose ps
