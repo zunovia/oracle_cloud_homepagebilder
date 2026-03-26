@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一般社団法人サーコミュニケーション | 5S×AI 業務改善コンサルティング</title>
+    <meta name="description" content="一般社団法人サーコミュニケーション - Claude AIとトヨタ生産方式による業務改善。4Mを変えず、すき間にAIを挟むだけで劇的改善。">
+    <meta property="og:title" content="一般社団法人サーコミュニケーション | 5S×AI 業務改善">
+    <meta property="og:description" content="Claude AIとトヨタ生産方式による業務改善コンサルティング。初回無料相談受付中。">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="logo">Sur Communication</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">ホーム</a></li>
+            <li><a href="#about">法人概要</a></li>
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#pricing">料金</a></li>
+            <li><a href="#profile">プロフィール</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">5S × AI 業務改善コンサルティング</p>
+            <h1>4Mを変えず、<br><span class="hero-accent">すき間にAIを挟む</span>だけ。</h1>
+            <p class="hero-tagline">Man・Machine・Material・Method はそのまま。<br>Claude AIとトヨタ生産方式で、現場を劇的に改善します。</p>
+            <div class="hero-cta-group">
+                <a href="#contact" class="hero-cta hero-cta-primary">無料相談を申し込む</a>
+                <a href="#services" class="hero-cta hero-cta-secondary">サービスを見る</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Survey Banner -->
+    <div class="survey-banner fade-in">
+        <div class="survey-inner">
+            <div class="survey-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div class="survey-text">
+                <h3>AI業務改善 無料診断</h3>
+                <p>簡単な質問に答えるだけで、年間の削減金額を算定できます。<br>あなたの職場にAIを導入した場合のコスト削減効果をシミュレーションします。</p>
+            </div>
+            <a href="https://consultation-sales-materials-001.vercel.app/" target="_blank" rel="noopener noreferrer" class="survey-cta">無料診断を試す</a>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="section" id="about">
+        <div class="section-header fade-in">
+            <span class="section-label">Corporate Profile</span>
+            <h2 class="section-title">法人概要</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-image-wrapper fade-in-left">
+                <div class="about-image">
+                    <img src="/images/logo.png" alt="Sur Communication" class="about-logo-img">
+                </div>
+            </div>
+            <div class="fade-in-right">
+                <p class="about-name">一般社団法人サーコミュニケーション</p>
+                <h3 class="about-heading">人と現場に寄り添い、<br>テクノロジーで未来をひらく。</h3>
+                <p class="about-text">
+                    5SとAIを用いた現場改善、高次脳機能障害を持つ方の就労支援、
+                    そしてClaude AIとトヨタ生産方式を組み合わせた業務改善を通じて、
+                    すべての人が活躍できる社会の実現を目指しています。
+                </p>
+                <div class="about-info">
+                    <div class="info-row">
+                        <span class="info-label">法人名</span>
+                        <span class="info-value">一般社団法人サーコミュニケーション</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">所在地</span>
+                        <span class="info-value">〒461-0002 愛知県名古屋市東区代官町39-18<br>日本陶磁器センタービル5階 中部リサイクル運動市民の会内</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">設立</span>
+                        <span class="info-value">2019年6月</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">代表者</span>
+                        <span class="info-value">代表理事　金田 亮太</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">会員数</span>
+                        <span class="info-value">5名</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activities -->
+        <div class="activities-grid fade-in">
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                </div>
+                <h4>高次脳機能障害を知る会</h4>
+                <p>高次脳機能障害への理解を広め、当事者とご家族を支援する活動を非営利で運営しています。</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h4>能力発見ツール開発</h4>
+                <p>障害を持つ方の働き方を広げ、一人ひとりの能力を発見するためのツールを組み立てています。</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h4>5S×AI 現場改善</h4>
+                <p>トヨタ生産方式の5SとClaude AIを組み合わせ、現場の業務改善を請け負っています。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <div class="section-full services-section" id="services">
+        <div class="section" style="padding-top: 0; padding-bottom: 0;">
+            <div class="section-header fade-in">
+                <span class="section-label">Services</span>
+                <h2 class="section-title">サービス</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="services-intro fade-in">
+                <div class="services-concept">
+                    <div class="concept-badge">コンセプト</div>
+                    <h3>4M（Man・Machine・Material・Method）を<br>変えず、すき間にAIを挟むだけ。</h3>
+                    <p>今いるスタッフ、今ある設備、今の材料、今のやり方。<br>
+                    すべてそのままに、業務の「すき間」にAIを配置するだけで、劇的な改善を実現します。</p>
+                </div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-number">01</div>
+                    <h4>5S×AI 現場改善コンサルティング</h4>
+                    <p>整理・整頓・清掃・清潔・躾のトヨタ生産方式5Sに、Claude AIを統合。現場の無駄を可視化し、根本から改善します。</p>
+                    <ul class="service-features">
+                        <li>現場診断・ボトルネック分析</li>
+                        <li>AI導入設計・ワークフロー最適化</li>
+                        <li>定着支援・効果測定</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-number">02</div>
+                    <h4>Claude AI × トヨタ生産方式<br>業務改善</h4>
+                    <p>Claude AIの高度な分析力と、トヨタ生産方式の改善哲学を融合。事務作業から管理業務まで幅広く対応します。</p>
+                    <ul class="service-features">
+                        <li>経理・事務作業の自動化</li>
+                        <li>運営管理の効率化</li>
+                        <li>業務マニュアル自動生成</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-number">03</div>
+                    <h4>カウンセリング</h4>
+                    <p>伝統的な傾聴重視のカウンセリングから、心身の健康を向上するための瞑想や習慣づけについてのプラン作成まで、幅広くサポートします。</p>
+                    <ul class="service-features">
+                        <li>傾聴カウンセリング</li>
+                        <li>瞑想・マインドフルネス指導</li>
+                        <li>健康習慣プラン作成</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Case Study -->
+            <div class="case-study fade-in">
+                <div class="case-study-header">
+                    <span class="case-badge">導入事例</span>
+                    <h3>経理事務の工数を<span class="accent-text">87.5%</span>削減</h3>
+                </div>
+                <div class="case-study-content">
+                    <div class="case-before-after">
+                        <div class="case-item case-before">
+                            <span class="case-label">Before</span>
+                            <div class="case-value">月 40時間</div>
+                            <p>手作業での伝票入力・仕分け・チェック作業</p>
+                        </div>
+                        <div class="case-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </div>
+                        <div class="case-item case-after">
+                            <span class="case-label">After</span>
+                            <div class="case-value">月 5時間</div>
+                            <p>AIによる自動処理＋最終確認のみ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="section" id="pricing">
+        <div class="section-header fade-in">
+            <span class="section-label">Pricing</span>
+            <h2 class="section-title">料金プラン</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card fade-in">
+                <div class="pricing-badge">おすすめ</div>
+                <h4 class="pricing-name">初回相談</h4>
+                <div class="pricing-price">
+                    <span class="pricing-amount">無料</span>
+                </div>
+                <p class="pricing-desc">まずはお気軽にご相談ください。現状のヒアリングと改善の方向性をご提案します。</p>
+                <ul class="pricing-features">
+                    <li>現状ヒアリング（60分）</li>
+                    <li>課題の整理・可視化</li>
+                    <li>改善方向性のご提案</li>
+                    <li>お見積もり</li>
+                </ul>
+                <a href="#contact" class="pricing-cta">相談を申し込む</a>
+            </div>
+            <div class="pricing-card pricing-featured fade-in">
+                <div class="pricing-badge">人気</div>
+                <h4 class="pricing-name">スポット改善</h4>
+                <div class="pricing-price">
+                    <span class="pricing-amount">10〜15<span class="pricing-unit">万円</span></span>
+                    <span class="pricing-period">/件</span>
+                </div>
+                <p class="pricing-desc">特定の業務課題をピンポイントで解決。短期間で成果を実感いただけます。</p>
+                <ul class="pricing-features">
+                    <li>対象業務の詳細分析</li>
+                    <li>AI導入設計・実装</li>
+                    <li>効果測定レポート</li>
+                    <li>導入後1ヶ月サポート</li>
+                </ul>
+                <a href="#contact" class="pricing-cta">詳細を相談する</a>
+            </div>
+            <div class="pricing-card fade-in">
+                <h4 class="pricing-name">継続コンサルティング</h4>
+                <div class="pricing-price">
+                    <span class="pricing-amount">要相談</span>
+                </div>
+                <p class="pricing-desc">組織全体の業務改善を継続的に支援。中長期での劇的な変革を実現します。</p>
+                <ul class="pricing-features">
+                    <li>月次訪問・リモート対応</li>
+                    <li>全社的な業務改善設計</li>
+                    <li>社員研修・定着支援</li>
+                    <li>効果の継続モニタリング</li>
+                </ul>
+                <a href="#contact" class="pricing-cta">お問い合わせ</a>
+            </div>
+        </div>
+
+        <div class="area-info fade-in">
+            <div class="area-badge">対応エリア</div>
+            <p><strong>東海3県</strong>（愛知・岐阜・三重）は訪問対応 ／ <strong>その他の地域</strong>はリモート対応が可能です。</p>
+        </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="section" id="profile">
+        <div class="section-header fade-in">
+            <span class="section-label">Consultant Profile</span>
+            <h2 class="section-title">コンサルタント紹介</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="profile-message fade-in">
+            <div class="profile-message-lead">なぜ「現場を変えない」のか？</div>
+            <div class="profile-message-body">
+                <p>製造業の中小企業で、長年現場を見てきて気づいたことがあります。</p>
+                <p>経営者は「業務を効率化したい」「新しいシステムを入れたい」と考えている。しかし、<strong>現場のベテラン社員は、毎日使い慣れた方法を変えること自体が大きなストレス</strong>になります。</p>
+                <p>だからこそ、<strong>Excel・FAX・紙伝票──今のやり方はそのまま。その「間」にAIを挟むだけ</strong>で、現場の負担を軽くしながら、品質とコストの課題を解決する。これが、私のコンサルティングの核にある考え方です。</p>
+            </div>
+        </div>
+
+        <div class="profile-info-grid fade-in">
+            <div class="profile-info-card">
+                <div class="profile-info-item">
+                    <span class="profile-info-label">氏名</span>
+                    <span class="profile-info-value">金田 亮太（かねだ りょうた）</span>
+                </div>
+                <div class="profile-info-item">
+                    <span class="profile-info-label">所在地</span>
+                    <span class="profile-info-value">愛知県名古屋市</span>
+                </div>
+                <div class="profile-info-item">
+                    <span class="profile-info-label">学歴</span>
+                    <span class="profile-info-value">宇都宮大学 工学部 電気電子工学科 卒</span>
+                </div>
+                <div class="profile-info-item">
+                    <span class="profile-info-label">法人</span>
+                    <span class="profile-info-value">一般社団法人サーコミュニケーション 代表</span>
+                </div>
+                <div class="profile-info-item">
+                    <span class="profile-info-label">対応言語</span>
+                    <span class="profile-info-value">日本語（ネイティブ）/ 英語（ビジネス）/ ポルトガル語（日常会話）</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-strengths fade-in">
+            <h3 class="profile-strengths-title">コンサルタントの強み</h3>
+            <div class="profile-strength-grid">
+                <div class="profile-strength-card">
+                    <div class="profile-strength-num">1</div>
+                    <h4>製造業の品質保証を熟知</h4>
+                    <p>ニデック（旧日本電産）でHDD用モータの品質保証からキャリアをスタート。東京エレクトロンで半導体製造装置、自動車部品会社で自動車内装部品の品質保証を経験。製造業の現場を15年以上にわたり経験しています。</p>
+                </div>
+                <div class="profile-strength-card">
+                    <div class="profile-strength-num">2</div>
+                    <h4>5S × トヨタ生産方式が原点</h4>
+                    <p>自動車部品会社でのQCリーダー経験を通じて、5S改善・工場作業環境改善・ムリムダの削減を現場で実践。「自働化（にんべんのついた自動化）」の考え方を軸に、繰り返しのミスを構造的に防ぐ改善を得意としています。</p>
+                </div>
+                <div class="profile-strength-card">
+                    <div class="profile-strength-num">3</div>
+                    <h4>「既存環境を変えない」AI導入</h4>
+                    <p>Excel・FAX・紙伝票はそのまま。手書き書類とExcelの「間にAIを挟む」ことで、現場の負担を増やさずに、人手不足による品質低下やコスト増を解決します。</p>
+                </div>
+                <div class="profile-strength-card">
+                    <div class="profile-strength-num">4</div>
+                    <h4>カウンセリングの視点を持つ伴走型</h4>
+                    <p>LITALICOでのジョブコーチとして障害者の就労支援に携わり、地域のフィールドワークに3年間従事。「相手の言葉にならない不安を汲み取り、一緒に解決策を見つける」── この対話の姿勢を、業務改善でも活かしています。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-career fade-in">
+            <h3 class="profile-career-title">主な経歴</h3>
+            <div class="profile-timeline">
+                <div class="profile-timeline-item">
+                    <span class="profile-timeline-period">2003年〜2006年</span>
+                    <span class="profile-timeline-company">ニデック株式会社（旧 日本電産）</span>
+                    <span class="profile-timeline-role">品質保証部 ／ フィリピン工場1年駐在</span>
+                </div>
+                <div class="profile-timeline-item">
+                    <span class="profile-timeline-period">2007年</span>
+                    <span class="profile-timeline-company">東京エレクトロンFE株式会社</span>
+                    <span class="profile-timeline-role">テストシステム部 サービス担当</span>
+                </div>
+                <div class="profile-timeline-item">
+                    <span class="profile-timeline-period">2008年〜2010年</span>
+                    <span class="profile-timeline-company">自動車部品会社（愛知県）</span>
+                    <span class="profile-timeline-role">品質保証部 QCリーダー ／ 5S改善推進</span>
+                </div>
+                <div class="profile-timeline-item">
+                    <span class="profile-timeline-period">2010年〜2012年</span>
+                    <span class="profile-timeline-company">フォスター電機</span>
+                    <span class="profile-timeline-role">品質技術開発グループ ／ 信頼性評価</span>
+                </div>
+                <div class="profile-timeline-item">
+                    <span class="profile-timeline-period">2012年〜2015年</span>
+                    <span class="profile-timeline-company">株式会社LITALICO</span>
+                    <span class="profile-timeline-role">職業指導員（ジョブコーチ）／ 社内イノベーション最優秀賞</span>
+                </div>
+                <div class="profile-timeline-item">
+                    <span class="profile-timeline-period">2016年〜2021年</span>
+                    <span class="profile-timeline-company">NPO法人エコデザイン市民社会フォーラム</span>
+                    <span class="profile-timeline-role">総務統括マネージャー ／ 7自治体の運営管理</span>
+                </div>
+                <div class="profile-timeline-item">
+                    <span class="profile-timeline-period">2019年〜現在</span>
+                    <span class="profile-timeline-company">一般社団法人サーコミュニケーション</span>
+                    <span class="profile-timeline-role">創業者・代表 ／ 業務改善コンサルティング・AI活用</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-detail-link fade-in">
+            <a href="https://cv001.vercel.app/" target="_blank" rel="noopener noreferrer">詳しいプロフィールを見る</a>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="section-full contact-section" id="contact">
+        <div class="section" style="padding-top: 0; padding-bottom: 0;">
+            <div class="section-header fade-in">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">お問い合わせ</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="contact-grid">
+                <form class="contact-form fade-in-left" id="contactForm">
+                    <input type="text" name="name" placeholder="お名前" required>
+                    <input type="email" name="email" placeholder="メールアドレス" required>
+                    <input type="text" name="company" placeholder="会社名・団体名（任意）">
+                    <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
+                    <button type="submit">送信する</button>
+                    <div class="form-success">お問い合わせありがとうございます。2営業日以内にご連絡いたします。</div>
+                    <div class="form-error">送信に失敗しました。お手数ですが kaneda@surc.net まで直接ご連絡ください。</div>
+                </form>
+                <div class="fade-in-right">
+                    <h3 class="contact-info-heading">まずはお気軽に<br>ご相談ください</h3>
+                    <p class="contact-info-text">
+                        初回のご相談は無料です。<br>
+                        業務改善・AI導入・就労支援など、<br>
+                        どんなことでもお気軽にお問い合わせください。
+                    </p>
+                    <div class="contact-detail">
+                        <span class="contact-detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </span>
+                        <span>kaneda@surc.net</span>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="contact-detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </span>
+                        <span>愛知県名古屋市東区代官町39-18<br>日本陶磁器センタービル5階</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <a href="https://www.ryotakaneda.com/" class="footer-logo" target="_blank" rel="noopener noreferrer">Sur Communication Inc.</a>
+            <ul class="footer-links">
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#about">法人概要</a></li>
+                <li><a href="#services">サービス</a></li>
+                <li><a href="#pricing">料金</a></li>
+                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+
+</body>
+</html>

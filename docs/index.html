@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryota Kaneda | Tennis Player</title>
+    <meta name="description" content="Ryota Kaneda - Collegiate Tennis Player at St. John's University, NCAA Division I">
+    <meta property="og:title" content="Ryota Kaneda | Tennis Player">
+    <meta property="og:description" content="Collegiate Tennis Player at St. John's University, NCAA Division I">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>/* ===========================================
+   Ryota Kaneda - Personal Website
+   WIX-style Modern Portfolio Design
+   =========================================== */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563EB;
+    --primary-dark: #1D4ED8;
+    --primary-light: #DBEAFE;
+    --accent: #06B6D4;
+    --dark: #1E293B;
+    --dark-secondary: #334155;
+    --light: #F8FAFC;
+    --white: #FFFFFF;
+    --text: #334155;
+    --text-light: #64748B;
+    --text-muted: #94A3B8;
+    --border: #E2E8F0;
+    --shadow: 0 4px 30px rgba(37, 99, 235, 0.08);
+    --shadow-hover: 0 8px 40px rgba(37, 99, 235, 0.15);
+    --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* --- Scroll Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Navigation --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--transition);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px);
+    padding: 1rem 4rem;
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
+}
+
+.navbar .logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+.navbar.scrolled .logo {
+    color: var(--dark);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    transition: color var(--transition);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--primary);
+    transition: width var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.navbar.scrolled .nav-links a {
+    color: var(--text);
+}
+
+.navbar.scrolled .nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--dark);
+    transition: all 0.3s;
+}
+
+.navbar.scrolled .hamburger span {
+    background: var(--dark);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--dark);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg,
+            #DBEAFE 0%,
+            #EFF6FF 25%,
+            #F0F9FF 50%,
+            #ECFEFF 75%,
+            #DBEAFE 100%);
+    background-size: cover;
+    transform: scale(1.05);
+    animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 60px,
+            rgba(37, 99, 235, 0.04) 60px,
+            rgba(37, 99, 235, 0.04) 61px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 60px,
+            rgba(37, 99, 235, 0.04) 60px,
+            rgba(37, 99, 235, 0.04) 61px
+        );
+}
+
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+@keyframes heroZoom {
+    0% { transform: scale(1.05); }
+    100% { transform: scale(1.15); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-subtitle {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s ease 0.3s both;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    letter-spacing: clamp(4px, 1.5vw, 12px);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s ease 0.5s both;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    animation: fadeUp 1s ease 0.7s both;
+}
+
+.hero-cta {
+    display: inline-block;
+    padding: 1rem 3.5rem;
+    background: var(--primary);
+    border: 1.5px solid var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all var(--transition);
+    animation: fadeUp 1s ease 0.9s both;
+}
+
+.hero-cta:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(37, 99, 235, 0.5), transparent);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* --- Highlights Strip --- */
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.highlight-card {
+    padding: 4rem 2rem;
+    text-align: center;
+    transition: transform var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.highlight-card:hover {
+    transform: scale(1.02);
+}
+
+.highlight-card:nth-child(1) {
+    background: var(--white);
+    color: var(--dark);
+    border-bottom: 3px solid var(--primary);
+}
+
+.highlight-card:nth-child(2) {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.highlight-card:nth-child(3) {
+    background: var(--white);
+    color: var(--dark);
+    border-bottom: 3px solid var(--accent);
+}
+
+.highlight-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.highlight-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.75;
+    font-weight: 400;
+}
+
+/* --- Generic Section --- */
+.section {
+    padding: 8rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-full {
+    padding: 8rem 2rem;
+    max-width: 100%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+.section-divider {
+    width: 50px;
+    height: 2px;
+    background: var(--primary);
+    margin: 1.5rem auto 0;
+}
+
+/* --- About Section --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.about-image-wrapper {
+    position: relative;
+}
+
+.about-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: linear-gradient(145deg, #DBEAFE 0%, #E0F2FE 40%, #F0F9FF 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+}
+
+.about-image .initials {
+    font-size: 8rem;
+    font-weight: 800;
+    color: rgba(37, 99, 235, 0.15);
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.about-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(37, 99, 235, 0.06), transparent);
+}
+
+.about-image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: -20px;
+    bottom: -20px;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.about-name {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+}
+
+.about-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.about-text {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 2;
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+.about-info {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+}
+
+.info-row {
+    display: flex;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.info-label {
+    font-weight: 600;
+    min-width: 140px;
+    color: var(--dark);
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    color: var(--text-light);
+    font-weight: 300;
+}
+
+/* --- Career Timeline --- */
+.career-section {
+    background: var(--light);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: calc(50% + 3rem);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: calc(50% + 3rem);
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 5px);
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    background: var(--white);
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    transition: background var(--transition);
+}
+
+.timeline-item:hover::after {
+    background: var(--primary);
+}
+
+.timeline-content {
+    max-width: 320px;
+    transition: transform var(--transition);
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-4px);
+}
+
+.timeline-year {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.timeline-desc {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* --- Stats Table --- */
+.stats-wrapper {
+    max-width: 900px;
+    margin: 4rem auto 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+}
+
+.stats-table th {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.stats-table td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.stats-table tbody tr {
+    transition: background var(--transition);
+}
+
+.stats-table tbody tr:hover {
+    background: rgba(37, 99, 235, 0.04);
+}
+
+.stats-table td:first-child {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* --- Gallery Section --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text);
+    border-radius: 8px;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 13, 13, 0);
+    transition: background var(--transition);
+}
+
+.gallery-item:hover::after {
+    background: rgba(13, 13, 13, 0.3);
+}
+
+.gallery-item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: auto;
+    background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 50%, #2563EB 100%);
+    color: var(--dark);
+}
+
+.gallery-item:nth-child(2) {
+    background: linear-gradient(145deg, #E0F2FE 0%, #7DD3FC 100%);
+    color: var(--dark);
+}
+
+.gallery-item:nth-child(3) {
+    background: linear-gradient(145deg, #2563EB 0%, #1D4ED8 100%);
+}
+
+.gallery-item:nth-child(4) {
+    background: linear-gradient(145deg, #ECFEFF 0%, #A5F3FC 100%);
+    color: var(--dark);
+}
+
+.gallery-item:nth-child(5) {
+    background: linear-gradient(145deg, #06B6D4 0%, #0891B2 100%);
+}
+
+.gallery-item .gallery-label {
+    position: relative;
+    z-index: 1;
+}
+
+/* Gallery decorative tennis ball SVG */
+.gallery-item svg {
+    position: absolute;
+    opacity: 0.08;
+    width: 60%;
+    height: 60%;
+}
+
+/* --- Contact Section --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1.2rem 0;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    background: transparent;
+    color: var(--text);
+    transition: border-color var(--transition);
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+.contact-form button {
+    padding: 1.2rem 4rem;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 4px;
+    transition: all var(--transition);
+}
+
+.contact-form button:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+}
+
+.contact-form .form-success {
+    display: none;
+    padding: 1.5rem;
+    background: rgba(37, 99, 235, 0.06);
+    border-left: 3px solid var(--primary);
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 400;
+}
+
+.contact-form .form-success.show {
+    display: block;
+    animation: fadeUp 0.5s ease;
+}
+
+.contact-info-heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info-text {
+    color: var(--text-light);
+    font-weight: 300;
+    line-height: 2;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.contact-detail-icon {
+    width: 20px;
+    text-align: center;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.social-links a {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+/* --- Footer --- */
+footer {
+    background: #1E293B;
+    color: var(--white);
+    padding: 4rem 2rem;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.footer-copy {
+    font-size: 0.75rem;
+    opacity: 0.5;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 1.2rem 2rem;
+    }
+
+    .navbar.scrolled {
+        padding: 0.8rem 2rem;
+    }
+
+    .about-grid {
+        gap: 4rem;
+    }
+
+    .contact-grid {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.5s ease;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-links a {
+        color: var(--dark) !important;
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+
+    .hero h1 {
+        letter-spacing: 4px;
+    }
+
+    .hero-tagline {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight-card {
+        padding: 3rem 2rem;
+    }
+
+    .section {
+        padding: 5rem 1.5rem;
+    }
+
+    .section-full {
+        padding: 5rem 1.5rem;
+    }
+
+    .section-header {
+        margin-bottom: 3rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-image-wrapper::after {
+        top: 10px;
+        left: 10px;
+        right: -10px;
+        bottom: -10px;
+    }
+
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-item {
+        padding-right: 0;
+        padding-left: 2.5rem;
+        justify-content: flex-start;
+    }
+
+    .timeline-item:nth-child(even) {
+        padding-left: 2.5rem;
+    }
+
+    .timeline-item::after {
+        left: -5px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .gallery-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 1;
+        aspect-ratio: 16/9;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-links {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .highlight-number {
+        font-size: 2.5rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item:nth-child(1) {
+        grid-column: span 1;
+    }
+}
+</style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="logo">Ryota Kaneda</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Collegiate Tennis Player</p>
+            <h1>Ryota<br>Kaneda</h1>
+            <p class="hero-tagline">St. John's University &mdash; NCAA Division I</p>
+            <a href="#about" class="hero-cta">Discover More</a>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <div class="highlights">
+        <div class="highlight-card fade-in">
+            <div class="highlight-number">18-2</div>
+            <div class="highlight-label">Singles Record 2024-25</div>
+        </div>
+        <div class="highlight-card fade-in">
+            <div class="highlight-number">25+</div>
+            <div class="highlight-label">Season Wins</div>
+        </div>
+        <div class="highlight-card fade-in">
+            <div class="highlight-number">All-BIG EAST</div>
+            <div class="highlight-label">Second Team 2024-25</div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="section" id="about">
+        <div class="section-header fade-in">
+            <span class="section-label">Profile</span>
+            <h2 class="section-title">About</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-image-wrapper fade-in-left">
+                <div class="about-image">
+                    <span class="initials">RK</span>
+                </div>
+            </div>
+            <div class="fade-in-right">
+                <p class="about-name">金田 諒大</p>
+                <h3 class="about-heading">テニスと共に歩む、<br>挑戦の日々。</h3>
+                <p class="about-text">
+                    ニューヨーク、セントジョンズ大学の男子テニスチームで活動しています。
+                    日本でジュニア時代から各年代の大会で優勝を重ね、NCAA Division I の舞台へ。
+                    テニスを通じて、常に新しい挑戦を続けています。
+                </p>
+                <div class="about-info">
+                    <div class="info-row">
+                        <span class="info-label">University</span>
+                        <span class="info-value">St. John's University</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Location</span>
+                        <span class="info-value">New York, USA</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">From</span>
+                        <span class="info-value">Japan</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Sport</span>
+                        <span class="info-value">Men's Tennis (NCAA Division I)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Career Timeline -->
+    <div class="section-full career-section" id="career">
+        <div class="section" style="padding-top: 0; padding-bottom: 0;">
+            <div class="section-header fade-in">
+                <span class="section-label">History</span>
+                <h2 class="section-title">Career</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <p class="timeline-desc">日本ジュニアサーキットで3勝1敗。三木市大会で6勝を挙げ準決勝進出。</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <p class="timeline-desc">ITF ジュニアランキング 437位。St. John's University に入学、NCAA Division I でのキャリアをスタート。</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021-22</div>
+                        <p class="timeline-desc">シングルス 7-1。BIG EAST トーナメントで 3-0、No.6 スロットで決勝勝利。シーズン6連勝で締めくくる。</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023-24</div>
+                        <p class="timeline-desc">シーズン通算25勝達成。ダブルス 10-6。Adam Groves とのペアで BIG EAST Doubles Team of the Week に選出。</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024-25</div>
+                        <p class="timeline-desc">シングルス 18-2、ダブルス全勝。All-BIG EAST Second Team に選出。キャリアベストシーズン。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Table -->
+            <div class="stats-wrapper fade-in">
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Season</th>
+                            <th>Singles</th>
+                            <th>Doubles</th>
+                            <th>Highlights</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2021-22</td>
+                            <td>7-1</td>
+                            <td>&mdash;</td>
+                            <td>BIG EAST Tournament 3-0, 6 consecutive wins</td>
+                        </tr>
+                        <tr>
+                            <td>2023-24</td>
+                            <td>&mdash;</td>
+                            <td>10-6</td>
+                            <td>25+ season wins, Doubles Team of the Week</td>
+                        </tr>
+                        <tr>
+                            <td>2024-25</td>
+                            <td>18-2</td>
+                            <td>Undefeated</td>
+                            <td>All-BIG EAST Second Team</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery -->
+    <div class="section" id="gallery">
+        <div class="section-header fade-in">
+            <span class="section-label">Photos</span>
+            <h2 class="section-title">Gallery</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item fade-in">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="40" stroke="white" stroke-width="2"/>
+                    <path d="M50 10 C30 30, 30 70, 50 90" stroke="white" stroke-width="2" fill="none"/>
+                    <path d="M50 10 C70 30, 70 70, 50 90" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+                <span class="gallery-label">Featured</span>
+            </div>
+            <div class="gallery-item fade-in">
+                <span class="gallery-label">Match Day</span>
+            </div>
+            <div class="gallery-item fade-in">
+                <span class="gallery-label">Competition</span>
+            </div>
+            <div class="gallery-item fade-in">
+                <span class="gallery-label">Training</span>
+            </div>
+            <div class="gallery-item fade-in">
+                <span class="gallery-label">Team</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="section" id="contact">
+        <div class="section-header fade-in">
+            <span class="section-label">Get in Touch</span>
+            <h2 class="section-title">Contact</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="contact-grid">
+            <form class="contact-form fade-in-left" id="contactForm">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Subject">
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+                <div class="form-success">Thank you for your message. I will get back to you soon.</div>
+            </form>
+            <div class="fade-in-right">
+                <h3 class="contact-info-heading">Let's Connect</h3>
+                <p class="contact-info-text">
+                    テニスに関するお問い合わせ、メディア取材、<br>
+                    その他のご連絡はお気軽にどうぞ。
+                </p>
+                <div class="contact-detail">
+                    <span class="contact-detail-icon">@</span>
+                    <span>email@example.com</span>
+                </div>
+                <div class="contact-detail">
+                    <span class="contact-detail-icon">&#9679;</span>
+                    <span>New York, USA</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" title="Instagram">IG</a>
+                    <a href="#" title="Twitter/X">X</a>
+                    <a href="#" title="LinkedIn">IN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">Ryota Kaneda</div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#career">Career</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 Ryota Kaneda. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+function toggleMenu() {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+}
+
+function closeMenu() {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('open');
+}
+
+// Scroll animations (Intersection Observer)
+const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -80px 0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach((el) => {
+    observer.observe(el);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+        closeMenu();
+    });
+});
+
+// Contact form handling
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const successMsg = this.querySelector('.form-success');
+        const inputs = this.querySelectorAll('input, textarea');
+
+        successMsg.classList.add('show');
+        inputs.forEach(input => { input.value = ''; });
+
+        setTimeout(() => {
+            successMsg.classList.remove('show');
+        }, 5000);
+    });
+}
+</script>
+
+</body>
+</html>
