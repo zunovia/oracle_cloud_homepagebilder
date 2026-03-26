@@ -49,10 +49,35 @@ docker compose build --no-cache && docker compose up -d
 - ブラウザで `http://64.110.100.87:8080` を確認（Ctrl+Shift+Rで強制リロード）
 - コンテナ内のファイル確認: `docker exec webstudio-app cat /app/public/index.html | grep "確認したいテキスト"`
 
-## Git情報
-- **GitHub**: `https://github.com/zunovia/oracle_cloud_homepagebilder.git`
+## GitHub
+
+### リポジトリ
+- **URL**: `https://github.com/zunovia/oracle_cloud_homepagebilder`
+- **旧名**: `oracle_cloud_dify`（リダイレクト済み）
 - **デフォルトブランチ**: `claude/recreate-personal-website-OuXDy`
-- サーバー上のリモートURL: `https://github.com/zunovia/oracle_cloud_homepagebilder.git`
+- **アカウント**: zunovia（kaneda-ryota）
+
+### ブランチ運用
+- デフォルトブランチに直接push → GitHub Actionsで自動デプロイ
+- 機能開発は `claude/` プレフィックスのブランチで作業 → PRでマージ
+
+### GitHub Actions
+- **ワークフロー**: `.github/workflows/deploy.yml`（Deploy to Oracle Cloud）
+- **トリガー**: デフォルトブランチへのpush（対象パス: `webstudio-project/**`, `Dockerfile`, `docker-compose.yml`, `nginx/**`）
+- **使用Action**: `appleboy/ssh-action@v1`（SSH経由でサーバーにデプロイ）
+- **GitHub Pages**: `pages-build-deployment` も自動実行（`docs/` ディレクトリ）
+
+### GitHub Secrets（設定済み）
+| Name | Value |
+|------|-------|
+| `SERVER_IP` | `64.110.100.87` |
+| `SSH_USER` | `ubuntu` |
+| `SSH_PRIVATE_KEY` | Oracle Cloud SSH秘密鍵 |
+
+### PRの作成手順
+1. `claude/` ブランチで開発・コミット・プッシュ
+2. GitHub上でPR作成: base `claude/recreate-personal-website-OuXDy` ← compare `claude/ブランチ名`
+3. Merge pull request → 自動デプロイ実行
 
 ## サイト構成
 - **HTML**: `webstudio-project/build/public/index.html`
