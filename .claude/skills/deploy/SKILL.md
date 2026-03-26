@@ -1,21 +1,21 @@
 ---
 name: deploy
-description: Deploy the website to Oracle Cloud. Use when the user wants to deploy, publish, or update the live site.
+description: Deploy the website to Oracle Cloud and/or Vercel. Use when the user wants to deploy, publish, or update the live site.
 user-invocable: true
-allowed-tools: Bash(make *), Bash(docker *), Bash(ssh *), Bash(git *)
+allowed-tools: Bash(make *), Bash(docker *), Bash(ssh *), Bash(git *), mcp__Vercel__*
 ---
 
-# Oracle Cloud デプロイ
+# サイトデプロイ
 
-サイトを Oracle Cloud にデプロイします。
+サイトを Oracle Cloud および Vercel にデプロイします。
 
 ## 自動デプロイ（推奨）
 
-デフォルトブランチ `claude/recreate-personal-website-OuXDy` にpushすると、GitHub Actionsが自動デプロイします。
+デフォルトブランチ `claude/recreate-personal-website-OuXDy` にpushすると：
+- **Oracle Cloud**: GitHub Actions が自動デプロイ
+- **Vercel**: Vercel Git連携が自動デプロイ
 
-対象パス: `webstudio-project/**`, `Dockerfile`, `docker-compose.yml`, `nginx/**`
-
-## 手動デプロイ
+## Oracle Cloud 手動デプロイ
 
 ### 1. SSH接続（Git Bashから）
 ```bash
@@ -36,7 +36,23 @@ docker exec webstudio-app cat /app/public/index.html | grep "確認したいテ�
 ```
 ブラウザで `http://64.110.100.87:8080` を確認（Ctrl+Shift+Rで強制リロード）
 
+## Vercel デプロイ
+
+### 初回セットアップ
+1. https://vercel.com/new でGitHubリポジトリ `zunovia/oracle_cloud_homepagebilder` をインポート
+2. Framework Preset: `Other`
+3. Environment Variables にSMTP設定を追加（SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, SMTP_FROM）
+4. Deploy
+
+### 構成
+- 設定ファイル: `vercel.json`
+- 静的ファイル: `webstudio-project/build/public/`
+- APIルート: `api/contact.js`（メール送信）
+
+### 以降の更新
+デフォルトブランチへのpushで自動デプロイ。
+
 ## 注意事項
-- `docker compose down` + `up` だけでは古いコンテナが残る場合あり。`docker stop` + `docker rm` で確実に削除すること
+- Oracle Cloud: `docker compose down` + `up` だけでは古いコンテナが残る場合あり。`docker stop` + `docker rm` で確実に削除すること
 - Dify側Nginxの再起動が必要な場合: `cd ~/dify/docker && docker compose restart nginx`
 - サーバー上のリモートURL: `https://github.com/zunovia/oracle_cloud_homepagebilder.git`
