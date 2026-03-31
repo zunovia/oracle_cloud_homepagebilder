@@ -826,6 +826,30 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.case-study-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.case-study-btn {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: all var(--transition);
+}
+
+.case-study-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 102, 204, 0.3);
+}
+
 .case-item p {
     font-size: 0.85rem;
     color: var(--text-light);
