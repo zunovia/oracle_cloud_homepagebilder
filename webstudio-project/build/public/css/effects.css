@@ -159,6 +159,9 @@ html.no-webgl .drag-hint {
     height: 100vh;
     height: 100svh;
     overflow: hidden;
+    /* stickyは常にスタッキングコンテキストを作るため、フレームごとcanvas(z:1)より
+       上に置かないと内部のコピー(z:2)がz:1未満に閉じ込められ3Dの裏に隠れる */
+    z-index: 2;
 }
 
 .story-copy {
