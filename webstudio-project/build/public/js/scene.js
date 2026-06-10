@@ -83,12 +83,12 @@ export function initScene(canvas) {
     const boxMat = new THREE.MeshStandardMaterial({ color: 0x2d2d44, roughness: 0.35, metalness: 0.55 });
     const blocks = [];
     const labelMats = [];
+    const edgeMats = [];
     LABELS.forEach((label, i) => {
         const mesh = new THREE.Mesh(boxGeo, boxMat);
-        mesh.add(new THREE.LineSegments(
-            edgeGeo,
-            new THREE.LineBasicMaterial({ color: 0x5599ee, transparent: true, opacity: 0.6 })
-        ));
+        const edgeMat = new THREE.LineBasicMaterial({ color: 0x5599ee, transparent: true, opacity: 0.6 });
+        edgeMats.push(edgeMat);
+        mesh.add(new THREE.LineSegments(edgeGeo, edgeMat));
         const sMat = new THREE.SpriteMaterial({
             map: makeLabelTexture(label),
             transparent: true,
@@ -114,7 +114,8 @@ export function initScene(canvas) {
         metalness: 0.1,
         flatShading: true
     });
-    const coreMesh = new THREE.Mesh(new THREE.IcosahedronGeometry(0.42, 1), coreMat);
+    const coreGeo = new THREE.IcosahedronGeometry(0.42, 1);
+    const coreMesh = new THREE.Mesh(coreGeo, coreMat);
     const glowMat = new THREE.SpriteMaterial({
         map: makeGlowTexture(),
         color: 0xff7b40,
@@ -311,7 +312,18 @@ export function initScene(canvas) {
         });
         boxGeo.dispose();
         edgeGeo.dispose();
+        coreGeo.dispose();
         pGeo.dispose();
+        boxMat.dispose();
+        coreMat.dispose();
+        edgeMats.forEach((m) => m.dispose());
+        if (glowMat.map) glowMat.map.dispose();
+        glowMat.dispose();
+        labelMats.forEach((m) => {
+            if (m.map) m.map.dispose();
+            m.dispose();
+        });
+        particles.material.dispose();
         renderer.dispose();
     }
 

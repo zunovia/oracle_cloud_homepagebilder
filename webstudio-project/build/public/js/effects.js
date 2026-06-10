@@ -313,6 +313,9 @@ function setupLifecycle(scene, canvas) {
             onLeaveBack: () => {
                 inDarkZone = true;
                 scene.start();
+                // 保険: scrub未到達でcanvas非表示が残留しないよう復元
+                // （この時点ではstory-transitionの白が全画面を覆っているため一瞬の復元は見えない）
+                if (canvas) gsap.set(canvas, { autoAlpha: 1 });
             }
         });
     }
