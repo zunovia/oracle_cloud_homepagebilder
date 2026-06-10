@@ -13,8 +13,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/effects.css">
+    <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+    </script>
 </head>
 <body>
+
+    <!-- 3D背景canvas（ヒーローとストーリーで共有・effects.jsが描画） -->
+    <canvas id="bg3d" aria-hidden="true"></canvas>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -37,20 +44,40 @@
     <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-bg"></div>
-        <div class="hero-particles" id="particles"></div>
         <div class="hero-content">
             <p class="hero-subtitle">5S × AI 業務改善コンサルティング</p>
-            <h1>4Mを変えず、<br><span class="hero-accent">すき間にAIを挟む</span>だけ。</h1>
-            <p class="hero-tagline">Man・Machine・Material・Method はそのまま。<br>Claude AIとトヨタ生産方式で、現場を劇的に改善します。</p>
+            <h1 class="mask-lines"><span class="line"><span>4Mを変えず、</span></span><span class="line"><span><span class="hero-accent">すき間にAIを挟む</span>だけ。</span></span></h1>
+            <p class="hero-tagline mask-lines"><span class="line"><span>Man・Machine・Material・Method はそのまま。</span></span><span class="line"><span>Claude AIとトヨタ生産方式で、現場を劇的に改善します。</span></span></p>
             <div class="hero-cta-group">
                 <a href="#contact" class="hero-cta hero-cta-primary">無料相談を申し込む</a>
                 <a href="#services" class="hero-cta hero-cta-secondary">サービスを見る</a>
             </div>
+            <div class="drag-hint" aria-hidden="true"><span class="drag-hint-icon">↺</span>ドラッグで3Dを回転</div>
         </div>
         <div class="scroll-indicator">
             <span></span>
         </div>
     </section>
+
+    <!-- Concept Story（スクロール連動3D: 4M→すき間→AI挿入→87.5%削減） -->
+    <section class="story" id="story" aria-label="コンセプト">
+        <div class="story-frame">
+            <div class="story-copy">
+                <p class="story-line"><span>現場の4Mは、そのまま。</span></p>
+                <p class="story-line"><span>変えるのは、すき間だけ。</span></p>
+                <p class="story-line story-line-accent"><span>すき間に、<em>AIを挟む</em>。</span></p>
+                <div class="story-stat">
+                    <div class="stat-value"><span class="stat-number">87.5</span><span class="stat-unit">%</span></div>
+                    <p class="stat-caption">経理事務の工数削減（導入事例）</p>
+                    <div class="stat-bar"><span class="stat-bar-fill"></span></div>
+                </div>
+            </div>
+            <div class="story-transition" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <!-- ライト区間（ここから下は現行のライト基調を維持） -->
+    <div class="light-zone">
 
     <!-- Survey Banner -->
     <div class="survey-banner fade-in">
@@ -455,7 +482,12 @@
         </div>
     </footer>
 
+    </div><!-- /.light-zone -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="/js/main.js"></script>
+    <script type="module" src="/js/effects.js"></script>
 
 </body>
 </html>

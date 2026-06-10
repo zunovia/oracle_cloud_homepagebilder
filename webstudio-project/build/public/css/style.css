@@ -45,39 +45,11 @@ body {
     background: var(--white);
 }
 
-/* --- Scroll Animations --- */
-.fade-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.fade-in-left {
-    opacity: 0;
-    transform: translateX(-40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in-left.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.fade-in-right {
-    opacity: 0;
-    transform: translateX(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in-right.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
+/* --- Scroll Animations ---
+   出現アニメーションは effects.js (GSAP ScrollTrigger) + effects.css に移行した。
+   .fade-in / .fade-in-left / .fade-in-right はトリガー用マーカークラスとして残存。
+   初期非表示は effects.css の html.fx-on スコープ配下にのみ定義する
+   （JS無効・CDN障害・reduced-motion では素のまま表示するため）。 */
 
 /* --- Navigation --- */
 .navbar {
@@ -198,15 +170,15 @@ body {
     overflow: hidden;
 }
 
+/* ダークネイビー基調（3D演出ゾーン）。WebGL非対応時のフォールバック背景も兼ねる */
 .hero-bg {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(135deg,
-            #0044AA 0%,
-            #0066CC 30%,
-            #0088EE 60%,
-            #0066CC 100%);
+        linear-gradient(160deg,
+            #0B0F1E 0%,
+            #101A35 55%,
+            #0B1228 100%);
     background-size: cover;
 }
 
@@ -215,8 +187,8 @@ body {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at 20% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        radial-gradient(ellipse at 22% 78%, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 78% 22%, rgba(0, 102, 204, 0.25) 0%, transparent 55%);
 }
 
 .hero-bg::after {
@@ -240,28 +212,7 @@ body {
         );
 }
 
-.hero-particles {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.hero-particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    animation: particleFloat linear infinite;
-}
-
-@keyframes particleFloat {
-    0% { transform: translateY(100vh) scale(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-}
+/* 旧CSSパーティクルは3D側(scene.js)の粒子に置換し削除 */
 
 .hero-content {
     position: relative;
