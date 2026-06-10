@@ -22,25 +22,7 @@ function closeMenu() {
     navLinks.classList.remove('open');
 }
 
-// Scroll animations (Intersection Observer)
-const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -80px 0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach((el) => {
-    observer.observe(el);
-});
+// スクロール出現アニメーションは effects.js (GSAP ScrollTrigger) に移行した
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -104,21 +86,4 @@ if (contactForm) {
     });
 }
 
-// Hero particles
-function createParticles() {
-    const container = document.getElementById('particles');
-    if (!container) return;
-
-    for (let i = 0; i < 20; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('hero-particle');
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDuration = (Math.random() * 8 + 6) + 's';
-        particle.style.animationDelay = (Math.random() * 5) + 's';
-        particle.style.width = (Math.random() * 4 + 2) + 'px';
-        particle.style.height = particle.style.width;
-        container.appendChild(particle);
-    }
-}
-
-createParticles();
+// 旧ヒーローパーティクルは3D側(scene.js)の粒子に置換し削除
