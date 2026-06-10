@@ -77,6 +77,7 @@ html.fx-on:not(.no-webgl) #story.is-dragging {
 /* モバイル: 3Dオブジェクトを上1/3に置くためコピーを下げる */
 @media (max-width: 768px) {
     html.fx-on:not(.no-webgl) .hero-content {
+        padding-top: 26vh; /* svh非対応ブラウザ用フォールバック */
         padding-top: 26svh;
     }
 }
@@ -258,7 +259,7 @@ html.no-webgl .drag-hint {
 
 @media (max-width: 768px) {
     html.fx-on .story {
-        height: 280vh;
+        height: 280vh; /* svh非対応ブラウザ用フォールバック */
         height: 280svh;
     }
 
