@@ -86,6 +86,7 @@ body {
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 2.5rem;
     list-style: none;
 }
@@ -122,6 +123,38 @@ body {
 
 .navbar.scrolled .nav-links a:hover {
     color: var(--primary);
+}
+
+/* YouTube channel icon (nav + footer) */
+.nav-links a.nav-youtube {
+    color: #FF0000 !important; /* ブランドカラー。mobileの !important 白指定も上書き */
+    padding: 0.3rem;
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.nav-links a.nav-youtube::after {
+    display: none; /* ナビ下線ホバーエフェクトを無効化 */
+}
+
+.nav-youtube,
+.footer-youtube {
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-youtube svg,
+.footer-youtube svg {
+    display: block;
+}
+
+.footer-links a.footer-youtube {
+    color: #FF0000;
+}
+
+.nav-youtube:hover,
+.footer-youtube:hover {
+    opacity: 0.78;
+    transform: translateY(-1px);
 }
 
 /* Hamburger Menu */
@@ -1401,6 +1434,16 @@ footer {
 
     .navbar.scrolled {
         padding: 0.8rem 2rem;
+    }
+
+    /* タブレット帯(769-1024px): メニュー項目が増えたため余白・文字を詰めて1行に収める */
+    .nav-links {
+        gap: 1.3rem;
+    }
+
+    .nav-links a {
+        font-size: 0.72rem;
+        letter-spacing: 0.5px;
     }
 
     .about-grid {
