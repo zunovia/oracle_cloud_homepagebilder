@@ -18,7 +18,8 @@ async function boot() {
     // --- 3Dシーン初期化（three.jsのCDN障害・WebGL非対応でもマスク演出は継続） ---
     const fallbackState = {
         gap: 0.05, coreT: 0, coreGlow: 0, labelO: 0, rotY: -0.35, rotX: 0.1,
-        camZ: 6, camOff: 0, posX: 1.25, posY: 0, rim: 0.6, particleSwirl: 0
+        camZ: 6, camOff: 0, posX: 1.25, posY: 0, rim: 0.6, particleSwirl: 0,
+        idleScale: 1
     };
     const canvas = document.getElementById('bg3d');
     let scene = null;
@@ -74,12 +75,12 @@ function setupHeroAndStory(scene, state, canvas) {
         // ブレークポイント別の3D初期配置（ヒーロー: デスクトップ右寄せ／モバイル上寄せ）
         const HERO = {
             posX: mobile ? 0 : 1.25,
-            posY: mobile ? 1.05 : 0,
+            posY: mobile ? 0.95 : 0,
             camZ: mobile ? 7.4 : 6,
             rotY: -0.35
         };
         const STORY_IN = { posX: 0, posY: mobile ? 0.55 : 0, camZ: mobile ? 6.6 : 5.2, rotY: 0.4 };
-        gsap.set(state, { ...HERO, camOff: 0 });
+        gsap.set(state, { ...HERO, camOff: 0, idleScale: 1 });
 
         // --- ストーリー: 1本のマスタータイムラインに3D・コピー・マスクを全て載せる ---
         // （ヒーロー退場より先に構築する。後から作るヒーロー側の初期描画を最終状態にするため）
@@ -119,12 +120,12 @@ function setupHeroAndStory(scene, state, canvas) {
             // Step1: 「現場の4Mは、そのまま。」(0–2.5)
             tl.to(state, { labelO: 0.85, duration: 0.8 }, 0);
             tl.fromTo(state, { rotY: STORY_IN.rotY },
-                { rotY: 0.9, duration: 2.5, immediateRender: false }, 0);
+                { rotY: 0.62, duration: 2.5, immediateRender: false }, 0); // 正面寄りを保ちラベルと十字すき間を読ませる
             if (lines[0]) { lineIn(lines[0], 0.2); lineOut(lines[0], 2.0); }
 
             // Step2: 「変えるのは、すき間だけ。」— すき間が開く (2.5–5.0)
             tl.to(state, { gap: 0.95, duration: 2.0, ease: 'power2.inOut' }, 2.5);
-            tl.to(state, { camOff: 0.6, duration: 2.0 }, 2.5);
+            tl.to(state, { camOff: 1.2, duration: 2.0 }, 2.5); // ブロックが画角から見切れないようカメラを引く
             tl.to(state, { rim: 1.1, duration: 2.0 }, 2.5);
             if (lines[1]) { lineIn(lines[1], 2.7); lineOut(lines[1], 4.6); }
 
@@ -150,7 +151,7 @@ function setupHeroAndStory(scene, state, canvas) {
                         { scaleX: 0.875, duration: 1.3, immediateRender: false }, 7.6);
                 }
             }
-            tl.to(state, { rotY: 1.45, duration: 1.8 }, 7.5);
+            tl.to(state, { rotY: 1.0, duration: 1.8 }, 7.5);
 
             // 遷移: コアが一閃 → 白サークルが画面を満たしライトテーマへ (9.25–10)
             tl.to(state, { coreGlow: 1.6, duration: 0.35 }, 9.25);
@@ -179,7 +180,10 @@ function setupHeroAndStory(scene, state, canvas) {
                 .to('.scroll-indicator', { autoAlpha: 0 }, 0)
                 .fromTo(state, { rotY: HERO.rotY },
                     { rotY: STORY_IN.rotY, immediateRender: true }, 0)
-                .to(state, { posX: STORY_IN.posX, posY: STORY_IN.posY, camZ: STORY_IN.camZ }, 0);
+                .to(state, {
+                    posX: STORY_IN.posX, posY: STORY_IN.posY, camZ: STORY_IN.camZ,
+                    idleScale: 0 // ストーリーでは自動回転を止め、構図をスクロールで確定させる
+                }, 0);
         }
     });
 }
