@@ -13,8 +13,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/effects.css">
+    <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    } }
+    </script>
 </head>
 <body>
+
+    <!-- 3D背景canvas（ヒーローとストーリーで共有・effects.jsが描画） -->
+    <canvas id="bg3d" aria-hidden="true"></canvas>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -26,7 +36,8 @@
             <li><a href="#pricing">料金</a></li>
             <li><a href="#profile">プロフィール</a></li>
             <li><a href="#contact">お問い合わせ</a></li>
-            <li><a href="https://news.surc.online" target="_blank" rel="noopener noreferrer">テックニュース</a></li>
+            <li><a href="https://news.surc.online/" target="_blank" rel="noopener noreferrer" onclick="closeMenu()">テックニュース</a></li>
+            <li><a href="https://www.youtube.com/@surcom" target="_blank" rel="noopener noreferrer" class="nav-youtube" aria-label="YouTubeチャンネル" onclick="closeMenu()"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
         </ul>
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">
             <span></span>
@@ -38,20 +49,40 @@
     <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-bg"></div>
-        <div class="hero-particles" id="particles"></div>
         <div class="hero-content">
             <p class="hero-subtitle">5S × AI 業務改善コンサルティング</p>
-            <h1>4Mを変えず、<br><span class="hero-accent">すき間にAIを挟む</span>だけ。</h1>
-            <p class="hero-tagline">Man・Machine・Material・Method はそのまま。<br>Claude AIとトヨタ生産方式で、現場を劇的に改善します。</p>
+            <h1 class="mask-lines"><span class="line"><span>4Mを変えず、</span></span><span class="line"><span><span class="hero-accent">すき間にAIを挟む</span>だけ。</span></span></h1>
+            <p class="hero-tagline mask-lines"><span class="line"><span>Man・Machine・Material・Method はそのまま。</span></span><span class="line"><span>Claude AIとトヨタ生産方式で、現場を劇的に改善します。</span></span></p>
             <div class="hero-cta-group">
                 <a href="#contact" class="hero-cta hero-cta-primary">無料相談を申し込む</a>
                 <a href="#services" class="hero-cta hero-cta-secondary">サービスを見る</a>
             </div>
+            <div class="drag-hint" aria-hidden="true"><span class="drag-hint-icon">↺</span>ドラッグで3Dを回転</div>
         </div>
         <div class="scroll-indicator">
             <span></span>
         </div>
     </section>
+
+    <!-- Concept Story（スクロール連動3D: 4M→すき間→AI挿入→87.5%削減） -->
+    <section class="story" id="story" aria-label="コンセプト">
+        <div class="story-frame">
+            <div class="story-copy">
+                <p class="story-line"><span>現場の4Mは、そのまま。</span></p>
+                <p class="story-line"><span>変えるのは、すき間だけ。</span></p>
+                <p class="story-line story-line-accent"><span>すき間に、<em>AIを挟む</em>。</span></p>
+                <div class="story-stat">
+                    <div class="stat-value"><span class="stat-number">87.5</span><span class="stat-unit">%</span></div>
+                    <p class="stat-caption">経理事務の工数削減（導入事例）</p>
+                    <div class="stat-bar"><span class="stat-bar-fill"></span></div>
+                </div>
+            </div>
+            <div class="story-transition" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <!-- ライト区間（ここから下は現行のライト基調を維持） -->
+    <div class="light-zone">
 
     <!-- Survey Banner -->
     <div class="survey-banner fade-in">
@@ -249,7 +280,7 @@
                 <div class="pricing-badge">人気</div>
                 <h4 class="pricing-name">スポット改善</h4>
                 <div class="pricing-price">
-                    <span class="pricing-amount">10〜15<span class="pricing-unit">万円</span></span>
+                    <span class="pricing-amount">10<span class="pricing-unit">万円〜</span></span>
                     <span class="pricing-period">/件</span>
                 </div>
                 <p class="pricing-desc">特定の業務課題をピンポイントで解決。短期間で成果を実感いただけます。</p>
@@ -451,13 +482,19 @@
                 <li><a href="#pricing">料金</a></li>
                 <li><a href="#profile">プロフィール</a></li>
                 <li><a href="#contact">お問い合わせ</a></li>
-                <li><a href="https://news.surc.online" target="_blank" rel="noopener noreferrer">テックニュース</a></li>
+                <li><a href="https://news.surc.online/" target="_blank" rel="noopener noreferrer">テックニュース</a></li>
+                <li><a href="https://www.youtube.com/@surcom" target="_blank" rel="noopener noreferrer" class="footer-youtube" aria-label="YouTubeチャンネル"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
             </ul>
             <p class="footer-copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
         </div>
     </footer>
 
+    </div><!-- /.light-zone -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="/js/main.js"></script>
+    <script type="module" src="/js/effects.js"></script>
 
 </body>
 </html>

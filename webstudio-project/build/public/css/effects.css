@@ -1,0 +1,322 @@
+/* ===========================================
+   UIリニューアル追加分
+   3D商品ビュー × スクロール連動 × マスク演出
+   - 既存 style.css には極力手を入れず、追加・上書きはここに集約
+   - html.fx-on は effects.js が GSAP/ScrollTrigger 読込成功かつ
+     prefers-reduced-motion でない場合のみ付与する。
+     CDN障害・reduced-motion・JS無効のいずれでも素のサイトとして表示される。
+   - 将来CSPを導入する場合は script-src に cdn.jsdelivr.net の許可が必要
+   =========================================== */
+
+/* --- 3D背景canvas（body直下に1枚・ヒーローとストーリーで共有） ---
+   重なり順: ダーク背景(.hero-bg / .story の背景 = z-auto) < canvas(z:1)
+            < コンテンツ(z:2) < .light-zone(z:2, 不透明) < navbar(z:1000) */
+#bg3d {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+html:not(.fx-on) #bg3d,
+html.no-webgl #bg3d {
+    display: none;
+}
+
+/* --- ライト区間ラッパー（canvasを構造的に隠す保険を兼ねる） --- */
+.light-zone {
+    position: relative;
+    z-index: 2;
+    background: var(--white);
+}
+
+/* --- ヒーロー（ダークゾーン化） --- */
+.hero-content {
+    z-index: 2;
+}
+
+.scroll-indicator {
+    z-index: 2;
+}
+
+/* ドラッグ回転（商品ビュー）の操作感 */
+#home,
+#story {
+    touch-action: pan-y pinch-zoom; /* 縦スワイプ=スクロール、横スワイプ=3D回転、ズームは阻害しない */
+}
+
+html.fx-on:not(.no-webgl) #home,
+html.fx-on:not(.no-webgl) #story {
+    cursor: grab;
+}
+
+html.fx-on:not(.no-webgl) #home.is-dragging,
+html.fx-on:not(.no-webgl) #story.is-dragging {
+    cursor: grabbing;
+}
+
+/* デスクトップ: 3Dオブジェクトを右に置くためコピーを左寄せ */
+@media (min-width: 769px) {
+    html.fx-on:not(.no-webgl) .hero {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    html.fx-on:not(.no-webgl) .hero-content {
+        max-width: 640px;
+        margin-left: clamp(2rem, 9vw, 10rem);
+    }
+
+    html.fx-on:not(.no-webgl) .hero-cta-group {
+        justify-content: flex-start;
+    }
+}
+
+/* モバイル: 3Dオブジェクトを上1/3に置くためコピーを下げる */
+@media (max-width: 768px) {
+    html.fx-on:not(.no-webgl) .hero-content {
+        padding-top: 26vh; /* svh非対応ブラウザ用フォールバック */
+        padding-top: 26svh;
+    }
+}
+
+/* ドラッグヒントピル */
+.drag-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 2.2rem;
+    padding: 0.45rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 50px;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.65);
+    animation: fadeUp 1s ease 1.3s both;
+}
+
+.drag-hint-icon {
+    display: inline-block;
+    animation: hintSpin 5s linear infinite;
+}
+
+@keyframes hintSpin {
+    to { transform: rotate(-360deg); }
+}
+
+html:not(.fx-on) .drag-hint,
+html.no-webgl .drag-hint {
+    display: none;
+}
+
+/* --- 行マスクリビール（ヒーローのロード時アニメ・CSSのみでCDN非依存） --- */
+.mask-lines .line {
+    display: block;
+    overflow: hidden;
+}
+
+.mask-lines .line > span {
+    display: inline-block;
+    transform: translateY(112%);
+    animation: lineUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero h1 .line:nth-child(1) > span { animation-delay: 0.5s; }
+.hero h1 .line:nth-child(2) > span { animation-delay: 0.62s; }
+.hero-tagline .line:nth-child(1) > span { animation-delay: 0.82s; }
+.hero-tagline .line:nth-child(2) > span { animation-delay: 0.92s; }
+
+@keyframes lineUp {
+    to { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mask-lines .line > span {
+        transform: none;
+        animation: none;
+    }
+
+    .drag-hint {
+        display: none;
+    }
+}
+
+/* --- ストーリーセクション（スクロール連動3D・CSS stickyピン） --- */
+.story {
+    position: relative;
+    height: 400vh; /* svh非対応ブラウザ用フォールバック */
+    height: 400svh;
+    background:
+        radial-gradient(ellipse at 50% 32%, rgba(0, 102, 204, 0.16) 0%, transparent 55%),
+        linear-gradient(180deg, #0B0F1E 0%, #0E1630 55%, #0B0F1E 100%);
+}
+
+.story-frame {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+    /* stickyは常にスタッキングコンテキストを作るため、フレームごとcanvas(z:1)より
+       上に置かないと内部のコピー(z:2)がz:1未満に閉じ込められ3Dの裏に隠れる */
+    z-index: 2;
+}
+
+.story-copy {
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
+    transform: translateX(-50%);
+    width: min(92%, 880px);
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+}
+
+.story-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.story-line > span {
+    display: inline-block;
+    will-change: transform;
+}
+
+.story-line-accent em {
+    font-style: normal;
+    background: linear-gradient(135deg, #FFD700, #FF6B35);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.story-stat {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4%;
+    z-index: 2;
+}
+
+.stat-value {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3.2rem, 9vw, 6rem);
+    line-height: 1;
+    color: var(--white);
+}
+
+.stat-unit {
+    font-size: 0.42em;
+    margin-left: 0.15em;
+    color: var(--accent);
+}
+
+.stat-caption {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.stat-bar {
+    position: relative;
+    margin: 1.4rem auto 0;
+    width: min(70%, 420px);
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.14);
+    overflow: hidden;
+}
+
+.stat-bar-fill {
+    display: block;
+    position: absolute;
+    inset: 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+/* ダーク→ライト転換: AIコアの光がそのままライトテーマの白になる */
+.story-transition {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: var(--white);
+    clip-path: circle(0% at 50% 52%);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    html.fx-on .story {
+        height: 280vh; /* svh非対応ブラウザ用フォールバック */
+        height: 280svh;
+    }
+
+    .story-copy {
+        bottom: 12%;
+    }
+
+    .stat-bar {
+        width: 82%;
+    }
+}
+
+/* --- GSAPリビール対象の初期非表示（必ず html.fx-on スコープ配下にのみ書く） --- */
+html.fx-on .fade-in,
+html.fx-on .fade-in-left,
+html.fx-on .fade-in-right {
+    opacity: 0;
+}
+
+/* --- フォールバック: fx-onなし（reduced-motion / CDN障害 / JS無効） ---
+   ストーリーは通常の縦積みテキストセクションとして読める状態にする */
+html:not(.fx-on) .story {
+    height: auto;
+}
+
+html:not(.fx-on) .story-frame {
+    position: static;
+    height: auto;
+    padding: 7rem 1.5rem;
+    overflow: visible;
+}
+
+html:not(.fx-on) .story-copy {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+html:not(.fx-on) .story-line {
+    position: static;
+    margin: 0 0 1.4rem;
+}
+
+html:not(.fx-on) .story-stat {
+    position: static;
+    margin-top: 3.5rem;
+}
+
+html:not(.fx-on) .story-transition {
+    display: none;
+}
+
+html:not(.fx-on) .stat-bar-fill {
+    transform: scaleX(0.875);
+}
