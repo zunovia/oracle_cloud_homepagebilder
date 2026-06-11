@@ -1419,11 +1419,31 @@ footer {
     text-decoration: none;
     font-size: 0.8rem;
     letter-spacing: 1px;
+    white-space: nowrap; /* 「テックニュース」等が単語途中で2段に折り返すのを防止 */
     transition: color var(--transition);
 }
 
 .footer-links a:hover {
     color: var(--white);
+}
+
+/* デスクトップ/タブレット: フッターメニューをロゴ・著作権とは別の独立した1行に分離し、
+   詰め込みによる2段折り返しをなくす（中央寄せ＋上に区切り線） */
+@media (min-width: 769px) {
+    .footer-inner {
+        flex-wrap: wrap;
+    }
+
+    .footer-links {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem 1.75rem;
+        margin-top: 1.75rem;
+        padding-top: 1.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 }
 
 /* --- Responsive --- */
