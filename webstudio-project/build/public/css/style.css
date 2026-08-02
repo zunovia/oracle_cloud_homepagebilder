@@ -1552,33 +1552,39 @@ body.menu-open {
     resize: vertical;
 }
 
-/* --- YouTube セクション --- */
-.youtube-section {
+/* --- 情報発信（Media）セクション --- */
+.media-section {
     background: linear-gradient(135deg, #16182B 0%, #242747 55%, #1A1C33 100%);
     position: relative;
     overflow: hidden;
 }
 
-.youtube-section .section-label {
+.media-section .section-label {
     color: #8FBBFF;
 }
 
-.youtube-section .section-title {
+.media-section .section-title {
     color: var(--white);
 }
 
-.youtube-grid {
+.media-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 3.5rem;
+    grid-template-columns: 320px 1fr;
+    gap: 4rem;
     align-items: center;
-    max-width: 1200px;
+    justify-content: center;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
+/* 投稿の大半が縦型Shortsのため 9:16。16:9だと左右が黒帯になる。
+   横型の長尺が主体に変わったら aspect-ratio と max-width を戻すこと。 */
 .yt-frame {
     position: relative;
-    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    aspect-ratio: 9 / 16;
     border-radius: var(--radius);
     overflow: hidden;
     background: #0A0C18;
@@ -1668,50 +1674,85 @@ body.menu-open {
     color: rgba(255, 255, 255, 0.55);
 }
 
-.yt-copy h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.55;
-    color: var(--white);
-    margin-bottom: 1.2rem;
-}
-
-.yt-copy p {
-    font-size: 0.93rem;
+.media-lead {
+    font-size: 0.98rem;
     line-height: 2;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(255, 255, 255, 0.78);
     margin-bottom: 2rem;
 }
 
-.yt-channel-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.9rem 2rem;
-    border-radius: 50px;
-    background: #FF0000;
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    transition: all var(--transition);
+/* 自社の発信先3つ（YouTube / テックニュース / アプリ）へのリンク */
+.media-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
 }
 
-.yt-channel-btn:hover {
-    background: #D90000;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 26px rgba(255, 0, 0, 0.32);
+.media-list a {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.1rem 1.3rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.media-list a:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.28);
+    transform: translateX(4px);
+}
+
+.media-ico {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 0.35rem;
+    color: #8FBBFF;
+}
+
+.media-ico-yt {
+    color: #FF3B30;
+}
+
+.media-body {
+    display: block;
+}
+
+.media-body strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+}
+
+.media-body span {
+    display: block;
+    font-size: 0.83rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.media-note {
+    margin-top: 1.6rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 @media (max-width: 900px) {
-    .youtube-grid {
+    .media-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
 
-    .yt-copy h3 {
-        font-size: 1.25rem;
+    .yt-frame {
+        max-width: 270px;
     }
 }
 

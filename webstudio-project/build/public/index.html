@@ -258,43 +258,78 @@
         </div>
     </div>
 
-    <!-- YouTube（チャンネル「サーコミュ」の最新アップロード再生リストを埋め込み）
-         クリックされるまでiframeを読み込まないファサード方式:
+    <!-- 情報発信（YouTube・テックニュース・アプリの3つを集約）
+         プレーヤーはクリックされるまでiframeを読み込まないファサード方式:
          - 初期表示コストゼロ・YouTubeへの通信もクッキーも発生しない
-         - 再生リストID(UU...)はチャンネルの全アップロードを指すため、
-           新しい動画を投稿してもこのページの更新は不要 -->
-    <div class="section-full youtube-section" id="videos">
+         - data-playlist はチャンネルの全アップロード(UU...)。新着順に並ぶので
+           動画を投稿してもこのページの更新は不要。
+           将来テーマ別の再生リストを作ったら、この値を差し替えるだけで切り替わる。
+         - 投稿の大半が縦型Shortsのため、フレームは9:16にしている（16:9だと左右が黒帯になる） -->
+    <div class="section-full media-section" id="media">
         <div class="section" style="padding-top: 0; padding-bottom: 0;">
             <div class="section-header fade-in">
-                <span class="section-label">YouTube</span>
-                <h2 class="section-title">動画で見る 5S×AI</h2>
+                <span class="section-label">Media</span>
+                <h2 class="section-title">AIの「いま」を、毎日追いかけています</h2>
                 <div class="section-divider"></div>
             </div>
 
-            <div class="youtube-grid">
+            <div class="media-grid">
                 <div class="yt-frame fade-in-left" id="ytFrame">
                     <button type="button" class="yt-facade" id="ytFacade"
                             data-playlist="UUPQFpzF4Bj2qFrjYhiytFJw"
                             aria-label="YouTubeチャンネル「サーコミュ」の最新動画を再生する">
                         <span class="yt-play" aria-hidden="true">
-                            <svg viewBox="0 0 68 48" width="68" height="48"><path class="yt-play-bg" d="M66.5 7.7a8.6 8.6 0 0 0-6-6.1C55.2 0 34 0 34 0S12.8 0 7.5 1.6a8.6 8.6 0 0 0-6 6.1C0 13 0 24 0 24s0 11 1.5 16.3a8.6 8.6 0 0 0 6 6.1C12.8 48 34 48 34 48s21.2 0 26.5-1.6a8.6 8.6 0 0 0 6-6.1C68 35 68 24 68 24s0-11-1.5-16.3z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+                            <svg viewBox="0 0 68 48" width="60" height="42"><path class="yt-play-bg" d="M66.5 7.7a8.6 8.6 0 0 0-6-6.1C55.2 0 34 0 34 0S12.8 0 7.5 1.6a8.6 8.6 0 0 0-6 6.1C0 13 0 24 0 24s0 11 1.5 16.3a8.6 8.6 0 0 0 6 6.1C12.8 48 34 48 34 48s21.2 0 26.5-1.6a8.6 8.6 0 0 0 6-6.1C68 35 68 24 68 24s0-11-1.5-16.3z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
                         </span>
                         <span class="yt-facade-label">最新の動画を再生</span>
-                        <span class="yt-facade-note">クリックするとYouTubeの再生プレーヤーを読み込みます</span>
+                        <span class="yt-facade-note">クリックするとYouTubeの<br>再生プレーヤーを読み込みます</span>
                     </button>
                 </div>
 
-                <div class="yt-copy fade-in-right">
-                    <h3>現場で使えるAI活用を、<br>動画で発信しています。</h3>
-                    <p>
-                        Claude AIとトヨタ生産方式による業務改善の考え方、実際の手順、
-                        つまずきやすいポイントを、YouTubeチャンネル「サーコミュ」で公開しています。
-                        導入前の検討材料としてご覧ください。
+                <div class="media-copy fade-in-right">
+                    <p class="media-lead">
+                        業務改善の現場に立ち続けるために、AIの動向を毎日追いかけ、
+                        気づいたことは自分たちでアプリにして試しています。
+                        その過程を、3つの場所で公開しています。
                     </p>
-                    <a href="https://www.youtube.com/@surcom" target="_blank" rel="noopener noreferrer" class="yt-channel-btn">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                        チャンネルを見る
-                    </a>
+
+                    <ul class="media-list">
+                        <li>
+                            <a href="https://www.youtube.com/@surcom" target="_blank" rel="noopener noreferrer">
+                                <span class="media-ico media-ico-yt" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                </span>
+                                <span class="media-body">
+                                    <strong>YouTube「サーコミュ」</strong>
+                                    <span>海外のAIニュースを、毎日ショート動画で。自社アプリの使い方も紹介しています。</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://news.surc.online/" target="_blank" rel="noopener noreferrer">
+                                <span class="media-ico" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9h4"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>
+                                </span>
+                                <span class="media-body">
+                                    <strong>テックニュース</strong>
+                                    <span>海外のテックニュースを日本語に要約して、毎朝お届けしています。</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/apps/">
+                                <span class="media-ico" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                                </span>
+                                <span class="media-body">
+                                    <strong>Androidアプリ</strong>
+                                    <span>現場で困っていることを、自分たちで作って解決しています。無料で公開中です。</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <p class="media-note">5S×AIの実践動画も、順次公開していきます。</p>
                 </div>
             </div>
         </div>
