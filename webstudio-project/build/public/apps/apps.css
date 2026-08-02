@@ -47,6 +47,24 @@
     --header-bg: #1F3A22;
 }
 
+/* Cotext: ロゴのブルー系 */
+.theme-cotext {
+    --brand: #0A63C2;
+    --brand-dark: #07498F;
+    --brand-tint: #E7F1FC;
+    --brand-ink: #FFFFFF;
+    --header-bg: #10233B;
+}
+
+/* Voxna: 落ち着いた藤色（セルフケア向け） */
+.theme-voxna {
+    --brand: #544CC0;
+    --brand-dark: #3B349B;
+    --brand-tint: #ECEBFA;
+    --brand-ink: #FFFFFF;
+    --header-bg: #23213C;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { -webkit-text-size-adjust: 100%; }
@@ -158,9 +176,11 @@ a:hover { color: var(--brand-dark); }
 }
 
 /* --- アプリ一覧カード --- */
+/* アプリ数が4件のため、デスクトップでは3列＋1件の余りにならないよう
+   最小幅を広げて2列（2×2）に落としている。件数が増えても auto-fit が追従する。 */
 .app-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 1.5rem;
 }
 
