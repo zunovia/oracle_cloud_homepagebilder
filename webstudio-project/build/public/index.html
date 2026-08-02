@@ -261,10 +261,10 @@
     <!-- 情報発信（YouTube・テックニュース・アプリの3つを集約）
          プレーヤーはクリックされるまでiframeを読み込まないファサード方式:
          - 初期表示コストゼロ・YouTubeへの通信もクッキーも発生しない
-         - data-playlist はチャンネルの全アップロード(UU...)。新着順に並ぶので
-           動画を投稿してもこのページの更新は不要。
-           将来テーマ別の再生リストを作ったら、この値を差し替えるだけで切り替わる。
-         - 投稿の大半が縦型Shortsのため、フレームは9:16にしている（16:9だと左右が黒帯になる） -->
+         - data-playlist は再生リスト「今日のAIニュース（初心者向け）」。
+           この再生リストに動画を追加すればページの更新は不要。
+           別のテーマを見せたくなったら、この値の差し替えだけで切り替わる。
+         - 収録動画は縦型Shortsのため、フレームは9:16にしている（16:9だと左右が黒帯になる） -->
     <div class="section-full media-section" id="media">
         <div class="section" style="padding-top: 0; padding-bottom: 0;">
             <div class="section-header fade-in">
@@ -276,12 +276,12 @@
             <div class="media-grid">
                 <div class="yt-frame fade-in-left" id="ytFrame">
                     <button type="button" class="yt-facade" id="ytFacade"
-                            data-playlist="UUPQFpzF4Bj2qFrjYhiytFJw"
-                            aria-label="YouTubeチャンネル「サーコミュ」の最新動画を再生する">
+                            data-playlist="PLgbQ38MOaq2jZ9fLzhNABjHilecFjvb-k"
+                            aria-label="再生リスト「今日のAIニュース（初心者向け）」を再生する">
                         <span class="yt-play" aria-hidden="true">
                             <svg viewBox="0 0 68 48" width="60" height="42"><path class="yt-play-bg" d="M66.5 7.7a8.6 8.6 0 0 0-6-6.1C55.2 0 34 0 34 0S12.8 0 7.5 1.6a8.6 8.6 0 0 0-6 6.1C0 13 0 24 0 24s0 11 1.5 16.3a8.6 8.6 0 0 0 6 6.1C12.8 48 34 48 34 48s21.2 0 26.5-1.6a8.6 8.6 0 0 0 6-6.1C68 35 68 24 68 24s0-11-1.5-16.3z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
                         </span>
-                        <span class="yt-facade-label">最新の動画を再生</span>
+                        <span class="yt-facade-label">今日のAIニュース</span>
                         <span class="yt-facade-note">クリックするとYouTubeの<br>再生プレーヤーを読み込みます</span>
                     </button>
                 </div>

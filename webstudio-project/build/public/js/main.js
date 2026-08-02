@@ -77,7 +77,7 @@ if (ytFacade) {
             rel: '0'
         });
         iframe.src = `https://www.youtube-nocookie.com/embed/videoseries?${params}`;
-        iframe.title = 'YouTubeチャンネル「サーコミュ」の最新動画';
+        iframe.title = '再生リスト「今日のAIニュース（初心者向け）」';
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
         iframe.allowFullscreen = true;
 
