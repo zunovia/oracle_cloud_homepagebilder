@@ -273,6 +273,20 @@
                 <div class="section-divider"></div>
             </div>
 
+            <!-- 再生リスト切替チップ。押すと data-playlist を差し替えるだけで、
+                 再生中でなければ通信は発生しない。 -->
+            <div class="media-tabs fade-in" id="mediaTabs">
+                <button type="button" class="media-tab is-active" aria-pressed="true"
+                        data-playlist="PLgbQ38MOaq2jZ9fLzhNABjHilecFjvb-k"
+                        data-label="今日のAIニュース">AIニュース</button>
+                <button type="button" class="media-tab" aria-pressed="false"
+                        data-playlist="PLCZImKI2qGw0"
+                        data-label="5S×AI・業務改善">5S×AI・業務改善</button>
+                <button type="button" class="media-tab" aria-pressed="false"
+                        data-playlist="PLIJrCcfSkzXI"
+                        data-label="アプリ紹介">アプリ紹介</button>
+            </div>
+
             <div class="media-grid">
                 <div class="yt-frame fade-in-left" id="ytFrame">
                     <button type="button" class="yt-facade" id="ytFacade"
