@@ -1,0 +1,417 @@
+/* ===========================================
+   Sur Communication — Apps セクション共通スタイル
+   コーポレートサイト(index.html)とは独立した静的ページ群で使う。
+   style.css / effects.css には依存しない（3D・GSAPも読み込まない）。
+   ページ側は <body class="theme-camtally"> のようにテーマクラスを付けて
+   --brand 系トークンだけを差し替える。
+   =========================================== */
+
+:root {
+    /* コーポレートブランド（既定テーマ） */
+    --brand: #0066CC;
+    --brand-dark: #004D99;
+    --brand-tint: #E8F2FF;
+    --brand-ink: #FFFFFF; /* --brand 上に置く文字色 */
+    --header-bg: #1A1A2E;
+
+    --ink: #1F2430;
+    --muted: #5A6069;
+    --faint: #8A909B;
+    --bg: #F6F8FB;
+    --surface: #FFFFFF;
+    --border: #E3E7EF;
+
+    --radius: 14px;
+    --radius-sm: 9px;
+    --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
+    --shadow-lift: 0 2px 4px rgba(16, 24, 40, 0.05), 0 16px 40px rgba(16, 24, 40, 0.10);
+    --maxw: 940px;
+    --ease: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* CamTally: ミントグリーン × ネイビー（アプリ内テーマと同一） */
+.theme-camtally {
+    --brand: #12805A;
+    --brand-dark: #0C5F43;
+    --brand-tint: #E3F6ED;
+    --brand-ink: #FFFFFF;
+    --header-bg: #181B24;
+}
+
+/* パシャ採寸: ディープグリーン */
+.theme-pasha {
+    --brand: #2E7D32;
+    --brand-dark: #1B5E20;
+    --brand-tint: #E8F5E9;
+    --brand-ink: #FFFFFF;
+    --header-bg: #1F3A22;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', Meiryo, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--brand); }
+a:hover { color: var(--brand-dark); }
+
+/* キーボード操作時のみ可視化（マウスクリックで枠が出ないように） */
+:focus-visible {
+    outline: 3px solid var(--brand);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+.narrow { max-width: 760px; }
+
+/* --- トップバー（コーポレートサイトへの導線） --- */
+.topbar {
+    background: var(--header-bg);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.topbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 56px;
+    flex-wrap: wrap;
+}
+
+.topbar a { color: rgba(255, 255, 255, 0.72); text-decoration: none; }
+.topbar a:hover { color: #FFFFFF; }
+
+.topbar-brand {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #FFFFFF !important;
+}
+
+.crumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    font-size: 0.78rem;
+    flex-wrap: wrap;
+}
+
+.crumbs li::after { content: '/'; margin-left: 0.5rem; color: rgba(255, 255, 255, 0.3); }
+.crumbs li:last-child::after { content: none; }
+.crumbs [aria-current] { color: rgba(255, 255, 255, 0.95); }
+
+/* --- ページヘッダー --- */
+.page-head {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 3.5rem 0 3rem;
+}
+
+.eyebrow {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 0.7rem;
+}
+
+.page-head h1 {
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    font-weight: 800;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+}
+
+.page-head .lede {
+    margin-top: 1rem;
+    color: var(--muted);
+    font-size: 0.98rem;
+    max-width: 62ch;
+}
+
+/* --- 本文セクション --- */
+.section { padding: 3.5rem 0; }
+.section + .section { padding-top: 0; }
+
+.section h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    padding-left: 0.8rem;
+    border-left: 4px solid var(--brand);
+    line-height: 1.5;
+}
+
+/* --- アプリ一覧カード --- */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.app-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+}
+
+.app-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+    border-color: var(--brand);
+}
+
+.app-card-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+}
+
+.app-icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(16, 24, 40, 0.14);
+}
+
+.app-icon-lg { width: 92px; height: 92px; border-radius: 21px; }
+
+.app-card h3 { font-size: 1.15rem; font-weight: 700; line-height: 1.5; }
+
+.app-card .tagline {
+    font-size: 0.8rem;
+    color: var(--faint);
+    line-height: 1.6;
+}
+
+.app-card p.summary {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 1.3rem;
+    flex: 1;
+}
+
+/* --- バッジ --- */
+.badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.1rem; }
+
+.badge {
+    display: inline-block;
+    padding: 0.22rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: var(--brand-tint);
+    color: var(--brand-dark);
+    border: 1px solid transparent;
+}
+
+.badge-quiet {
+    background: transparent;
+    color: var(--muted);
+    border-color: var(--border);
+}
+
+/* --- ボタン --- */
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+
+.btn {
+    display: inline-block;
+    padding: 0.72rem 1.6rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 2px solid var(--brand);
+    transition: background var(--ease), color var(--ease), transform var(--ease), box-shadow var(--ease);
+}
+
+.btn-primary { background: var(--brand); color: var(--brand-ink); }
+
+.btn-primary:hover {
+    background: var(--brand-dark);
+    border-color: var(--brand-dark);
+    color: var(--brand-ink);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+}
+
+.btn-ghost { background: transparent; color: var(--brand); }
+.btn-ghost:hover { background: var(--brand); color: var(--brand-ink); }
+
+/* --- アプリ詳細ヒーロー --- */
+.app-hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+}
+
+.app-hero-body { flex: 1; min-width: 260px; }
+
+/* --- スクリーンショット --- */
+.shots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.2rem;
+    max-width: 700px;
+}
+
+.shots img {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+/* --- 機能リスト --- */
+.feature-list { list-style: none; display: grid; gap: 0.9rem; }
+
+.feature-list li {
+    position: relative;
+    padding-left: 1.9rem;
+    font-size: 0.93rem;
+    color: var(--muted);
+}
+
+.feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--brand);
+}
+
+.feature-list strong { color: var(--ink); font-weight: 700; }
+
+/* --- 表 --- */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    font-size: 0.88rem;
+    min-width: 420px;
+}
+
+th, td { border: 1px solid var(--border); padding: 0.7rem 0.9rem; text-align: left; vertical-align: top; }
+th { background: var(--brand-tint); color: var(--brand-dark); font-weight: 700; white-space: nowrap; }
+
+/* --- 情報カード / 注記 --- */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    box-shadow: var(--shadow);
+}
+
+.callout {
+    background: var(--brand-tint);
+    border: 1px solid var(--brand);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.3rem;
+    font-weight: 600;
+    font-size: 0.93rem;
+    color: var(--brand-dark);
+}
+
+.meta-list { list-style: none; font-size: 0.88rem; }
+
+.meta-list li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+
+.meta-list li:last-child { border-bottom: none; }
+.meta-list dt, .meta-list .k { min-width: 8.5em; font-weight: 700; color: var(--ink); }
+.meta-list .v { color: var(--muted); }
+
+/* --- ポリシー等の文書ページ --- */
+.doc { padding: 3rem 0 4rem; }
+.doc .updated { color: var(--faint); font-size: 0.84rem; margin-bottom: 2.2rem; }
+
+.doc h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 2.6rem 0 0.8rem;
+    padding-left: 0.75rem;
+    border-left: 4px solid var(--brand);
+    line-height: 1.5;
+}
+
+.doc h2:first-of-type { margin-top: 1.6rem; }
+.doc p, .doc li { font-size: 0.94rem; }
+.doc p { margin-bottom: 0.9rem; }
+.doc ul, .doc ol { padding-left: 1.4em; margin: 0.6rem 0 1.1rem; }
+.doc li { margin-bottom: 0.4rem; }
+.doc table { margin: 0.8rem 0 1.2rem; }
+.doc .callout { margin: 1.1rem 0; }
+
+/* --- フッター --- */
+.site-foot {
+    background: var(--header-bg);
+    color: rgba(255, 255, 255, 0.62);
+    padding: 2.8rem 0;
+    margin-top: 3rem;
+    font-size: 0.83rem;
+}
+
+.site-foot a { color: rgba(255, 255, 255, 0.82); }
+.site-foot a:hover { color: #FFFFFF; }
+.site-foot .dev-name { color: #FFFFFF; font-weight: 700; font-size: 0.9rem; }
+.site-foot .foot-links { list-style: none; display: flex; flex-wrap: wrap; gap: 1.2rem; margin: 1.1rem 0; }
+
+.site-foot .copy {
+    margin-top: 1.4rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- レスポンシブ --- */
+@media (max-width: 600px) {
+    body { line-height: 1.85; }
+    .page-head { padding: 2.5rem 0 2.2rem; }
+    .section { padding: 2.5rem 0; }
+    .app-card { padding: 1.5rem; }
+    .card { padding: 1.4rem; }
+    .btn { width: 100%; text-align: center; }
+    .meta-list dt, .meta-list .k { min-width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .app-card:hover, .btn-primary:hover { transform: none; }
+}

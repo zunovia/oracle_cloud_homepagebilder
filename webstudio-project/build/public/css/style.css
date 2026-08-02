@@ -1446,6 +1446,298 @@ footer {
     }
 }
 
+/* ===========================================
+   UX改善 追加分（2026-08）
+   - フッターは .light-zone の外に出したため、固定canvas(z:1)より前面に置く
+   - フォーカス可視化・スキップリンク・reduced-motion 対応
+   - YouTubeセクション（ファサード方式の埋め込み）
+   =========================================== */
+
+footer {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- スキップリンク（Tab最初の1回で本文へ飛べる） --- */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100%;
+    z-index: 2000;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* --- フォーカス可視化 ---
+   キーボード操作時のみ表示。アクセントのオレンジは白背景・ダーク背景の
+   どちらでもコントラストが確保できるため全画面共通で使う。 */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.hamburger:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* --- ハンバーガーを button 化したことによるリセット --- */
+.hamburger {
+    background: none;
+    border: none;
+    padding: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* メニュー展開中は背面のページがスクロールしないよう固定 */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* --- お問い合わせフォーム: ラベル付きフィールド ---
+   プレースホルダのみだと入力開始で項目名が消えるため、ラベルを常時表示する。 */
+.contact-form .field {
+    margin-bottom: 1.2rem;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--dark);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.45rem;
+}
+
+.contact-form .field input,
+.contact-form .field textarea {
+    margin-bottom: 0;
+}
+
+.contact-form .req,
+.contact-form .opt {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.05rem 0.5rem;
+    border-radius: 50px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    vertical-align: 0.1em;
+}
+
+.contact-form .req {
+    background: #FEE2E2;
+    color: #B91C1C;
+}
+
+.contact-form .opt {
+    background: var(--border);
+    color: var(--text-light);
+}
+
+.contact-form textarea {
+    height: auto; /* rows属性で高さを決める */
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* --- YouTube セクション --- */
+.youtube-section {
+    background: linear-gradient(135deg, #16182B 0%, #242747 55%, #1A1C33 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.youtube-section .section-label {
+    color: #8FBBFF;
+}
+
+.youtube-section .section-title {
+    color: var(--white);
+}
+
+.youtube-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.yt-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #0A0C18;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.yt-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* クリックされるまでiframeを読み込まないための代替面 */
+.yt-facade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.5rem;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--white);
+    text-align: center;
+    background:
+        radial-gradient(ellipse at 50% 45%, rgba(0, 102, 204, 0.35) 0%, transparent 62%),
+        linear-gradient(150deg, #12162C 0%, #1D2140 100%);
+    transition: background var(--transition);
+}
+
+.yt-facade::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(0deg, transparent, transparent 44px, rgba(255, 255, 255, 0.035) 44px, rgba(255, 255, 255, 0.035) 45px),
+        repeating-linear-gradient(90deg, transparent, transparent 44px, rgba(255, 255, 255, 0.035) 44px, rgba(255, 255, 255, 0.035) 45px);
+}
+
+.yt-play {
+    position: relative;
+    z-index: 1;
+    display: block;
+    line-height: 0;
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.5));
+    transition: transform var(--transition);
+}
+
+.yt-play-bg {
+    fill: #FF0000;
+    opacity: 0.92;
+    transition: opacity var(--transition);
+}
+
+.yt-facade:hover .yt-play,
+.yt-facade:focus-visible .yt-play {
+    transform: scale(1.08);
+}
+
+.yt-facade:hover .yt-play-bg,
+.yt-facade:focus-visible .yt-play-bg {
+    opacity: 1;
+}
+
+.yt-facade-label {
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.yt-facade-note {
+    position: relative;
+    z-index: 1;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.yt-copy h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.55;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+}
+
+.yt-copy p {
+    font-size: 0.93rem;
+    line-height: 2;
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: 2rem;
+}
+
+.yt-channel-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    background: #FF0000;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all var(--transition);
+}
+
+.yt-channel-btn:hover {
+    background: #D90000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(255, 0, 0, 0.32);
+}
+
+@media (max-width: 900px) {
+    .youtube-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .yt-copy h3 {
+        font-size: 1.25rem;
+    }
+}
+
+/* --- モーション低減の指定がある環境 ---
+   effects.js は fx-on を付けないためGSAP演出は元から動かない。
+   ここでは style.css 側のCSSアニメーションとスムーススクロールを止める。 */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero-subtitle,
+    .hero h1,
+    .hero-tagline,
+    .hero-cta-group,
+    .scroll-indicator,
+    .form-success.show,
+    .form-error.show {
+        animation: none;
+    }
+
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}
+
 /* --- Responsive --- */
 @media (max-width: 1024px) {
     .navbar {
@@ -1501,12 +1793,14 @@ footer {
         top: 0;
         right: -100%;
         width: 100%;
-        height: 100vh;
+        height: 100vh; /* svh非対応ブラウザ用フォールバック */
+        height: 100svh;
         background: var(--dark);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
+        overflow-y: auto; /* 項目が増えても画面外に出た分をたどれるように */
         transition: right 0.5s ease;
     }
 
@@ -1600,6 +1894,13 @@ footer {
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+
+    /* iOS Safari は font-size が16px未満の入力欄にフォーカスすると
+       ページを自動ズームしてしまうため、モバイルでは16pxを下回らせない */
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px;
     }
 
     .footer-inner {

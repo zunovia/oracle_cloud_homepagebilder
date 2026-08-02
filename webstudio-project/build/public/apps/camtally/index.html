@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CamTally — カメラで撮って、AIが数える | 一般社団法人サーコミュニケーション</title>
+<meta name="description" content="CamTallyは、録画した映像から人・車・動物など80種類の対象をAIが自動カウントするAndroidアプリ。通信権限を持たず、解析はすべて端末内で完結します。IN/OUT計測・統計グラフ・CSV/JSON出力対応。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://surc.online/apps/camtally/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CamTally — カメラで撮って、AIが数える">
+<meta property="og:description" content="録画するだけで、人・車・動物を自動カウント。通信権限ゼロの完全オンデバイスAIカウンター。">
+<meta property="og:url" content="https://surc.online/apps/camtally/">
+<meta property="og:image" content="https://surc.online/images/apps/camtally-icon.png">
+<link rel="icon" href="/images/apps/camtally-icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/apps/apps.css">
+</head>
+<body class="theme-camtally">
+
+<nav class="topbar" aria-label="パンくず">
+  <div class="wrap">
+    <a href="/" class="topbar-brand">Sur Communication</a>
+    <ol class="crumbs">
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/apps/">アプリ</a></li>
+      <li><span aria-current="page">CamTally</span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="app-hero">
+      <img src="/images/apps/camtally-icon.png" alt="CamTally アプリアイコン" class="app-icon app-icon-lg" width="92" height="92">
+      <div class="app-hero-body">
+        <span class="eyebrow">On-device Counter</span>
+        <h1>カメラで撮って、AIが数える。</h1>
+        <p class="lede">
+          録画するだけで、人・車・動物など80種類の対象をAIが自動でカウント。
+          同じ個体を二重に数えない追跡機能と、通過方向のIN/OUT集計に対応します。
+          <strong>解析はすべて端末内で完結し、映像が外部に送られることはありません。</strong>
+        </p>
+        <div class="badges" style="margin-top:1.4rem">
+          <span class="badge">通信権限なし</span>
+          <span class="badge">アカウント登録不要</span>
+          <span class="badge">広告なし</span>
+          <span class="badge badge-quiet">Android 8.0以上</span>
+        </div>
+        <div class="btn-row" style="margin-top:1.6rem">
+          <a href="https://play.google.com/store/apps/details?id=com.camtally.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Google Play で入手</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <h2>できること</h2>
+      <ul class="feature-list">
+        <li><strong>録画してから解析</strong> — カメラで撮影した映像を1秒間隔で切り出し、AIが対象を検知。追跡によって同一個体の二重カウントを防いだ「実数」を集計します。</li>
+        <li><strong>80種類から数えたいものを選択</strong> — 人／自転車・車・バイク・バス・トラック・電車／動物10種／持ち物／食器／食べ物／家具／家電など、日本語のカテゴリから選べます。カテゴリ単位の一括選択にも対応。</li>
+        <li><strong>ライン通過カウント（IN／OUT）</strong> — 映像に線を引くと、その線を横切った方向ごとに集計します。出入口の人数や、車道の通行台数の計測に。</li>
+        <li><strong>関心領域（ROI）の指定</strong> — 枠を描くと、その中にある対象だけを数えます。「車道だけ」「入口だけ」といった絞り込みが可能です。</li>
+        <li><strong>ライブAI枠オーバーレイ</strong> — 映っている対象に、色分けした枠とラベルをリアルタイム表示。画面表示のみで、録画された映像には枠は残りません。</li>
+        <li><strong>ポーズ解析モード</strong> — 1人の動きを解析し、スクワット・腕上げの回数と活動量スコアを計測します。<span style="color:var(--faint)">※ 医療・健康評価を目的とした機能ではありません。</span></li>
+        <li><strong>統計画面</strong> — 構成比のドーナツグラフ、時間帯別の推移、滞在時間の分布、出現タイムライン、検知位置のヒートマップなどを自動生成します。</li>
+        <li><strong>CSV／JSON出力</strong> — 明細CSV・集計CSV（Excelで文字化けしないUTF-8 BOM付き）とセッションJSONを出力。解析完了のたびに指定フォルダへ自動保存することもできます。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>画面</h2>
+      <div class="shots">
+        <img src="/images/apps/camtally-1.jpg" alt="CamTallyのホーム画面。録画と解析の開始ボタン、過去のセッション一覧が並ぶ" loading="lazy" width="620" height="1391">
+        <img src="/images/apps/camtally-2.jpg" alt="統計画面。カウント数のサマリーとラベル別の内訳が表示されている" loading="lazy" width="620" height="1391">
+        <img src="/images/apps/camtally-3.jpg" alt="ライブAI枠オーバーレイ。映像に映る対象へ色分けした枠とラベルが重ねて表示されている" loading="lazy" width="620" height="1391">
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>プライバシーへの考え方</h2>
+      <p class="callout">CamTallyはインターネット通信権限そのものを持ちません。技術的に、いかなるデータも端末の外へ送信できない設計です。</p>
+      <p style="color:var(--muted);font-size:0.94rem">
+        物体検知のAIは端末内（オンデバイス）で動作します。撮影した映像・解析結果はアプリ専用領域にのみ保存され、
+        アンインストールで完全に削除されます。広告・アクセス解析・クラッシュレポートのSDKも組み込んでいません。
+        詳細は<a href="/apps/camtally/privacy/">プライバシーポリシー</a>をご覧ください。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>必要な権限</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">権限</th><th scope="col">用途</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>カメラ</td><td>計測用の動画撮影・リアルタイム計測</td></tr>
+            <tr><td>通知</td><td>解析の進捗・完了の表示</td></tr>
+            <tr><td>フォアグラウンドサービス<br>／スリープ抑制</td><td>アプリを閉じても端末内での解析処理を継続するため</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem">
+        位置情報・連絡先・マイクは使用しません（録画は音声なし）。
+        インターネットおよびネットワーク状態の権限は、ビルド時に明示的に除去しています。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>アプリ情報</h2>
+      <div class="card">
+        <ul class="meta-list">
+          <li><span class="k">アプリ名</span><span class="v">CamTally</span></li>
+          <li><span class="k">パッケージ名</span><span class="v">com.camtally.app</span></li>
+          <li><span class="k">バージョン</span><span class="v">1.2.0</span></li>
+          <li><span class="k">対応OS</span><span class="v">Android 8.0（API 26）以上</span></li>
+          <li><span class="k">価格</span><span class="v">無料（アプリ内課金・広告なし）</span></li>
+          <li><span class="k">開発元</span><span class="v">一般社団法人サーコミュニケーション</span></li>
+          <li><span class="k">所在地</span><span class="v">名古屋市東区代官町39-18 5階</span></li>
+          <li><span class="k">お問い合わせ</span><span class="v"><a href="mailto:info@surc.online">info@surc.online</a></span></li>
+        </ul>
+        <div class="btn-row" style="margin-top:1.5rem">
+          <a href="/apps/camtally/privacy/" class="btn btn-ghost">プライバシーポリシー</a>
+          <a href="/apps/" class="btn btn-ghost">アプリ一覧へ戻る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="dev-name">一般社団法人サーコミュニケーション</p>
+    <p>名古屋市東区代官町39-18 5階</p>
+    <ul class="foot-links">
+      <li><a href="/">法人サイト</a></li>
+      <li><a href="/apps/">アプリ一覧</a></li>
+      <li><a href="/apps/camtally/privacy/">プライバシーポリシー</a></li>
+      <li><a href="mailto:info@surc.online">お問い合わせ</a></li>
+    </ul>
+    <p class="copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

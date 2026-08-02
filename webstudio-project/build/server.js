@@ -17,9 +17,17 @@ app.use((req, res, next) => {
   next();
 });
 
+// 画像・フォント等は1日キャッシュしてよいが、HTML/CSS/JS はファイル名にハッシュを
+// 付けていないため長期キャッシュすると、デプロイしても再訪問者に最大1日反映されない。
+// no-cache = 毎回サーバーに問い合わせる（変更がなければ304を返すので転送量はほぼゼロ）。
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '1d',
-  etag: true
+  etag: true,
+  setHeaders: (res, filePath) => {
+    if (/\.(html|css|js)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'no-cache');
+    }
+  }
 }));
 
 // Contact form endpoint
