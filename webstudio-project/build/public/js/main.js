@@ -64,26 +64,65 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // YouTube: クリックされて初めて iframe を差し込む（ファサード方式）
 // 初期表示ではYouTubeへ一切通信せず、クッキーも発生しない。
-const ytFacade = document.getElementById('ytFacade');
-if (ytFacade) {
-    ytFacade.addEventListener('click', () => {
-        const playlist = ytFacade.dataset.playlist;
-        if (!playlist) return;
+const ytFrame = document.getElementById('ytFrame');
+const mediaTabs = document.getElementById('mediaTabs');
 
+function ytEmbedUrl(playlist) {
+    const params = new URLSearchParams({ list: playlist, autoplay: '1', rel: '0' });
+    return `https://www.youtube-nocookie.com/embed/videoseries?${params}`;
+}
+
+if (ytFrame) {
+    // 現在選択中の再生リスト。チップで切り替わる。
+    let current = {
+        playlist: ytFrame.querySelector('.yt-facade')?.dataset.playlist || '',
+        label: '今日のAIニュース'
+    };
+
+    const play = () => {
+        if (!current.playlist) return;
         const iframe = document.createElement('iframe');
-        const params = new URLSearchParams({
-            list: playlist,
-            autoplay: '1',
-            rel: '0'
-        });
-        iframe.src = `https://www.youtube-nocookie.com/embed/videoseries?${params}`;
-        iframe.title = '再生リスト「今日のAIニュース（初心者向け）」';
+        iframe.src = ytEmbedUrl(current.playlist);
+        iframe.title = `再生リスト「${current.label}」`;
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
         iframe.allowFullscreen = true;
-
-        ytFacade.replaceWith(iframe);
+        ytFrame.replaceChildren(iframe);
         iframe.focus();
+    };
+
+    ytFrame.addEventListener('click', (e) => {
+        if (e.target.closest('.yt-facade')) play();
     });
+
+    if (mediaTabs) {
+        mediaTabs.addEventListener('click', (e) => {
+            const tab = e.target.closest('.media-tab');
+            if (!tab) return;
+
+            mediaTabs.querySelectorAll('.media-tab').forEach((t) => {
+                const on = t === tab;
+                t.classList.toggle('is-active', on);
+                t.setAttribute('aria-pressed', String(on));
+            });
+
+            current = { playlist: tab.dataset.playlist, label: tab.dataset.label };
+
+            const playing = ytFrame.querySelector('iframe');
+            if (playing) {
+                // 再生中なら即座に差し替える
+                play();
+            } else {
+                // まだ再生していなければ、ファサードの表示だけ更新して通信は起こさない
+                const facade = ytFrame.querySelector('.yt-facade');
+                if (facade) {
+                    facade.dataset.playlist = current.playlist;
+                    facade.setAttribute('aria-label', `再生リスト「${current.label}」を再生する`);
+                    const label = facade.querySelector('.yt-facade-label');
+                    if (label) label.textContent = current.label;
+                }
+            }
+        });
+    }
 }
 
 // Contact form handling
