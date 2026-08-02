@@ -23,28 +23,34 @@
 </head>
 <body>
 
+    <a href="#main" class="skip-link">本文へスキップ</a>
+
     <!-- 3D背景canvas（ヒーローとストーリーで共有・effects.jsが描画） -->
     <canvas id="bg3d" aria-hidden="true"></canvas>
 
     <!-- Navigation -->
+    <!-- 「ホーム」はロゴが兼ねるため項目から外し、その枠で「アプリ」を追加している
+         （タブレット帯で1行に収める都合上、項目数を増やさない方針） -->
     <nav class="navbar" id="navbar">
         <a href="#home" class="logo">Sur Communication</a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home">ホーム</a></li>
             <li><a href="#about">法人概要</a></li>
             <li><a href="#services">サービス</a></li>
             <li><a href="#pricing">料金</a></li>
             <li><a href="#profile">プロフィール</a></li>
             <li><a href="#contact">お問い合わせ</a></li>
+            <li><a href="/apps/">アプリ</a></li>
             <li><a href="https://news.surc.online/" target="_blank" rel="noopener noreferrer" onclick="closeMenu()">テックニュース</a></li>
-            <li><a href="https://www.youtube.com/@surcom" target="_blank" rel="noopener noreferrer" class="nav-youtube" aria-label="YouTubeチャンネル" onclick="closeMenu()"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
+            <li><a href="https://www.youtube.com/@surcom" target="_blank" rel="noopener noreferrer" class="nav-youtube" aria-label="YouTubeチャンネル（新しいタブで開きます）" onclick="closeMenu()"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
         </ul>
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <button type="button" class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="navLinks">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
     </nav>
+
+    <main id="main">
 
     <!-- Hero -->
     <section class="hero" id="home">
@@ -252,6 +258,48 @@
         </div>
     </div>
 
+    <!-- YouTube（チャンネル「サーコミュ」の最新アップロード再生リストを埋め込み）
+         クリックされるまでiframeを読み込まないファサード方式:
+         - 初期表示コストゼロ・YouTubeへの通信もクッキーも発生しない
+         - 再生リストID(UU...)はチャンネルの全アップロードを指すため、
+           新しい動画を投稿してもこのページの更新は不要 -->
+    <div class="section-full youtube-section" id="videos">
+        <div class="section" style="padding-top: 0; padding-bottom: 0;">
+            <div class="section-header fade-in">
+                <span class="section-label">YouTube</span>
+                <h2 class="section-title">動画で見る 5S×AI</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="youtube-grid">
+                <div class="yt-frame fade-in-left" id="ytFrame">
+                    <button type="button" class="yt-facade" id="ytFacade"
+                            data-playlist="UUPQFpzF4Bj2qFrjYhiytFJw"
+                            aria-label="YouTubeチャンネル「サーコミュ」の最新動画を再生する">
+                        <span class="yt-play" aria-hidden="true">
+                            <svg viewBox="0 0 68 48" width="68" height="48"><path class="yt-play-bg" d="M66.5 7.7a8.6 8.6 0 0 0-6-6.1C55.2 0 34 0 34 0S12.8 0 7.5 1.6a8.6 8.6 0 0 0-6 6.1C0 13 0 24 0 24s0 11 1.5 16.3a8.6 8.6 0 0 0 6 6.1C12.8 48 34 48 34 48s21.2 0 26.5-1.6a8.6 8.6 0 0 0 6-6.1C68 35 68 24 68 24s0-11-1.5-16.3z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+                        </span>
+                        <span class="yt-facade-label">最新の動画を再生</span>
+                        <span class="yt-facade-note">クリックするとYouTubeの再生プレーヤーを読み込みます</span>
+                    </button>
+                </div>
+
+                <div class="yt-copy fade-in-right">
+                    <h3>現場で使えるAI活用を、<br>動画で発信しています。</h3>
+                    <p>
+                        Claude AIとトヨタ生産方式による業務改善の考え方、実際の手順、
+                        つまずきやすいポイントを、YouTubeチャンネル「サーコミュ」で公開しています。
+                        導入前の検討材料としてご覧ください。
+                    </p>
+                    <a href="https://www.youtube.com/@surcom" target="_blank" rel="noopener noreferrer" class="yt-channel-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        チャンネルを見る
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Pricing -->
     <div class="section" id="pricing">
         <div class="section-header fade-in">
@@ -439,13 +487,28 @@
 
             <div class="contact-grid">
                 <form class="contact-form fade-in-left" id="contactForm">
-                    <input type="text" name="name" placeholder="お名前" required>
-                    <input type="email" name="email" placeholder="メールアドレス" required>
-                    <input type="text" name="company" placeholder="会社名・団体名（任意）">
-                    <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
+                    <div class="field">
+                        <label for="cf-name">お名前 <span class="req">必須</span></label>
+                        <input type="text" id="cf-name" name="name" autocomplete="name" required>
+                    </div>
+                    <div class="field">
+                        <label for="cf-email">メールアドレス <span class="req">必須</span></label>
+                        <input type="email" id="cf-email" name="email" autocomplete="email" inputmode="email" required>
+                    </div>
+                    <div class="field">
+                        <label for="cf-company">会社名・団体名 <span class="opt">任意</span></label>
+                        <input type="text" id="cf-company" name="company" autocomplete="organization">
+                    </div>
+                    <div class="field">
+                        <label for="cf-message">お問い合わせ内容 <span class="req">必須</span></label>
+                        <textarea id="cf-message" name="message" rows="6" required></textarea>
+                    </div>
                     <button type="submit">送信する</button>
-                    <div class="form-success">お問い合わせありがとうございます。2営業日以内にご連絡いたします。</div>
-                    <div class="form-error">送信に失敗しました。お手数ですが kaneda@surc.net まで直接ご連絡ください。</div>
+                    <!-- 送信結果はJSでclassを付け外しするだけなので、読み上げ用にaria-liveを置く -->
+                    <div class="form-status" role="status" aria-live="polite">
+                        <div class="form-success">お問い合わせありがとうございます。2営業日以内にご連絡いたします。</div>
+                        <div class="form-error">送信に失敗しました。お手数ですが kaneda@surc.net まで直接ご連絡ください。</div>
+                    </div>
                 </form>
                 <div class="fade-in-right">
                     <h3 class="contact-info-heading">まずはお気軽に<br>ご相談ください</h3>
@@ -471,7 +534,10 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    </div><!-- /.light-zone -->
+    </main>
+
+    <!-- Footer（.light-zoneの外。固定canvasに潜り込まないようCSSでz-index:2を付与） -->
     <footer>
         <div class="footer-inner">
             <a href="https://www.ryotakaneda.com/" class="footer-logo" target="_blank" rel="noopener noreferrer">Sur Communication Inc.</a>
@@ -482,14 +548,13 @@
                 <li><a href="#pricing">料金</a></li>
                 <li><a href="#profile">プロフィール</a></li>
                 <li><a href="#contact">お問い合わせ</a></li>
+                <li><a href="/apps/">アプリ</a></li>
                 <li><a href="https://news.surc.online/" target="_blank" rel="noopener noreferrer">テックニュース</a></li>
                 <li><a href="https://www.youtube.com/@surcom" target="_blank" rel="noopener noreferrer" class="footer-youtube" aria-label="YouTubeチャンネル"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
             </ul>
             <p class="footer-copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
         </div>
     </footer>
-
-    </div><!-- /.light-zone -->
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
