@@ -661,6 +661,46 @@ body {
     line-height: 2;
 }
 
+/* コンセプト内の「まず試す」ブロック（5S診断アプリへの導線） */
+.concept-try {
+    margin-top: 2rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--border);
+}
+
+.concept-try-lead {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.6rem;
+}
+
+.concept-try-text {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 1.4rem;
+}
+
+.concept-try-btn {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all var(--transition);
+}
+
+.concept-try-btn:hover {
+    background: #E55A25;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(255, 107, 53, 0.32);
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

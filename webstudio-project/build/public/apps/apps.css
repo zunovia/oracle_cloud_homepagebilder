@@ -47,6 +47,15 @@
     --header-bg: #1F3A22;
 }
 
+/* 現場ポケット5S診断: アイコンのオレンジ×深緑 */
+.theme-genba5s {
+    --brand: #C2560E;
+    --brand-dark: #96420A;
+    --brand-tint: #FDF0E5;
+    --brand-ink: #FFFFFF;
+    --header-bg: #14301F;
+}
+
 /* Cotext: ロゴのブルー系 */
 .theme-cotext {
     --brand: #0A63C2;
@@ -176,11 +185,11 @@ a:hover { color: var(--brand-dark); }
 }
 
 /* --- アプリ一覧カード --- */
-/* アプリ数が4件のため、デスクトップでは3列＋1件の余りにならないよう
-   最小幅を広げて2列（2×2）に落としている。件数が増えても auto-fit が追従する。 */
+/* アプリ数5件。デスクトップは3列（3+2）で最終行に2枚残る形が最も収まりが良い。
+   件数が変わったら最小幅を調整する（4件なら340pxで2×2になる）。 */
 .app-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
