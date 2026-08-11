@@ -1,3 +1,11 @@
+// リロード時のスクロール位置復元を無効にする。
+// ストーリー区間はスクロール量に連動した演出のため、途中の位置で復元されると
+// 暗転中や白い転換の最中から表示が始まり、「ページが真っ白＝壊れている」ように見える。
+// 常に先頭から見せることでこれを防ぐ。
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {

@@ -144,10 +144,12 @@ html.no-webgl .drag-hint {
 }
 
 /* --- ストーリーセクション（スクロール連動3D・CSS stickyピン） --- */
+/* 高さ＝スクロール連動アニメの尺。長すぎると暗転・白転換の区間が続き
+   「ページが真っ白」に見えるため、400vh から 260vh に短縮している。 */
 .story {
     position: relative;
-    height: 400vh; /* svh非対応ブラウザ用フォールバック */
-    height: 400svh;
+    height: 260vh; /* svh非対応ブラウザ用フォールバック */
+    height: 260svh;
     background:
         radial-gradient(ellipse at 50% 32%, rgba(0, 102, 204, 0.16) 0%, transparent 55%),
         linear-gradient(180deg, #0B0F1E 0%, #0E1630 55%, #0B0F1E 100%);
@@ -262,8 +264,8 @@ html.no-webgl .drag-hint {
 
 @media (max-width: 768px) {
     html.fx-on .story {
-        height: 280vh; /* svh非対応ブラウザ用フォールバック */
-        height: 280svh;
+        height: 200vh; /* svh非対応ブラウザ用フォールバック */
+        height: 200svh;
     }
 
     .story-copy {
