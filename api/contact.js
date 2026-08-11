@@ -29,7 +29,7 @@ module.exports = async function handler(req, res) {
   try {
     await transporter.sendMail({
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
-      to: 'kaneda@surc.net',
+      to: 'info@surc.online',
       replyTo: email,
       subject: `【お問い合わせ】${name}様${company ? ' (' + company + ')' : ''} - サーコミュニケーション`,
       text: [
