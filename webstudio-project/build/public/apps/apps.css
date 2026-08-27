@@ -56,6 +56,15 @@
     --header-bg: #14301F;
 }
 
+/* SeeWalk: アイコンのオレンジレッド × ネイビー */
+.theme-seewalk {
+    --brand: #D9502E;
+    --brand-dark: #A93B1E;
+    --brand-tint: #FDEEE9;
+    --brand-ink: #FFFFFF;
+    --header-bg: #17263D;
+}
+
 /* Cotext: ロゴのブルー系 */
 .theme-cotext {
     --brand: #0A63C2;
