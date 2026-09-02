@@ -29,6 +29,24 @@
     --ease: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Claude（Anthropic）: ブランドのテラコッタ */
+.theme-claude {
+    --brand: #B8532F;
+    --brand-dark: #8F3E22;
+    --brand-tint: #FBEFE9;
+    --brand-ink: #FFFFFF;
+    --header-bg: #2B1B14;
+}
+
+/* Google Workspace: Googleブルー */
+.theme-gws {
+    --brand: #1A6DD9;
+    --brand-dark: #1350A5;
+    --brand-tint: #E8F0FE;
+    --brand-ink: #FFFFFF;
+    --header-bg: #17233A;
+}
+
 /* CamTally: ミントグリーン × ネイビー（アプリ内テーマと同一） */
 .theme-camtally {
     --brand: #12805A;
@@ -537,6 +555,33 @@ th { background: var(--brand-tint); color: var(--brand-dark); font-weight: 700; 
     font-size: 0.82rem;
     color: var(--faint);
     max-width: 760px;
+}
+
+/* --- 紹介（アフィリエイト）リンクの明示 ---
+   景品表示法のステマ規制対応。CTAの近くと本文末に置く。 */
+.disclosure {
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--faint);
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.3rem;
+    font-size: 0.85rem;
+    line-height: 1.85;
+    color: var(--muted);
+}
+
+.disclosure strong { color: var(--ink); }
+
+.pr-tag {
+    display: inline-block;
+    padding: 0.15rem 0.7rem;
+    margin-bottom: 0.6rem;
+    border-radius: 4px;
+    background: var(--faint);
+    color: #FFFFFF;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
 }
 
 /* --- ポリシー等の文書ページ --- */
