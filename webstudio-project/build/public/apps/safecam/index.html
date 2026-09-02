@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SafeCam — 映像を建物の外に出さない、室内向け監視カメラ | 一般社団法人サーコミュニケーション</title>
-<meta name="description" content="市販の安価なネットワークカメラを使いながら、映像をLANの中だけで完結させる室内向けの監視カメラの仕組みです。クラウドを経由せず、連続録画と遠隔視聴に対応。1拠点あたり2万円前後から導入できます。">
+<meta name="description" content="市販の安価なネットワークカメラを使いながら、映像をLANの中だけで完結させる室内向けの監視カメラの仕組みです。クラウドを経由せず、連続録画と遠隔視聴に対応。台数を選ぶだけで総額が分かる見積りを掲載しています。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://surc.online/apps/safecam/">
 <meta property="og:type" content="website">
@@ -50,7 +50,7 @@
     </div>
     <div class="btn-row" style="margin-top:1.6rem">
       <a href="/#contact" class="btn btn-primary">導入を相談する</a>
-      <a href="#how" class="btn btn-ghost">仕組みを見る</a>
+      <a href="#estimate" class="btn btn-ghost">費用を計算する</a>
     </div>
   </div>
 </header>
@@ -114,25 +114,73 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="estimate">
     <div class="wrap">
-      <h2>費用の目安</h2>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr><th scope="col">構成</th><th scope="col">初期費用の目安</th><th scope="col">ランニング</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>1拠点・カメラ1台</td><td>約17,000円前後</td><td>電気代のみ（月100円前後）</td></tr>
-            <tr><td>2拠点・カメラ各1台</td><td>約33,000〜35,000円</td><td>電気代のみ（月100〜180円程度）</td></tr>
-            <tr><td>カメラ増設</td><td>1台あたり4,000円前後から</td><td>変わりません</td></tr>
-          </tbody>
-        </table>
+      <h2>費用は、その場で分かります</h2>
+      <p style="color:var(--muted);font-size:0.94rem">
+        「見積もりを取らないと分からない」という状態をなくしました。
+        必要なものは<strong>録画機・電源類・ソフトウェア・カメラ</strong>の4つだけで、
+        変わるのは<strong>カメラを何台にするか</strong>だけです。
+        台数を選べば、その場で総額が出ます。
+      </p>
+
+      <div class="est" id="est"
+           data-pi-min="10000" data-pi-max="12000"
+           data-power="5000" data-soft="20000" data-cam="4500">
+        <div class="est-controls">
+          <div class="est-field">
+            <span class="est-label" id="est-count-label">カメラの台数</span>
+            <div class="est-stepper" role="group" aria-labelledby="est-count-label">
+              <button type="button" class="est-btn" data-est-step="-1" aria-label="1台減らす">−</button>
+              <input type="number" id="est-count" value="1" min="1" max="8" step="1" inputmode="numeric" aria-label="カメラの台数">
+              <button type="button" class="est-btn" data-est-step="1" aria-label="1台増やす">＋</button>
+              <span class="est-unit">台</span>
+            </div>
+          </div>
+
+          <fieldset class="est-field est-fieldset">
+            <legend class="est-label">カメラの手配</legend>
+            <label class="est-radio">
+              <input type="radio" name="est-cam" value="ours" checked>
+              <span>こちらで用意する<em>4,500円 ／ 台</em></span>
+            </label>
+            <label class="est-radio">
+              <input type="radio" name="est-cam" value="yours">
+              <span>ご自身で用意する<em>0円（対応機種をご案内します）</em></span>
+            </label>
+          </fieldset>
+        </div>
+
+        <div class="table-scroll">
+          <table class="est-table">
+            <tbody>
+              <tr><th scope="row">録画機（Raspberry Pi）</th><td>10,000〜12,000円</td></tr>
+              <tr><th scope="row">電源・ケーブル類</th><td>5,000円</td></tr>
+              <tr><th scope="row">SafeCam ソフトウェア</th><td>20,000円</td></tr>
+              <tr><th scope="row">カメラ <span class="est-sub" data-est="camline">1台 × 4,500円</span></th><td data-est="cam">4,500円</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><th scope="row">合計（1拠点・概算）</th><td data-est="total" aria-live="polite">39,500〜41,500円</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <p class="est-run">
+          このあとかかるのは<strong>電気代だけ</strong>です（月100円前後）。
+          月額の利用料も、映像の保管料もありません。
+        </p>
+
+        <div class="btn-row">
+          <a href="/#contact" class="btn btn-primary">この構成で相談する</a>
+          <button type="button" class="btn btn-ghost" data-est="copy">見積内容をコピー</button>
+        </div>
       </div>
+
       <p style="color:var(--muted);font-size:0.9rem">
-        内訳は、市販の室内用ネットワークカメラ・録画用の小型コンピューター・記録用メディア・電源類です。
-        <strong>月額の利用料はかかりません。</strong>クラウドに映像を置かないため、保管料という概念自体がありません。
-        価格は在庫や為替で変動するため、あくまで目安としてご覧ください（金額は2026年時点の市販価格に基づく概算です）。
+        録画機に幅があるのは、設置環境によって必要な性能が変わるためです（カメラが少なければ安い機種で足ります）。
+        カメラをご自身で用意される場合は、対応する機種と設定手順をお伝えします。
+        <strong>2拠点以上をご希望の場合</strong>は、拠点ごとに録画機と電源類が必要になりますので、個別にお見積りします。
+        上記は概算です。正式なお見積りは、設置環境をうかがったうえでお出しします。
       </p>
     </div>
   </section>
@@ -171,7 +219,7 @@
       <p class="callout">
         安価な家庭用カメラのほとんどは <strong>②</strong> です。
         つまり「高いカメラを買わないと安全にならない」わけではありません。
-        3,000〜4,000円台の製品でも、選び方と設定次第でLAN内に閉じ込められます。
+        4,000〜5,000円程度の製品でも、選び方と設定次第でLAN内に閉じ込められます。
       </p>
     </div>
   </section>
