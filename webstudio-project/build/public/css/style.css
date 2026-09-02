@@ -773,6 +773,68 @@ body {
 }
 
 /* --- Case Study --- */
+/* --- 内製化支援（サービス欄の横一枚ブロック） ---
+   3カラムの .service-card とは性格が違うため、グリッドの外に置いて
+   アクセント色の縁で区別する。 */
+.service-inhouse {
+    padding: 3rem 2.5rem;
+    margin-bottom: 4rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--accent);
+    box-shadow: var(--shadow-card);
+}
+
+.service-inhouse-badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    background: var(--accent-light);
+    border-radius: 999px;
+    margin-bottom: 1rem;
+}
+
+.service-inhouse h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.service-inhouse-lead {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+}
+
+.service-inhouse-lead a { color: var(--primary); text-decoration: underline; }
+
+.service-inhouse-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 3rem;
+    margin-bottom: 2rem;
+}
+
+.service-inhouse-cols h4 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .service-inhouse { padding: 2rem 1.5rem; }
+    .service-inhouse h3 { font-size: 1.25rem; }
+    .service-inhouse-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
 .case-study {
     background: var(--white);
     border-radius: var(--radius);
