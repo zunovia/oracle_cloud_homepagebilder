@@ -57,6 +57,26 @@
 </header>
 
 <main>
+  <!-- 紹介動画。クリックされるまで iframe を作らないファサード方式（apps.js）。 -->
+  <section class="section">
+    <div class="wrap">
+      <h2>動画で見る</h2>
+      <div class="video-wide">
+        <button type="button" class="video-facade"
+                data-yt-video="EchhK0dt704"
+                data-yt-title="【無料】相手の声が字幕に、自分の文字が声になる｜音声バリアフリーアプリ KoeApp"
+                aria-label="Cotextの紹介動画を再生する">
+          <span class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 68 48" width="60" height="42"><path d="M66.5 7.7a8.6 8.6 0 0 0-6-6.1C55.2 0 34 0 34 0S12.8 0 7.5 1.6a8.6 8.6 0 0 0-6 6.1C0 13 0 24 0 24s0 11 1.5 16.3a8.6 8.6 0 0 0 6 6.1C12.8 48 34 48 34 48s21.2 0 26.5-1.6a8.6 8.6 0 0 0 6-6.1C68 35 68 24 68 24s0-11-1.5-16.3z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+          </span>
+          <span class="video-facade-label">紹介動画を再生</span>
+          <span class="video-facade-note">クリックするとYouTubeの<br>再生プレーヤーを読み込みます</span>
+        </button>
+      </div>
+      <p class="video-note">【無料】相手の声が字幕に、自分の文字が声になる｜音声バリアフリーアプリ KoeApp</p>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap">
       <h2>できること</h2>
@@ -135,6 +155,8 @@
     <p class="copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
   </div>
 </footer>
+
+<script src="/apps/apps.js" defer></script>
 
 </body>
 </html>
