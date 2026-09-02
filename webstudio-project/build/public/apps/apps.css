@@ -500,7 +500,7 @@ th { background: var(--brand-tint); color: var(--brand-dark); font-weight: 700; 
 .est-radio input { margin-top: 0.35rem; flex-shrink: 0; accent-color: var(--brand); }
 .est-radio em { display: block; font-style: normal; font-size: 0.8rem; color: var(--faint); }
 
-.est-table { width: 100%; border-collapse: collapse; }
+.est-table { width: 100%; table-layout: fixed; border-collapse: collapse; }
 
 .est-table th,
 .est-table td {
@@ -536,7 +536,9 @@ th { background: var(--brand-tint); color: var(--brand-dark); font-weight: 700; 
 @media (max-width: 640px) {
     .est { padding: 1.2rem; }
     .est-controls { grid-template-columns: 1fr; gap: 1.2rem; }
-    .est-table tfoot td { font-size: 1.15rem; }
+    .est-table th { font-size: 0.85rem; }
+    .est-table td { font-size: 0.88rem; }
+    .est-table tfoot td { font-size: 1.1rem; }
 }
 
 /* --- 情報カード / 注記 --- */
