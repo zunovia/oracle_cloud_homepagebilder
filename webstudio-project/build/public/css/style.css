@@ -829,6 +829,38 @@ body {
     margin-bottom: 0.8rem;
 }
 
+.service-inhouse-price {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background: var(--light);
+    border-radius: var(--radius-sm);
+}
+
+.service-inhouse-price-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.service-inhouse-price-amount {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--dark);
+    line-height: 1.2;
+}
+
+.service-inhouse-price-unit { font-size: 0.95rem; font-weight: 700; }
+
+.service-inhouse-price-note {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
 @media (max-width: 768px) {
     .service-inhouse { padding: 2rem 1.5rem; }
     .service-inhouse h3 { font-size: 1.25rem; }
