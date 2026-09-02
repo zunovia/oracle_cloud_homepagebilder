@@ -47,6 +47,15 @@
     --header-bg: #17233A;
 }
 
+/* Voice to Text: アイコンのブルー（Windowsアプリ） */
+.theme-v2t {
+    --brand: #1B6FC4;
+    --brand-dark: #145196;
+    --brand-tint: #E8F1FB;
+    --brand-ink: #FFFFFF;
+    --header-bg: #1B2735;
+}
+
 /* CamTally: ミントグリーン × ネイビー（アプリ内テーマと同一） */
 .theme-camtally {
     --brand: #12805A;
@@ -128,6 +137,9 @@ a:hover { color: var(--brand-dark); }
 
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 .narrow { max-width: 760px; }
+/* アプリ一覧はカードが7枚あり、940px幅だと3列で最後の1枚が余る。
+   この節だけ広げて4列（4+3）に収める。 */
+.wrap-wide { max-width: 1240px; }
 
 /* --- トップバー（コーポレートサイトへの導線） --- */
 .topbar {
