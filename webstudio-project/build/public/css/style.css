@@ -1870,9 +1870,10 @@ body.menu-open {
         padding: 0.8rem 2rem;
     }
 
-    /* タブレット帯(769-1024px): メニュー項目が増えたため余白・文字を詰めて1行に収める */
+    /* タブレット帯(769-1024px): メニュー項目が増えたため余白・文字を詰めて1行に収める。
+       項目9個（「ツール」追加後）でも、ロゴと接触しない余白を確保する。 */
     .nav-links {
-        gap: 1.3rem;
+        gap: 1rem;
     }
 
     .nav-links a {
@@ -1905,7 +1906,10 @@ body.menu-open {
     }
 }
 
-@media (max-width: 768px) {
+/* --- ナビゲーションのみ 900px で切り替える ---
+   項目が9個あり、769-900px帯では横並びだとロゴと接触するほど詰まる。
+   本文レイアウトは従来どおり768pxのままにし、ナビだけ先にハンバーガーへ移行する。 */
+@media (max-width: 900px) {
     .hamburger {
         display: flex;
     }
@@ -1936,6 +1940,9 @@ body.menu-open {
         letter-spacing: 2px;
     }
 
+}
+
+@media (max-width: 768px) {
     .hero h1 {
         font-size: clamp(1.6rem, 5vw, 2.5rem);
     }
