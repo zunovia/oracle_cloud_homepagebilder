@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>紙芝居動画ジェネレーター — 台本と画像から、ナレーション付き動画を自動生成 | 一般社団法人サーコミュニケーション</title>
+<meta name="description" content="Markdownの台本とスライド画像を用意するだけで、ナレーション付きのMP4動画を自動生成するWindows用ツール。研修資料や説明動画の作成を効率化します。GitHubから無料で入手できます。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://surc.online/apps/kamishibai-video/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="紙芝居動画ジェネレーター — 台本と画像から、ナレーション付き動画を自動生成">
+<meta property="og:description" content="Markdown台本＋スライド画像 → ナレーション付きMP4。Windows用の無料ツールです。">
+<meta property="og:url" content="https://surc.online/apps/kamishibai-video/">
+<link rel="icon" href="/images/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/apps/apps.css">
+</head>
+<body class="theme-kamishibai">
+
+<nav class="topbar" aria-label="パンくず">
+  <div class="wrap">
+    <a href="/" class="topbar-brand">Sur Communication</a>
+    <ol class="crumbs">
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/apps/">アプリ</a></li>
+      <li><span aria-current="page">紙芝居動画ジェネレーター</span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Windows Tool</span>
+    <h1>台本と画像を用意するだけ。<br>ナレーション付きの動画ができる。</h1>
+    <p class="lede">
+      Markdownで書いた台本と、スライド画像を並べておく。それだけで、
+      <strong>読み上げ音声つきのMP4動画が自動で組み上がります。</strong>
+      研修資料や手順の説明を動画にしたいけれど、編集ソフトを覚える時間がない——
+      そんな場面のために作ったツールです。
+    </p>
+    <div class="badges" style="margin-top:1.4rem">
+      <span class="badge">Windows</span>
+      <span class="badge">ブラウザで操作</span>
+      <span class="badge badge-quiet">無料・オープンソース</span>
+    </div>
+    <div class="btn-row" style="margin-top:1.6rem">
+      <a href="https://github.com/zunovia/kamishibai-video-generator" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub で入手</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <h2>使い方は4ステップ</h2>
+      <ul class="feature-list">
+        <li><strong>1. セットアップ</strong> — <code>install.bat</code> をダブルクリック。Python・FFmpegの確認から、必要なパッケージの導入までを自動で行います。<strong>初回だけ</strong>の作業です。</li>
+        <li><strong>2. 起動</strong> — <code>start.bat</code> をダブルクリックすると、ブラウザが開いて操作画面が表示されます。コマンド入力は不要です。</li>
+        <li><strong>3. 素材を置く</strong> — 台本を <code>input/script.md</code> に書き、スライド画像を <code>input/images/</code> にファイル名順で並べます。</li>
+        <li><strong>4. 生成</strong> — ブラウザ上で「動画生成」を押すと、完成した動画が <code>output/</code> に出力されます。</li>
+      </ul>
+      <p class="callout">黒い画面（コマンドプロンプト）を触る必要はありません。バッチファイルのダブルクリックと、ブラウザ操作だけで完結します。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>こんな場面に</h2>
+      <ul class="feature-list">
+        <li>社内研修や手順書を、読むものから<strong>見るもの</strong>に変えたいとき</li>
+        <li>スライドは作ったが、ナレーションを録る時間が取れないとき</li>
+        <li>内容を更新するたびに、動画を作り直す必要があるとき（台本を直して再生成するだけで済みます）</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>必要なもの</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">必要なもの</th><th scope="col">用途</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Windows</td><td>動作環境</td></tr>
+            <tr><td>Python 3.10以上</td><td>アプリの実行環境</td></tr>
+            <tr><td>FFmpeg</td><td>動画と音声の結合処理</td></tr>
+            <tr><td>Google Cloud TTS のAPIキー</td><td>音声合成（Google TTSを使う場合）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem">
+        Python と FFmpeg は <code>install.bat</code> が有無を確認して案内します。
+        音声合成に外部サービスを使うため、<strong>台本のテキストはそのサービスへ送信されます</strong>。
+        機密性の高い内容を扱う場合はご留意ください。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>情報</h2>
+      <div class="card">
+        <ul class="meta-list">
+          <li><span class="k">名称</span><span class="v">紙芝居動画ジェネレーター</span></li>
+          <li><span class="k">対応OS</span><span class="v">Windows</span></li>
+          <li><span class="k">価格</span><span class="v">無料（音声合成のAPI利用料は別途）</span></li>
+          <li><span class="k">ソースコード</span><span class="v"><a href="https://github.com/zunovia/kamishibai-video-generator" target="_blank" rel="noopener noreferrer">github.com/zunovia/kamishibai-video-generator</a></span></li>
+          <li><span class="k">開発元</span><span class="v">一般社団法人サーコミュニケーション</span></li>
+          <li><span class="k">所在地</span><span class="v">名古屋市東区代官町39-18 5階</span></li>
+          <li><span class="k">お問い合わせ</span><span class="v"><a href="mailto:info@surc.online">info@surc.online</a></span></li>
+        </ul>
+        <div class="btn-row" style="margin-top:1.5rem">
+          <a href="https://github.com/zunovia/kamishibai-video-generator" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub で入手</a>
+          <a href="/apps/" class="btn btn-ghost">アプリ一覧へ戻る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="dev-name">一般社団法人サーコミュニケーション</p>
+    <p>名古屋市東区代官町39-18 5階</p>
+    <ul class="foot-links">
+      <li><a href="/">法人サイト</a></li>
+      <li><a href="/apps/">アプリ一覧</a></li>
+      <li><a href="https://github.com/zunovia/kamishibai-video-generator" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="mailto:info@surc.online">お問い合わせ</a></li>
+    </ul>
+    <p class="copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
