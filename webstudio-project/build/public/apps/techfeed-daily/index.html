@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechFeed Daily — 海外のテックニュースを、毎朝日本語で | 一般社団法人サーコミュニケーション</title>
+<meta name="description" content="海外のテックニュースを毎朝自動で収集し、AIが日本語に要約して配信する仕組み。収集から要約、公開までを人手を介さず動かしています。ソースコードはGitHubで公開中。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://surc.online/apps/techfeed-daily/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TechFeed Daily — 海外のテックニュースを、毎朝日本語で">
+<meta property="og:description" content="収集からAI要約、公開までを全自動で。毎朝動き続けている仕組みです。">
+<meta property="og:url" content="https://surc.online/apps/techfeed-daily/">
+<link rel="icon" href="/images/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/apps/apps.css">
+</head>
+<body class="theme-techfeed">
+
+<nav class="topbar" aria-label="パンくず">
+  <div class="wrap">
+    <a href="/" class="topbar-brand">Sur Communication</a>
+    <ol class="crumbs">
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/apps/">アプリ</a></li>
+      <li><span aria-current="page">TechFeed Daily</span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Web Service</span>
+    <h1>海外のテックニュースを、<br>毎朝、日本語で。</h1>
+    <p class="lede">
+      海外の技術記事を自動で集め、AIが日本語に要約し、朝には読める形で並んでいる。
+      <strong>収集から公開まで、人の手が一切入りません。</strong>
+      毎日動き続けている仕組みを、ソースコードごと公開しています。
+    </p>
+    <div class="badges" style="margin-top:1.4rem">
+      <span class="badge">毎朝7時に自動更新</span>
+      <span class="badge">全自動</span>
+      <span class="badge badge-quiet">Webサービス ／ オープンソース</span>
+    </div>
+    <div class="btn-row" style="margin-top:1.6rem">
+      <a href="https://news.surc.online/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">サイトを見る</a>
+      <a href="https://github.com/zunovia/techfeed-daily" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">ソースコードを見る</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <h2>毎朝、こう動いています</h2>
+      <ul class="feature-list">
+        <li><strong>1. 集める</strong> — 海外の技術メディアから、その日の記事を自動で収集します。</li>
+        <li><strong>2. 要約する</strong> — AIが内容を読み、日本語の要約に変換します。重要度の高いものを選び出します。</li>
+        <li><strong>3. 公開する</strong> — サイトに反映し、RSSでも配信します。ここまでが毎朝、自動で完了します。</li>
+      </ul>
+      <p class="callout">記事は<a href="https://news.surc.online/" target="_blank" rel="noopener noreferrer">news.surc.online</a> で読めます。RSSリーダーをお使いの方は <a href="https://news.surc.online/rss" target="_blank" rel="noopener noreferrer">news.surc.online/rss</a> をご登録ください。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>なぜ公開しているか</h2>
+      <p style="color:var(--muted);font-size:0.94rem">
+        当法人は「4Mを変えず、業務のすき間にAIを挟む」という考え方で業務改善を行っています。
+        この仕組みは、その考え方を<strong>自分たちの業務で実際にやってみた結果</strong>です。
+      </p>
+      <p style="color:var(--muted);font-size:0.94rem">
+        毎朝の情報収集という、やめるわけにはいかないが時間も取られる作業を、
+        人の判断が要る部分だけ残して自動化しました。
+        <strong>提案するだけでなく、自分たちで動かし続けている</strong>ことをお示しするために公開しています。
+      </p>
+      <div class="btn-row" style="margin-top:1.4rem">
+        <a href="/#contact" class="btn btn-ghost">同じような仕組みを相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>技術構成</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">役割</th><th scope="col">内容</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>収集・要約・公開</td><td>TypeScript のモノレポ（collector／summarizer／publisher／worker／shared）</td></tr>
+            <tr><td>実行基盤</td><td>Cloudflare Workers ＋ D1（データベース）＋ KV</td></tr>
+            <tr><td>要約</td><td>Claude（Anthropic）</td></tr>
+            <tr><td>定時実行</td><td>GitHub Actions（毎日の自動実行・デプロイ）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem">
+        サーバーを常時起動せず、必要なときだけ動く構成にしています。
+        個人や小さな組織でも維持できる運用コストに収まる設計です。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>情報</h2>
+      <div class="card">
+        <ul class="meta-list">
+          <li><span class="k">名称</span><span class="v">TechFeed Daily</span></li>
+          <li><span class="k">形態</span><span class="v">Webサービス（無料・登録不要）</span></li>
+          <li><span class="k">サイト</span><span class="v"><a href="https://news.surc.online/" target="_blank" rel="noopener noreferrer">news.surc.online</a></span></li>
+          <li><span class="k">RSS</span><span class="v"><a href="https://news.surc.online/rss" target="_blank" rel="noopener noreferrer">news.surc.online/rss</a></span></li>
+          <li><span class="k">ソースコード</span><span class="v"><a href="https://github.com/zunovia/techfeed-daily" target="_blank" rel="noopener noreferrer">github.com/zunovia/techfeed-daily</a></span></li>
+          <li><span class="k">運営</span><span class="v">一般社団法人サーコミュニケーション</span></li>
+          <li><span class="k">所在地</span><span class="v">名古屋市東区代官町39-18 5階</span></li>
+          <li><span class="k">お問い合わせ</span><span class="v"><a href="mailto:info@surc.online">info@surc.online</a></span></li>
+        </ul>
+        <div class="btn-row" style="margin-top:1.5rem">
+          <a href="https://news.surc.online/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">サイトを見る</a>
+          <a href="/apps/" class="btn btn-ghost">アプリ一覧へ戻る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="dev-name">一般社団法人サーコミュニケーション</p>
+    <p>名古屋市東区代官町39-18 5階</p>
+    <ul class="foot-links">
+      <li><a href="/">法人サイト</a></li>
+      <li><a href="/apps/">アプリ一覧</a></li>
+      <li><a href="https://news.surc.online/" target="_blank" rel="noopener noreferrer">TechFeed Daily</a></li>
+      <li><a href="mailto:info@surc.online">お問い合わせ</a></li>
+    </ul>
+    <p class="copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

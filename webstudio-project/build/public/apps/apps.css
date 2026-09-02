@@ -47,6 +47,24 @@
     --header-bg: #17233A;
 }
 
+/* 紙芝居動画ジェネレーター: 動画制作らしい紫 */
+.theme-kamishibai {
+    --brand: #7040B0;
+    --brand-dark: #542F87;
+    --brand-tint: #F0EAF9;
+    --brand-ink: #FFFFFF;
+    --header-bg: #241A33;
+}
+
+/* TechFeed Daily: 情報配信らしいティール */
+.theme-techfeed {
+    --brand: #0C7A78;
+    --brand-dark: #085B59;
+    --brand-tint: #E4F4F3;
+    --brand-ink: #FFFFFF;
+    --header-bg: #10292C;
+}
+
 /* Voice to Text: アイコンのブルー（Windowsアプリ） */
 .theme-v2t {
     --brand: #1B6FC4;
@@ -137,9 +155,6 @@ a:hover { color: var(--brand-dark); }
 
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 .narrow { max-width: 760px; }
-/* アプリ一覧はカードが7枚あり、940px幅だと3列で最後の1枚が余る。
-   この節だけ広げて4列（4+3）に収める。 */
-.wrap-wide { max-width: 1240px; }
 
 /* --- トップバー（コーポレートサイトへの導線） --- */
 .topbar {
@@ -224,8 +239,9 @@ a:hover { color: var(--brand-dark); }
 }
 
 /* --- アプリ一覧カード --- */
-/* アプリ数5件。デスクトップは3列（3+2）で最終行に2枚残る形が最も収まりが良い。
-   件数が変わったら最小幅を調整する（4件なら340pxで2×2になる）。 */
+/* デスクトップは3列。カード9枚で 3+3+3 に収まる。
+   件数が変わって最終行に1枚だけ余るようになったら、
+   minmax の最小幅か .wrap の最大幅で列数を調整すること。 */
 .app-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
