@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeCam — 映像を建物の外に出さない、室内向け監視カメラ | 一般社団法人サーコミュニケーション</title>
+<meta name="description" content="市販の安価なネットワークカメラを使いながら、映像をLANの中だけで完結させる室内向けの監視カメラの仕組みです。クラウドを経由せず、連続録画と遠隔視聴に対応。1拠点あたり2万円前後から導入できます。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://surc.online/apps/safecam/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SafeCam — 映像を建物の外に出さない、室内向け監視カメラ">
+<meta property="og:description" content="市販の安価なカメラを使いながら、映像をLANの中だけで完結させる。室内向けの監視カメラの仕組みです。">
+<meta property="og:url" content="https://surc.online/apps/safecam/">
+<link rel="icon" href="/images/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/apps/apps.css">
+</head>
+<body class="theme-safecam">
+
+<nav class="topbar" aria-label="パンくず">
+  <div class="wrap">
+    <a href="/" class="topbar-brand">Sur Communication</a>
+    <ol class="crumbs">
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/apps/">アプリ</a></li>
+      <li><span aria-current="page">SafeCam</span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Security ／ 個別導入</span>
+    <h1>その映像は、<br>どこを通っていますか。</h1>
+    <p class="lede">
+      市販のネットワークカメラの多くは、映像をいったんメーカーのクラウドに預け、そこを経由してスマホに届けます。
+      設置が簡単な代わりに、<strong>映像は自分の建物の外を通ります。</strong>
+      SafeCam は、その経路そのものを作り替える仕組みです。
+      安価な市販カメラをそのまま使いながら、映像をLANの中だけで完結させ、
+      カメラからインターネットへの出口を塞ぎます。
+    </p>
+    <div class="badges" style="margin-top:1.4rem">
+      <span class="badge">映像はLAN内で完結</span>
+      <span class="badge">連続録画</span>
+      <span class="badge">遠隔視聴に対応</span>
+      <span class="badge badge-quiet">室内向け ／ 個別導入</span>
+    </div>
+    <div class="btn-row" style="margin-top:1.6rem">
+      <a href="/#contact" class="btn btn-primary">導入を相談する</a>
+      <a href="#how" class="btn btn-ghost">仕組みを見る</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <h2>まずは動画で</h2>
+      <div class="video-wide">
+        <button type="button" class="video-facade"
+                data-yt-video="IyqqQKt6JnE"
+                data-yt-title="あなたの防犯カメラ、誰が見てる？ 映像を家の外に出さない自作カメラ【SafeCam #1】"
+                aria-label="SafeCam の紹介動画を再生する">
+          <span class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 68 48" width="60" height="42"><path d="M66.5 7.7a8.6 8.6 0 0 0-6-6.1C55.2 0 34 0 34 0S12.8 0 7.5 1.6a8.6 8.6 0 0 0-6 6.1C0 13 0 24 0 24s0 11 1.5 16.3a8.6 8.6 0 0 0 6 6.1C12.8 48 34 48 34 48s21.2 0 26.5-1.6a8.6 8.6 0 0 0 6-6.1C68 35 68 24 68 24s0-11-1.5-16.3z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+          </span>
+          <span class="video-facade-label">紹介動画を再生</span>
+          <span class="video-facade-note">クリックするとYouTubeの<br>再生プレーヤーを読み込みます</span>
+        </button>
+      </div>
+      <p class="video-note">あなたの防犯カメラ、誰が見てる？ 映像を家の外に出さない自作カメラ【SafeCam #1】</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>問題は「どこの製品か」ではなく「どこを通るか」</h2>
+      <p style="color:var(--muted);font-size:0.94rem">
+        カメラの安全性は、メーカーの国籍で決まるものではありません。
+        決めているのは<strong>映像がどの経路を通るか</strong>、ただそれだけです。
+        同じメーカーの製品でも、クラウド経由でしか見られない機種と、
+        設定次第でLAN内だけで完結する機種があります。
+      </p>
+      <p style="color:var(--muted);font-size:0.94rem">
+        そして経路を確かめるための判断材料は、たった2つしかありません。
+      </p>
+      <ul class="feature-list">
+        <li><strong>1. カメラから直接、映像を受け取れるか</strong> — RTSP / ONVIF という業界標準に対応していれば、メーカーのアプリを介さずに映像を取り出せます。</li>
+        <li><strong>2. インターネットを切っても動くか</strong> — 外部との通信を止めた状態で映像が映り続けるなら、その映像は外に出ていないと確認できます。</li>
+      </ul>
+      <p class="callout">
+        SafeCam は、この2つを満たすカメラを選び、
+        <strong>「実際にインターネットを遮断した状態で運用する」</strong>ところまでを含めた構成です。
+        設定の話で終わらせず、通信経路そのものを塞ぎます。
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <h2>SafeCam がやっている4つのこと</h2>
+      <ul class="feature-list">
+        <li><strong>ローカル視聴</strong> — スマホのアプリがカメラへ直接つなぎ、映像を表示します。メーカーのクラウドもアカウントも経由しません。カメラの向き（PTZ）の操作も同じ経路で行います。</li>
+        <li><strong>連続録画</strong> — 手のひらサイズの小型コンピューターを1台置き、24時間の映像を保存し続けます。古いものから自動的に消える方式なので、容量の管理も要りません。</li>
+        <li><strong>遠隔視聴</strong> — 外出先から見たい場合は、その拠点のネットワークに暗号化された経路で入り、あらためて「LANの中から」映像を見ます。映像をインターネット上のサーバーに置くことはありません。</li>
+        <li><strong>インターネット遮断</strong> — カメラが外部と通信しようとしても届かないよう、ネットワーク側で出口を塞ぎます。カメラ本体の設定に頼らず、<strong>物理的な経路として遮断する</strong>のが要点です。</li>
+      </ul>
+      <p style="color:var(--muted);font-size:0.9rem">
+        カメラそのものは市販品をそのまま使います。特別な機材を購入していただく必要はありません。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>費用の目安</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">構成</th><th scope="col">初期費用の目安</th><th scope="col">ランニング</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1拠点・カメラ1台</td><td>約17,000円前後</td><td>電気代のみ（月100円前後）</td></tr>
+            <tr><td>2拠点・カメラ各1台</td><td>約33,000〜35,000円</td><td>電気代のみ（月100〜180円程度）</td></tr>
+            <tr><td>カメラ増設</td><td>1台あたり4,000円前後から</td><td>変わりません</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem">
+        内訳は、市販の室内用ネットワークカメラ・録画用の小型コンピューター・記録用メディア・電源類です。
+        <strong>月額の利用料はかかりません。</strong>クラウドに映像を置かないため、保管料という概念自体がありません。
+        価格は在庫や為替で変動するため、あくまで目安としてご覧ください（金額は2026年時点の市販価格に基づく概算です）。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>カメラは3種類に分かれます</h2>
+      <p style="color:var(--muted);font-size:0.94rem">
+        購入前に見分けがつくよう、クラウドからどれだけ独立できるかで整理しています。
+        SafeCam で使えるのは ② と ③ です。
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">種類</th><th scope="col">特徴</th><th scope="col">SafeCam</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>① クラウド専用</td>
+              <td>RTSP / ONVIF に対応せず、メーカーのアプリでしか映像が見られない。ネットを切ると映らなくなる</td>
+              <td>使えません</td>
+            </tr>
+            <tr>
+              <td>② ハイブリッド</td>
+              <td>出荷時はクラウド前提だが、設定で RTSP / ONVIF を有効化できる。初期設定のときだけネットが必要</td>
+              <td>主にこの種類を使います</td>
+            </tr>
+            <tr>
+              <td>③ 標準対応機</td>
+              <td>最初から RTSP / ONVIF が有効。業務用に多く、価格は高め</td>
+              <td>最も素直に使えます</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="callout">
+        安価な家庭用カメラのほとんどは <strong>②</strong> です。
+        つまり「高いカメラを買わないと安全にならない」わけではありません。
+        3,000〜4,000円台の製品でも、選び方と設定次第でLAN内に閉じ込められます。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>向いている場面／向いていない場面</h2>
+      <ul class="feature-list">
+        <li><strong>向いている</strong> — 事務所・作業場・倉庫・自宅など、<strong>室内</strong>の見守り。図面や試作品、個人情報を扱う部屋で、映像を外部に預けたくない場合。留守宅やご実家の様子の確認。</li>
+        <li><strong>向いていない</strong> — 屋外の常時監視（防水・夜間性能を含めた設計が別途必要です）。警備会社のような<strong>駆けつけ対応</strong>や24時間の有人監視。証拠能力を厳密に担保する用途。</li>
+      </ul>
+      <p style="color:var(--muted);font-size:0.9rem">
+        なお、人が映る場所にカメラを設置する場合は、撮影範囲の告知や記録の取り扱いについて、
+        設置される側でのご配慮が必要です。運用ルールづくりも含めてご相談いただけます。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>情報</h2>
+      <div class="card">
+        <ul class="meta-list">
+          <li><span class="k">名称</span><span class="v">SafeCam</span></li>
+          <li><span class="k">形態</span><span class="v">Androidアプリ＋録画用機器の構成一式（<strong>一般公開はしていません</strong>）</span></li>
+          <li><span class="k">対象</span><span class="v">室内向け</span></li>
+          <li><span class="k">映像の保管先</span><span class="v">設置先の機器のみ。外部サーバーへは送信しません</span></li>
+          <li><span class="k">提供方法</span><span class="v">個別のご相談・導入支援として承ります</span></li>
+          <li><span class="k">開発元</span><span class="v">一般社団法人サーコミュニケーション</span></li>
+          <li><span class="k">所在地</span><span class="v">名古屋市東区代官町39-18 5階</span></li>
+          <li><span class="k">お問い合わせ</span><span class="v"><a href="mailto:info@surc.online">info@surc.online</a></span></li>
+        </ul>
+        <p style="color:var(--muted);font-size:0.9rem;margin-top:1.2rem">
+          Google Play では配信していません。設置場所ごとにネットワーク構成が異なるため、
+          現状の環境をうかがったうえで構成をご提案しています。
+          「今あるカメラが使えるか知りたい」だけのご相談でも構いません。
+        </p>
+        <div class="btn-row" style="margin-top:1.5rem">
+          <a href="/#contact" class="btn btn-primary">導入を相談する</a>
+          <a href="/apps/" class="btn btn-ghost">アプリ一覧へ戻る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="dev-name">一般社団法人サーコミュニケーション</p>
+    <p>名古屋市東区代官町39-18 5階</p>
+    <ul class="foot-links">
+      <li><a href="/">法人サイト</a></li>
+      <li><a href="/apps/">アプリ一覧</a></li>
+      <li><a href="/#contact">お問い合わせ</a></li>
+      <li><a href="mailto:info@surc.online">info@surc.online</a></li>
+    </ul>
+    <p class="copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="/apps/apps.js" defer></script>
+</body>
+</html>
