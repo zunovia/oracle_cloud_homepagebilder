@@ -56,6 +56,15 @@
     --header-bg: #241A33;
 }
 
+/* SafeCam: 監視・防犯らしい落ち着いた紺 */
+.theme-safecam {
+    --brand: #24476B;
+    --brand-dark: #17314B;
+    --brand-tint: #E7EEF5;
+    --brand-ink: #FFFFFF;
+    --header-bg: #101E2E;
+}
+
 /* TechFeed Daily: 情報配信らしいティール */
 .theme-techfeed {
     --brand: #0C7A78;
@@ -239,8 +248,8 @@ a:hover { color: var(--brand-dark); }
 }
 
 /* --- アプリ一覧カード --- */
-/* デスクトップは3列。カード9枚で 3+3+3 に収まる。
-   件数が変わって最終行に1枚だけ余るようになったら、
+/* デスクトップは3列。カード10枚で 3+3+3+1 になる。
+   最終行に1枚だけ残るのが気になるようになったら、
    minmax の最小幅か .wrap の最大幅で列数を調整すること。 */
 .app-grid {
     display: grid;

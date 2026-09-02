@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "surcommunication-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["webstudio-project/build/server.js"],
+      "port": 3000
+    }
+  ]
+}
