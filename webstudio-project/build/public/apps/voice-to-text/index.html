@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice to Text — キーを押して話すだけ、どのアプリにも文字が入る | 一般社団法人サーコミュニケーション</title>
+<meta name="description" content="Voice to Text は、ホットキーを押して話すだけで文字起こし＋AI校正されたテキストをカーソル位置に挿入するWindows用の音声入力アプリ。Chrome・Word・VS Code・Slackなどどのアプリでも使えます。GitHubから無料でダウンロードできます。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://surc.online/apps/voice-to-text/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Voice to Text — キーを押して話すだけ、どのアプリにも文字が入る">
+<meta property="og:description" content="Windows用の音声入力アプリ。文字起こし＋AI校正をカーソル位置へ。GitHubから無料でダウンロードできます。">
+<meta property="og:url" content="https://surc.online/apps/voice-to-text/">
+<meta property="og:image" content="https://surc.online/images/apps/voicetotext-icon.png">
+<link rel="icon" href="/images/apps/voicetotext-icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/apps/apps.css">
+</head>
+<body class="theme-v2t">
+
+<nav class="topbar" aria-label="パンくず">
+  <div class="wrap">
+    <a href="/" class="topbar-brand">Sur Communication</a>
+    <ol class="crumbs">
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/apps/">アプリ</a></li>
+      <li><span aria-current="page">Voice to Text</span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="app-hero">
+      <img src="/images/apps/voicetotext-icon.png" alt="Voice to Text アプリアイコン" class="app-icon app-icon-lg" width="92" height="92">
+      <div class="app-hero-body">
+        <span class="eyebrow">Windows App</span>
+        <h1>キーを押して話すだけ。<br>どのアプリにも、文字が入る。</h1>
+        <p class="lede">
+          <strong>F2</strong> を押して話し、もう一度押す。それだけで、文字起こしとAI校正を終えたテキストが
+          <strong>カーソルのある場所にそのまま入ります。</strong>
+          Chrome・Word・VS Code・Slack など、アプリを選びません。
+        </p>
+        <div class="badges" style="margin-top:1.4rem">
+          <span class="badge">Windows</span>
+          <span class="badge">どのアプリでも使える</span>
+          <span class="badge">約0.3〜0.5秒</span>
+          <span class="badge badge-quiet">無料・オープンソース</span>
+        </div>
+        <div class="btn-row" style="margin-top:1.6rem">
+          <a href="https://github.com/zunovia/voice_to_text_01/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub からダウンロード</a>
+          <a href="https://github.com/zunovia/voice_to_text_01" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">ソースコードを見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- 紹介動画。クリックされるまで iframe を作らないファサード方式（apps.js）。 -->
+  <section class="section">
+    <div class="wrap">
+      <h2>動画で見る</h2>
+      <div class="video-wide">
+        <button type="button" class="video-facade"
+                data-yt-video="eUoQz5glJ44"
+                data-yt-title="高性能音声入力ソフトがほぼ無料で使えます！"
+                aria-label="Voice to Text の紹介動画を再生する">
+          <span class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 68 48" width="60" height="42"><path d="M66.5 7.7a8.6 8.6 0 0 0-6-6.1C55.2 0 34 0 34 0S12.8 0 7.5 1.6a8.6 8.6 0 0 0-6 6.1C0 13 0 24 0 24s0 11 1.5 16.3a8.6 8.6 0 0 0 6 6.1C12.8 48 34 48 34 48s21.2 0 26.5-1.6a8.6 8.6 0 0 0 6-6.1C68 35 68 24 68 24s0-11-1.5-16.3z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+          </span>
+          <span class="video-facade-label">紹介動画を再生</span>
+          <span class="video-facade-note">クリックするとYouTubeの<br>再生プレーヤーを読み込みます</span>
+        </button>
+      </div>
+      <p class="video-note">高性能音声入力ソフトがほぼ無料で使えます！</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>できること</h2>
+      <ul class="feature-list">
+        <li><strong>どのアプリでも使える</strong> — 専用の入力欄はありません。カーソルがある場所に直接入るので、ブラウザでも文書でも、チャットでも同じように使えます。</li>
+        <li><strong>速い</strong> — 変換はおよそ0.3〜0.5秒。マイクは常に待機状態なので、<strong>押した瞬間に録音が始まります</strong>。</li>
+        <li><strong>AI校正</strong> — 句読点をつけ、言い淀みを消し、<strong>文脈から誤変換の漢字も直します</strong>（成形→整形、機械→機会 など）。</li>
+        <li><strong>ユーザー辞書</strong> — よく使う固有名詞や専門用語を登録しておくと、認識の精度が上がります。</li>
+        <li><strong>音声コマンド</strong> — 「エンター」で改行、「まる」で句点、「かぎかっこ」で「」など、声だけで記号が打てます。</li>
+        <li><strong>フローティングボタン</strong> — 画面の隅に小さなボタンが常駐します。クリックでも録音でき、ドラッグで好きな位置へ動かせます。</li>
+        <li><strong>転写履歴</strong> — 直近20件を保存。貼り付けに失敗したときも、履歴からコピーし直せます。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>使い方</h2>
+      <ul class="feature-list">
+        <li><strong>1.</strong> <strong>F2</strong> を押す → 録音が始まります</li>
+        <li><strong>2.</strong> 話す</li>
+        <li><strong>3.</strong> もう一度 <strong>F2</strong> を押す → 文字起こしとAI校正を経て、カーソル位置に挿入されます</li>
+      </ul>
+      <p class="callout">画面右下のボタンをクリックしても、F2 と同じように操作できます。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>導入手順</h2>
+      <ul class="feature-list">
+        <li><strong>1. ダウンロード</strong> — <a href="https://github.com/zunovia/voice_to_text_01/releases/latest" target="_blank" rel="noopener noreferrer">最新リリース</a>から ZIP を取得します。</li>
+        <li><strong>2. 展開して install.bat を実行</strong> — 任意のフォルダに展開し、<code>install.bat</code> をダブルクリック。デスクトップにショートカットが作られます。</li>
+        <li><strong>3. Groq APIキーを入力</strong> — 初回起動時に入力画面が出ます。取得方法は下記のとおりです。</li>
+      </ul>
+      <p class="callout">Windowsの警告（SmartScreen）が出た場合は「詳細情報」→「実行」を選んでください。初回のみです。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Groq APIキーについて（無料・約3分）</h2>
+      <p style="color:var(--muted);font-size:0.94rem">
+        このアプリを使うには、<strong>ご自身で無料のGroq APIキーを取得</strong>していただく必要があります。
+        音声認識と文章校正の処理を Groq のサービスで行うためです。
+      </p>
+      <ul class="feature-list">
+        <li><a href="https://console.groq.com" target="_blank" rel="noopener noreferrer">console.groq.com</a> にアクセス</li>
+        <li>Googleアカウント等でサインアップ（<strong>クレジットカード不要</strong>）</li>
+        <li>左メニューの「API Keys」→「Create API Key」</li>
+        <li>表示されたキーをコピーし、アプリの初回画面に貼り付け</li>
+      </ul>
+      <p class="callout">無料枠は音声認識 2,000回/日、文章校正 14,400回/日です。個人利用であれば実質無料で使えます。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>ご利用にあたって</h2>
+      <p style="color:var(--muted);font-size:0.94rem">
+        音声は文字起こしのため <strong>Groq のサービスへ送信されます</strong>。
+        機密性の高い内容を扱う場合は、この点をご確認のうえご利用ください。
+        APIキーはお使いのPC内にのみ保存され、当法人が取得することはありません。
+      </p>
+      <p style="color:var(--muted);font-size:0.94rem">
+        本アプリは<strong>オープンソース</strong>として公開しています。何をしているかはソースコードで確認できます。
+        不具合のご報告や改善のご提案は、GitHub の Issue または<a href="mailto:info@surc.online">メール</a>でお寄せください。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>アプリ情報</h2>
+      <div class="card">
+        <ul class="meta-list">
+          <li><span class="k">アプリ名</span><span class="v">Voice to Text</span></li>
+          <li><span class="k">対応OS</span><span class="v">Windows</span></li>
+          <li><span class="k">最新版</span><span class="v">v3.1.0（2026年7月31日）</span></li>
+          <li><span class="k">配布</span><span class="v"><a href="https://github.com/zunovia/voice_to_text_01/releases/latest" target="_blank" rel="noopener noreferrer">GitHub Releases</a>（約38MB）</span></li>
+          <li><span class="k">価格</span><span class="v">無料（別途、無料のGroq APIキーが必要）</span></li>
+          <li><span class="k">ソースコード</span><span class="v"><a href="https://github.com/zunovia/voice_to_text_01" target="_blank" rel="noopener noreferrer">github.com/zunovia/voice_to_text_01</a></span></li>
+          <li><span class="k">開発元</span><span class="v">一般社団法人サーコミュニケーション</span></li>
+          <li><span class="k">所在地</span><span class="v">名古屋市東区代官町39-18 5階</span></li>
+          <li><span class="k">お問い合わせ</span><span class="v"><a href="mailto:info@surc.online">info@surc.online</a></span></li>
+        </ul>
+        <div class="btn-row" style="margin-top:1.5rem">
+          <a href="https://github.com/zunovia/voice_to_text_01/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-primary">ダウンロード</a>
+          <a href="/apps/" class="btn btn-ghost">アプリ一覧へ戻る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="dev-name">一般社団法人サーコミュニケーション</p>
+    <p>名古屋市東区代官町39-18 5階</p>
+    <ul class="foot-links">
+      <li><a href="/">法人サイト</a></li>
+      <li><a href="/apps/">アプリ一覧</a></li>
+      <li><a href="https://github.com/zunovia/voice_to_text_01" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="mailto:info@surc.online">お問い合わせ</a></li>
+    </ul>
+    <p class="copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="/apps/apps.js" defer></script>
+
+</body>
+</html>
