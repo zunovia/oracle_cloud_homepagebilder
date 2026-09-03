@@ -773,10 +773,10 @@ body {
 }
 
 /* --- Case Study --- */
-/* --- 内製化支援（サービス欄の横一枚ブロック） ---
+/* --- サービス欄の横一枚ブロック（内製化支援・経理DX伴走支援の2つで共用） ---
    3カラムの .service-card とは性格が違うため、グリッドの外に置いて
    アクセント色の縁で区別する。 */
-.service-inhouse {
+.service-band {
     padding: 3rem 2.5rem;
     margin-bottom: 4rem;
     background: var(--white);
@@ -785,7 +785,7 @@ body {
     box-shadow: var(--shadow-card);
 }
 
-.service-inhouse-badge {
+.service-band-badge {
     display: inline-block;
     padding: 0.35rem 0.9rem;
     font-size: 0.72rem;
@@ -797,7 +797,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.service-inhouse h3 {
+.service-band h3 {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--dark);
@@ -805,23 +805,23 @@ body {
     margin-bottom: 1rem;
 }
 
-.service-inhouse-lead {
+.service-band-lead {
     font-size: 0.95rem;
     color: var(--text-light);
     line-height: 1.9;
     margin-bottom: 2rem;
 }
 
-.service-inhouse-lead a { color: var(--primary); text-decoration: underline; }
+.service-band-lead a { color: var(--primary); text-decoration: underline; }
 
-.service-inhouse-cols {
+.service-band-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem 3rem;
     margin-bottom: 2rem;
 }
 
-.service-inhouse-cols h4 {
+.service-band-cols h4 {
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 1px;
@@ -829,14 +829,14 @@ body {
     margin-bottom: 0.8rem;
 }
 
-.service-inhouse-price {
+.service-band-price {
     padding: 1.5rem;
     margin-bottom: 2rem;
     background: var(--light);
     border-radius: var(--radius-sm);
 }
 
-.service-inhouse-price-label {
+.service-band-price-label {
     display: block;
     font-size: 0.8rem;
     font-weight: 700;
@@ -845,35 +845,35 @@ body {
     margin-bottom: 0.4rem;
 }
 
-.service-inhouse-price-amount {
+.service-band-price-amount {
     font-size: 2rem;
     font-weight: 800;
     color: var(--dark);
     line-height: 1.2;
 }
 
-.service-inhouse-price-unit { font-size: 0.95rem; font-weight: 700; }
+.service-band-price-unit { font-size: 0.95rem; font-weight: 700; }
 
-.service-inhouse-price-note {
+.service-band-price-note {
     margin-top: 0.8rem;
     font-size: 0.85rem;
     line-height: 1.8;
     color: var(--text-light);
 }
 
-.service-inhouse-dl {
+.service-band-dl {
     margin-top: 1.2rem;
     font-size: 0.85rem;
     line-height: 1.9;
     color: var(--text-light);
 }
 
-.service-inhouse-dl a { color: var(--primary); text-decoration: underline; font-weight: 700; }
+.service-band-dl a { color: var(--primary); text-decoration: underline; font-weight: 700; }
 
 @media (max-width: 768px) {
-    .service-inhouse { padding: 2rem 1.5rem; }
-    .service-inhouse h3 { font-size: 1.25rem; }
-    .service-inhouse-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+    .service-band { padding: 2rem 1.5rem; }
+    .service-band h3 { font-size: 1.25rem; }
+    .service-band-cols { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 
 .case-study {

@@ -56,6 +56,15 @@
     --header-bg: #241A33;
 }
 
+/* 経理DX伴走支援: 帳簿らしい落ち着いたブロンズ */
+.theme-keiri {
+    --brand: #7A5F14;
+    --brand-dark: #5C4710;
+    --brand-tint: #F6F1E2;
+    --brand-ink: #FFFFFF;
+    --header-bg: #2B2415;
+}
+
 /* SafeCam: 監視・防犯らしい落ち着いた紺 */
 .theme-safecam {
     --brand: #24476B;
