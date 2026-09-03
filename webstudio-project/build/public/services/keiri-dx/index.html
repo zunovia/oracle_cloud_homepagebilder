@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>経理DX伴走支援 — 経理の入力作業を、Claudeに任せる | 一般社団法人サーコミュニケーション</title>
+<meta name="description" content="手書きの出納帳・銀行CSV・カード明細を、会計ソフトの取込形式に変換するところまでをAIに任せ、人は確認だけをする状態にするまで伴走します。TKC（FXクラウドシリーズ等）に対応。導入1日＋以降は都度リモート、150,000円（税抜）。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://surc.online/services/keiri-dx/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="経理DX伴走支援 — 経理の入力作業を、Claudeに任せる">
+<meta property="og:description" content="打ち込む作業をAIに任せ、人は確認だけに。会社ごとの仕訳のやり方を、月次を回しながら育てていく伴走支援です。">
+<meta property="og:url" content="https://surc.online/services/keiri-dx/">
+<link rel="icon" href="/images/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/apps/apps.css">
+</head>
+<body class="theme-keiri">
+
+<nav class="topbar" aria-label="パンくず">
+  <div class="wrap">
+    <a href="/" class="topbar-brand">Sur Communication</a>
+    <ol class="crumbs">
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/#services">サービス</a></li>
+      <li><span aria-current="page">経理DX伴走支援</span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Accounting ／ 伴走支援</span>
+    <h1>打ち込むのを、やめる。</h1>
+    <p class="lede">
+      手書きの出納帳、銀行のCSV、カードの請求明細。これを人が読んで会計ソフトに打ち込む作業は、
+      月に何十時間もかかります。しかも、間違えれば探すのにさらに時間がかかります。
+      この作業をAIに任せ、<strong>人は確認だけをする状態</strong>にするまでを伴走します。
+    </p>
+    <div class="badges" style="margin-top:1.4rem">
+      <span class="badge">導入は1日</span>
+      <span class="badge">以降は都度リモート</span>
+      <span class="badge">TKC 対応</span>
+      <span class="badge badge-quiet">法人・個人事業主</span>
+    </div>
+    <div class="btn-row" style="margin-top:1.6rem">
+      <a href="/#contact" class="btn btn-primary">導入を相談する</a>
+      <a href="#flow" class="btn btn-ghost">やることを見る</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <h2>まず、自分たちでやっています</h2>
+      <p style="color:var(--muted);font-size:0.94rem">
+        当法人は、自分たちの経理でこれを行っています。
+        手書きの記録と銀行・カードの明細から仕訳データを作り、会計ソフトに取り込むところまでを
+        Claude に指示して進めています。
+      </p>
+      <div class="card" style="margin-top:1.4rem">
+        <ul class="meta-list">
+          <li><span class="k">Before</span><span class="v">月 40時間（手作業での伝票入力・仕分け・チェック）</span></li>
+          <li><span class="k">After</span><span class="v"><strong>月 5時間</strong>（AIによる処理＋最終確認のみ）</span></li>
+          <li><span class="k">削減率</span><span class="v"><strong>87.5%</strong></span></li>
+        </ul>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem">
+        提案するだけでなく、自分たちで毎月動かし続けているやり方を、そのままお伝えします。
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="flow">
+    <div class="wrap">
+      <h2>AIに任せる5つの工程</h2>
+      <ul class="feature-list">
+        <li><strong>1. 読み取る</strong> — 手書きの出納帳、PDF、銀行のCSV、カードの請求明細を読み取ります。手書きも対象です。</li>
+        <li><strong>2. 御社のやり方を覚えさせる</strong> — 過去の確定済み仕訳を読ませ、勘定科目・部門・課税区分・取引先コードの当て方を学習させます。<strong>ここが要点です。</strong></li>
+        <li><strong>3. 取込形式に変換する</strong> — 会計ソフトが読める形に変換します。TKC であれば「他社システム仕訳」の取込ファイルです。</li>
+        <li><strong>4. 取り込む前に検算する</strong> — 日別の残高や件数を突き合わせ、合わない箇所を先に見つけます。取り込んでから気づくと直すのが大変になるためです。</li>
+        <li><strong>5. 迷う行にフラグを立てる</strong> — 判断が必要な行、過去に例のない取引、金額の端数などは自動で確定させず、人に回します。</li>
+      </ul>
+      <p class="callout">
+        <strong>全部を自動にはしません。</strong>
+        判断が必要なところを人に残し、それ以外を消す——という設計にします。
+        全自動をうたう仕組みは、合わなくなったときに直せなくなります。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>なぜ「伴走」なのか</h2>
+      <p style="color:var(--muted);font-size:0.94rem">
+        会計の作業は、会社ごとに違います。勘定科目の使い方、部門の切り方、拠点の呼び方、
+        月末にだけ立てる仕訳、毎年決まって出てくる例外。
+        <strong>これらは会社の中にしか無い知識で、汎用のAIツールには入っていません。</strong>
+      </p>
+      <p style="color:var(--muted);font-size:0.94rem">
+        そこで、御社専用の指示書をAIに持たせます。最初は粗い状態から始まります。
+        1か月目より2か月目、2か月目より3か月目が正確になります。
+        <strong>実際の月次を回しながら、指示書を少しずつ書き足していく</strong>——これが伴走の中身です。
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">時期</th><th scope="col">やること</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>導入（1日）</td><td>環境の準備、現在の作業の分解、最初の指示書の作成。実際のデータで1回通します。</td></tr>
+            <tr><td>1〜3か月目</td><td>毎月の処理を回しながら、外した箇所を指示書に書き足します。都度リモートで対応します。</td></tr>
+            <tr><td>4か月目以降</td><td>ほとんど手が要らなくなります。年に数回の例外だけ、必要に応じてご相談ください。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem">
+        指示書は御社の資産として残ります。担当者が変わっても、書いてあることは引き継がれます。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>対応する会計ソフト</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">ソフト</th><th scope="col">対応状況</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>TKC</strong>（FXクラウドシリーズ 等）</td>
+              <td>実際に運用しています。取込ファイルの作り方から検算まで、詳しくご案内できます。</td>
+            </tr>
+            <tr>
+              <td>その他の会計ソフト</td>
+              <td>やることは同じです（読み取り → 変換 → 検算 → 取込）。<strong>お使いのソフトの取込形式を事前に確認したうえで</strong>お受けします。確認の段階でお断りする場合もあります。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem">
+        「うちのソフトで使えるか知りたい」だけのご相談でも構いません。ソフト名をお知らせください。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>料金</h2>
+      <div class="card">
+        <ul class="meta-list">
+          <li><span class="k">導入支援</span><span class="v"><strong style="font-size:1.35rem;color:var(--brand)">150,000円</strong>（税抜）／ 1日</span></li>
+          <li><span class="k">以降の支援</span><span class="v">都度リモート（範囲はご相談のうえ決めます）</span></li>
+        </ul>
+        <p style="color:var(--muted);font-size:0.9rem;margin-top:1.2rem">
+          <strong>内製化支援と同額です。</strong>次の実費は、お客様のご負担となります。
+        </p>
+        <ul class="feature-list">
+          <li>Claude の利用料（ご契約のプランによります）</li>
+          <li>交通費・通信費などの実費</li>
+        </ul>
+        <div class="btn-row" style="margin-top:1.5rem">
+          <a href="/#contact" class="btn btn-primary">導入を相談する</a>
+          <a href="/apps/#inhouse" class="btn btn-ghost">内製化支援を見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>お受けする前にご確認ください</h2>
+      <ul class="feature-list">
+        <li><strong>本サービスは、AIの使い方をお伝えする支援です。</strong>記帳の代行や、税務に関するご相談はお受けできません（税理士業務にあたるためです）。仕訳内容の最終確認は、貴社および貴社の顧問税理士の責任で行っていただきます。</li>
+        <li><strong>読み取る資料は、AIの処理のために外部へ送信されます。</strong>手書きの記録や明細をAIに読ませるため、その内容は Claude の提供元へ送られます。取り扱いに配慮が必要な資料がある場合は、事前にご相談ください。範囲を分けて運用することもできます。</li>
+        <li><strong>最初から完璧にはなりません。</strong>1か月目は確認の手間が残ります。回数を重ねて精度を上げていく前提でお考えください。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>情報</h2>
+      <div class="card">
+        <ul class="meta-list">
+          <li><span class="k">サービス名</span><span class="v">経理DX伴走支援</span></li>
+          <li><span class="k">対象</span><span class="v">法人・個人事業主</span></li>
+          <li><span class="k">形態</span><span class="v">導入1日（訪問またはリモート）＋以降は都度リモート</span></li>
+          <li><span class="k">対応ソフト</span><span class="v">TKC（詳しく対応）／その他は取込形式の確認後</span></li>
+          <li><span class="k">提供</span><span class="v">一般社団法人サーコミュニケーション</span></li>
+          <li><span class="k">所在地</span><span class="v">名古屋市東区代官町39-18 5階</span></li>
+          <li><span class="k">お問い合わせ</span><span class="v"><a href="mailto:info@surc.online">info@surc.online</a></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="dev-name">一般社団法人サーコミュニケーション</p>
+    <p>名古屋市東区代官町39-18 5階</p>
+    <ul class="foot-links">
+      <li><a href="/">法人サイト</a></li>
+      <li><a href="/#services">サービス</a></li>
+      <li><a href="/apps/">アプリ一覧</a></li>
+      <li><a href="mailto:info@surc.online">お問い合わせ</a></li>
+    </ul>
+    <p class="copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
