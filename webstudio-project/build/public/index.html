@@ -64,8 +64,107 @@
                 <a href="#contact" class="hero-cta hero-cta-primary">無料相談を申し込む</a>
                 <a href="#services" class="hero-cta hero-cta-secondary">サービスを見る</a>
             </div>
-            <div class="drag-hint" aria-hidden="true"><span class="drag-hint-icon">↺</span>ドラッグで3Dを回転</div>
+            <!-- 実演パネル: Claudeに任せている仕事を、動画を使わず自走で見せる。
+                 タイミングはCSS（style.css の .hero-demo 以下）、切替は js/hero-demo.js。
+                 JSが動かない場合は1枚目が完成状態で静止して見える。 -->
+            <div class="hero-demo" id="heroDemo">
+                <div class="hd-chrome">
+                    <span class="hd-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <div class="hd-tabs" role="tablist" aria-label="Claudeに任せている仕事">
+                        <button type="button" class="hd-tab" role="tab" id="hdT1" aria-controls="hdP1" aria-selected="true">アプリをつくる</button>
+                        <button type="button" class="hd-tab" role="tab" id="hdT2" aria-controls="hdP2" aria-selected="false">経理をやる</button>
+                        <button type="button" class="hd-tab" role="tab" id="hdT3" aria-controls="hdP3" aria-selected="false">ニュースを配る</button>
+                    </div>
+                    <span class="hd-live" aria-hidden="true"><i></i>AUTO</span>
+                </div>
+
+                <div class="hd-body">
+                    <!-- 1. アプリをつくる -->
+                    <div class="hd-panel is-active" role="tabpanel" id="hdP1" aria-labelledby="hdT1">
+                        <div>
+                            <p class="hd-you"><span class="hd-who">指示</span><span class="hd-msg">現場の写真から5Sを診断するアプリを作って</span></p>
+                            <ul class="hd-steps">
+                                <li>画面を設計する</li>
+                                <li>写真の判定を組み込む</li>
+                                <li>リリース用にビルドする</li>
+                                <li>Google Play に提出する</li>
+                            </ul>
+                        </div>
+                        <div class="hd-stage">
+                            <div class="hd-stage-inner">
+                                <div class="hd-phone">
+                                    <div class="hd-ph-bar" data-in="1"></div>
+                                    <div class="hd-ph-shot" data-in="2"></div>
+                                    <div class="hd-row" data-in="3"><i style="background:#F87171"></i><span style="width:56px"></span></div>
+                                    <div class="hd-row" data-in="4"><i style="background:#FBBF24"></i><span style="width:44px"></span></div>
+                                    <div class="hd-row" data-in="4"><i style="background:#4ADE80"></i><span style="width:62px"></span></div>
+                                </div>
+                                <span class="hd-badge" data-in="5">Google Play 公開中</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. 経理をやる -->
+                    <div class="hd-panel" role="tabpanel" id="hdP2" aria-labelledby="hdT2" hidden>
+                        <div>
+                            <p class="hd-you"><span class="hd-who">指示</span><span class="hd-msg">先月の出納帳と銀行明細から仕訳を作って</span></p>
+                            <ul class="hd-steps">
+                                <li>手書きの出納帳を読み取る</li>
+                                <li>過去の仕訳から科目を当てる</li>
+                                <li>会計ソフトの取込ファイルを作る</li>
+                                <li>日別の残高を突き合わせる</li>
+                            </ul>
+                        </div>
+                        <div class="hd-stage">
+                            <div class="hd-stage-inner">
+                                <table class="hd-ledger">
+                                    <thead>
+                                        <tr><th scope="col">日付</th><th scope="col">勘定科目</th><th scope="col">金額</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-in="1"><td>08/04</td><td>消耗品費</td><td>3,280</td></tr>
+                                        <tr data-in="2"><td>08/11</td><td>旅費交通費</td><td>1,240</td></tr>
+                                        <tr data-in="3"><td>08/19</td><td>通信費</td><td>8,690</td></tr>
+                                        <tr data-in="4"><td>08/28</td><td>諸謝金</td><td>45,000</td></tr>
+                                    </tbody>
+                                </table>
+                                <span class="hd-badge" data-in="5">残高一致 ／ 月40h→5h</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. ニュースを配る -->
+                    <div class="hd-panel" role="tabpanel" id="hdP3" aria-labelledby="hdT3" hidden>
+                        <div>
+                            <p class="hd-you"><span class="hd-who">指示</span><span class="hd-msg">海外のテック記事を集めて日本語で要約して</span></p>
+                            <ul class="hd-steps">
+                                <li>海外メディアから記事を集める</li>
+                                <li>日本語に要約する</li>
+                                <li>重要度の高い順に並べる</li>
+                                <li>サイトとRSSに公開する</li>
+                            </ul>
+                        </div>
+                        <div class="hd-stage">
+                            <div class="hd-stage-inner">
+                                <div class="hd-news">
+                                    <div class="hd-card" data-in="1"><b>新型モデルの推論コストが半減</b><em>要約済み ／ 重要度 高</em></div>
+                                    <div class="hd-card" data-in="2"><b>主要クラウドがエッジ推論を拡張</b><em>要約済み ／ 重要度 中</em></div>
+                                    <div class="hd-card" data-in="3"><b>オープンソースの音声認識が更新</b><em>要約済み ／ 重要度 中</em></div>
+                                </div>
+                                <span class="hd-badge" data-in="5">毎朝 7:00 自動更新</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="hd-caption">
+                    <strong>これは実際に動いているものです。</strong><span class="hd-cap-more">
+                    ここに出てくるアプリ・経理の処理・ニュース配信は、すべて当法人がClaudeに任せて毎日動かしています。
+                    同じことを御社でできるようにするのが、私たちの仕事です。</span>
+                </p>
+            </div>
         </div>
+        <div class="drag-hint" aria-hidden="true"><span class="drag-hint-icon">↺</span>ドラッグで3Dを回転</div>
         <div class="scroll-indicator">
             <span></span>
         </div>
@@ -716,6 +815,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/hero-demo.js" defer></script>
     <script type="module" src="/js/effects.js"></script>
 
 </body>

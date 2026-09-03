@@ -65,8 +65,8 @@ html.fx-on:not(.no-webgl) #story.is-dragging {
     }
 
     html.fx-on:not(.no-webgl) .hero-content {
-        max-width: 640px;
-        margin-left: clamp(2rem, 9vw, 10rem);
+        max-width: 720px;
+        margin-left: clamp(2rem, 6vw, 6rem);
     }
 
     html.fx-on:not(.no-webgl) .hero-cta-group {
@@ -77,8 +77,8 @@ html.fx-on:not(.no-webgl) #story.is-dragging {
 /* モバイル: 3Dオブジェクトを上1/3に置くためコピーを下げる */
 @media (max-width: 768px) {
     html.fx-on:not(.no-webgl) .hero-content {
-        padding-top: 26vh; /* svh非対応ブラウザ用フォールバック */
-        padding-top: 26svh;
+        padding-top: 5vh; /* svh非対応ブラウザ用フォールバック */
+        padding-top: 5svh;
     }
 }
 
