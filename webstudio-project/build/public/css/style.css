@@ -861,6 +861,15 @@ body {
     color: var(--text-light);
 }
 
+.service-inhouse-dl {
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: var(--text-light);
+}
+
+.service-inhouse-dl a { color: var(--primary); text-decoration: underline; font-weight: 700; }
+
 @media (max-width: 768px) {
     .service-inhouse { padding: 2rem 1.5rem; }
     .service-inhouse h3 { font-size: 1.25rem; }
