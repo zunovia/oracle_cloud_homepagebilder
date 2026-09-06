@@ -75,6 +75,7 @@ body {
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 2px;
+    white-space: nowrap;
     color: var(--white);
     text-decoration: none;
     transition: color var(--transition);
@@ -87,13 +88,15 @@ body {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    /* 項目が10個あるため間隔は詰めている。増やすときは横幅の実測をやり直すこと */
+    gap: 1.6rem;
     list-style: none;
 }
 
 .nav-links a {
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
+    white-space: nowrap;
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 1px;
@@ -2387,10 +2390,10 @@ body.menu-open {
     }
 }
 
-/* --- ナビゲーションのみ 900px で切り替える ---
-   項目が9個あり、769-900px帯では横並びだとロゴと接触するほど詰まる。
+/* --- ナビゲーションのみ 1200px で切り替える ---
+   項目が10個あり、これ以下の幅では横並びだとロゴと接触する。
    本文レイアウトは従来どおり768pxのままにし、ナビだけ先にハンバーガーへ移行する。 */
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
     .hamburger {
         display: flex;
     }
