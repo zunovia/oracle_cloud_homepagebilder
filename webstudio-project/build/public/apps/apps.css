@@ -345,6 +345,13 @@ a:hover { color: var(--brand-dark); }
     border-color: var(--border);
 }
 
+/* 未公開のアプリに付ける。配布先がまだ無いことをひと目で示す。 */
+.badge-soon {
+    background: #FDF3DC;
+    color: #8A5A00;
+    border-color: #EFDCA9;
+}
+
 /* --- ボタン --- */
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.7rem; }
 
