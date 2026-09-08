@@ -128,6 +128,15 @@
     --header-bg: #17263D;
 }
 
+/* ボイテキ: アイコンのテラコッタ × 温かみのあるダーク */
+.theme-voiteki {
+    --brand: #E86B47;
+    --brand-dark: #B44A2B;
+    --brand-tint: #FCEFEA;
+    --brand-ink: #FFFFFF;
+    --header-bg: #2B211C;
+}
+
 /* Cotext: ロゴのブルー系 */
 .theme-cotext {
     --brand: #0A63C2;
