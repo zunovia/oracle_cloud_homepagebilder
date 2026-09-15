@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ボイテキ — 話すだけで、LINEにもメールにも文字が入る | 一般社団法人サーコミュニケーション</title>
-<meta name="description" content="ボイテキは、文字入力に苦労する方のための Android 用キーボードアプリ。入力欄をタップすると大きなマイクが出て、話すだけで文字が入ります。データを一切収集せず、利用料もかかりません。Google Play 公開に向けて準備中です。">
+<meta name="description" content="ボイテキは、文字入力に苦労する方のための Android 用キーボードアプリ。入力欄をタップすると大きなマイクが出て、話すだけで文字が入ります。データを一切収集せず、利用料もかかりません。Google Play で無料配布中。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://surc.online/apps/voiteki/">
 <meta property="og:type" content="website">
@@ -44,21 +44,41 @@
           押して話せば、そのまま文字が入ります。
         </p>
         <div class="badges" style="margin-top:1.4rem">
-          <span class="badge badge-soon">準備中</span>
           <span class="badge">Android 8.0 以上</span>
           <span class="badge">データを収集しません</span>
           <span class="badge">広告なし</span>
           <span class="badge badge-quiet">利用料 0円</span>
         </div>
-        <p class="callout" style="margin-top:1.6rem">
-          現在 Google Play への公開に向けて準備を進めています。配布開始まで、いましばらくお待ちください。
-        </p>
+        <div class="btn-row" style="margin-top:1.6rem">
+          <a href="https://play.google.com/store/apps/details?id=online.surc.voiteki" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Google Play で入手</a>
+          <a href="/apps/voiteki/privacy/" class="btn btn-ghost">プライバシーポリシー</a>
+        </div>
       </div>
     </div>
   </div>
 </header>
 
 <main>
+
+  <!-- 紹介動画。クリックされるまで iframe を作らないファサード方式（apps.js）。 -->
+  <section class="section">
+    <div class="wrap">
+      <h2>動画で見る</h2>
+      <div class="video-wide">
+        <button type="button" class="video-facade"
+                data-yt-video="vvB0kplalQQ"
+                data-yt-title="話すだけでLINEが打てる｜高齢の親のスマホが楽になる無料アプリ「ボイテキ」"
+                aria-label="ボイテキ の紹介動画を再生する">
+          <span class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 68 48" width="60" height="42"><path d="M66.5 7.7a8.6 8.6 0 0 0-6-6.1C55.2 0 34 0 34 0S12.8 0 7.5 1.6a8.6 8.6 0 0 0-6 6.1C0 13 0 24 0 24s0 11 1.5 16.3a8.6 8.6 0 0 0 6 6.1C12.8 48 34 48 34 48s21.2 0 26.5-1.6a8.6 8.6 0 0 0 6-6.1C68 35 68 24 68 24s0-11-1.5-16.3z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+          </span>
+          <span class="video-facade-label">紹介動画を再生</span>
+          <span class="video-facade-note">クリックするとYouTubeの<br>再生プレーヤーを読み込みます</span>
+        </button>
+      </div>
+      <p class="video-note">話すだけでLINEが打てる｜高齢の親のスマホが楽になる無料アプリ「ボイテキ」</p>
+    </div>
+  </section>
 
   <section class="section">
     <div class="wrap">
@@ -84,7 +104,7 @@
         <li><strong>大きなマイクが画面の上に出ます</strong> — 入力欄をタップすると浮かんできます。指でつまんで好きな位置に動かせ、次からはその場所を覚えています。</li>
         <li><strong>言い淀みを消して整えます</strong> — 「えーと」「あのー」などを取り除き、読みやすい文にします。この処理は<strong>アプリの中で行うため、費用も設定も不要</strong>です。</li>
         <li><strong>まちがえても戻せます</strong> — 「1もじ けす」「ぜんぶ けす」「とりけす」。<strong>「ぜんぶ けす」も「とりけす」で元に戻せます。</strong></li>
-        <li><strong>手で打つこともできます</strong> — 1タップで自前のキーボードへ。ケータイ打ちとローマ字を切り替えられ、かな漢字変換の辞書も内蔵しています。</li>
+        <li><strong>手で打つこともできます</strong> — 1タップで自前のキーボードへ。ケータイ打ちとローマ字を切り替えられ、かな漢字変換の辞書も内蔵しています。数字・アルファベット・記号も打てるので、メールアドレスや電話番号も入力できます。</li>
         <li><strong>絵文字が約170個</strong> — カテゴリ別に並び、さいきん使ったものが先に出ます。</li>
         <li><strong>この端末で使えるか、先に分かります</strong> — 音声認識に対応しているかをアプリが診断します。入れてから使えないと分かる、ということがありません。</li>
         <li><strong>ふつうのキーボードにいつでも戻せます</strong> — ✕ を押すと元のキーボードに戻ります。戻し方は、押す直前と設定画面の両方に出しています。</li>
@@ -154,7 +174,8 @@
         <ul class="meta-list">
           <li><span class="k">アプリ名</span><span class="v">ボイテキ</span></li>
           <li><span class="k">対応OS</span><span class="v">Android 8.0 以上</span></li>
-          <li><span class="k">公開状況</span><span class="v">準備中（Google Play への公開を準備しています）</span></li>
+          <li><span class="k">配布</span><span class="v"><a href="https://play.google.com/store/apps/details?id=online.surc.voiteki" target="_blank" rel="noopener noreferrer">Google Play</a></span></li>
+          <li><span class="k">カテゴリ</span><span class="v">ツール</span></li>
           <li><span class="k">価格</span><span class="v">無料。利用にあたっての費用もかかりません</span></li>
           <li><span class="k">広告・課金</span><span class="v">ありません</span></li>
           <li><span class="k">プライバシー</span><span class="v"><a href="/apps/voiteki/privacy/">プライバシーポリシー</a></span></li>
@@ -163,7 +184,8 @@
           <li><span class="k">お問い合わせ</span><span class="v"><a href="mailto:info@surc.online">info@surc.online</a></span></li>
         </ul>
         <div class="btn-row" style="margin-top:1.5rem">
-          <a href="/apps/voiteki/privacy/" class="btn btn-primary">プライバシーポリシー</a>
+          <a href="https://play.google.com/store/apps/details?id=online.surc.voiteki" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Google Play で入手</a>
+          <a href="/apps/voiteki/privacy/" class="btn btn-ghost">プライバシーポリシー</a>
           <a href="/apps/" class="btn btn-ghost">アプリ一覧へ戻る</a>
         </div>
       </div>
