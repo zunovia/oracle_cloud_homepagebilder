@@ -1,8 +1,27 @@
 {
   "buildCommand": "cd webstudio-project/build && npm install",
   "outputDirectory": "webstudio-project/build/public",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.surc.online"
+        }
+      ],
+      "destination": "https://surc.online/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/$1" }
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
+    }
   ]
 }
