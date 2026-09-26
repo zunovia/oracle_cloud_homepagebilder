@@ -13,15 +13,5 @@
       "destination": "https://surc.online/$1",
       "permanent": true
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
   ]
 }
