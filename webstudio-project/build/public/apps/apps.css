@@ -56,6 +56,15 @@
     --header-bg: #241A33;
 }
 
+/* 応援歌制作: 応援旗のような朱赤 */
+.theme-ouenka {
+    --brand: #C8372D;
+    --brand-dark: #9A2820;
+    --brand-tint: #FCEBE8;
+    --brand-ink: #FFFFFF;
+    --header-bg: #2A1714;
+}
+
 /* 経理DX伴走支援: 帳簿らしい落ち着いたブロンズ */
 .theme-keiri {
     --brand: #7A5F14;
@@ -802,6 +811,21 @@ th { background: var(--brand-tint); color: var(--brand-dark); font-weight: 700; 
 /* --- 単体動画の埋め込み（アプリ詳細ページ）---
    紹介動画は横型の長尺なので 16:9。ポータルの再生リスト(.video-frame)は
    縦型Shorts用で 9:16 のため、別クラスにしている。 */
+/* 横型動画を2本並べる（狭い画面では縦に積む） */
+.video-pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.4rem;
+    margin-top: 1.4rem;
+}
+.video-pair .video-wide { max-width: none; }
+.video-pair figcaption {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
 .video-wide {
     position: relative;
     width: 100%;
