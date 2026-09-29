@@ -811,6 +811,45 @@ th { background: var(--brand-tint); color: var(--brand-dark); font-weight: 700; 
 /* --- 単体動画の埋め込み（アプリ詳細ページ）---
    紹介動画は横型の長尺なので 16:9。ポータルの再生リスト(.video-frame)は
    縦型Shorts用で 9:16 のため、別クラスにしている。 */
+/* --- 問い合わせフォーム（/contact/） --- */
+.cf-form { display: grid; gap: 1.1rem; }
+.cf-field label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+.cf-req, .cf-opt {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.05rem 0.5rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    vertical-align: middle;
+}
+.cf-req { background: var(--brand); color: var(--brand-ink); }
+.cf-opt { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+.cf-field input,
+.cf-field textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    font: inherit;
+    font-size: 1rem; /* 16px 未満だと iOS が入力時に拡大する */
+    color: var(--ink);
+}
+.cf-field textarea { min-height: 10rem; resize: vertical; line-height: 1.8; }
+.cf-field input:focus,
+.cf-field textarea:focus { outline: 2px solid var(--brand); outline-offset: 1px; border-color: transparent; }
+.cf-submit { justify-self: start; border: 0; cursor: pointer; font: inherit; }
+.cf-submit:disabled { opacity: 0.6; cursor: wait; }
+.cf-status { font-size: 0.92rem; line-height: 1.8; }
+.cf-status[data-state="ok"] { color: #11703E; }
+.cf-status[data-state="ng"] { color: #B42318; }
+
 /* 横型動画を2本並べる（狭い画面では縦に積む） */
 .video-pair {
     display: grid;

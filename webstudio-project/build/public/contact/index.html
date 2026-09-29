@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ | 一般社団法人サーコミュニケーション</title>
+<meta name="description" content="一般社団法人サーコミュニケーションへのお問い合わせ・ご相談はこちらから。初回のご相談は無料です。2営業日以内にご連絡いたします。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://surc.online/contact/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="お問い合わせ | 一般社団法人サーコミュニケーション">
+<meta property="og:url" content="https://surc.online/contact/">
+<link rel="icon" href="/images/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/apps/apps.css">
+</head>
+<body>
+
+<nav class="topbar" aria-label="パンくず">
+  <div class="wrap">
+    <a href="/" class="topbar-brand">Sur Communication</a>
+    <ol class="crumbs">
+      <li><a href="/">ホーム</a></li>
+      <li><span aria-current="page">お問い合わせ</span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap narrow">
+    <span class="eyebrow">Contact</span>
+    <h1>お問い合わせ</h1>
+    <p class="lede">
+      初回のご相談は無料です。業務改善・AI導入・アプリの内製化・応援歌の制作など、どんなことでもお気軽にどうぞ。
+      <strong>2営業日以内</strong>にご連絡いたします。
+    </p>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap narrow">
+      <div class="card">
+        <p id="cf-about" class="callout" hidden></p>
+        <form class="cf-form" id="contactForm" novalidate>
+          <div class="cf-field">
+            <label for="cf-name">お名前<span class="cf-req">必須</span></label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="cf-field">
+            <label for="cf-email">メールアドレス<span class="cf-req">必須</span></label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" inputmode="email" required>
+          </div>
+          <div class="cf-field">
+            <label for="cf-company">会社名・団体名<span class="cf-opt">任意</span></label>
+            <input type="text" id="cf-company" name="company" autocomplete="organization">
+          </div>
+          <div class="cf-field">
+            <label for="cf-message">お問い合わせ内容<span class="cf-req">必須</span></label>
+            <textarea id="cf-message" name="message" rows="8" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary cf-submit">送信する</button>
+          <p class="cf-status" id="cf-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="card" style="margin-top:1.4rem">
+        <ul class="meta-list">
+          <li><span class="k">メール</span><span class="v"><a href="mailto:info@surc.online">info@surc.online</a></span></li>
+          <li><span class="k">所在地</span><span class="v">愛知県名古屋市東区代官町39-18 日本陶磁器センタービル5階</span></li>
+          <li><span class="k">運営</span><span class="v">一般社団法人サーコミュニケーション</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="dev-name">一般社団法人サーコミュニケーション</p>
+    <p>名古屋市東区代官町39-18 5階</p>
+    <ul class="foot-links">
+      <li><a href="/">法人サイト</a></li>
+      <li><a href="/#services">サービス</a></li>
+      <li><a href="/apps/">アプリ一覧</a></li>
+      <li><a href="/services/ouenka/">応援歌制作</a></li>
+    </ul>
+    <p class="copy">&copy; 2026 一般社団法人サーコミュニケーション All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+// どのページの「相談する」から来たかを ?about= で受け取り、本文の頭に入れておく。
+// 受け取る側で、何についての相談かがすぐ分かるようにするため。
+(function () {
+  var about = '';
+  try { about = (new URLSearchParams(location.search).get('about') || '').trim().slice(0, 40); } catch (e) {}
+  if (about) {
+    var note = document.getElementById('cf-about');
+    note.textContent = '「' + about + '」についてのご相談として承ります。';
+    note.hidden = false;
+    var msg = document.getElementById('cf-message');
+    if (!msg.value) msg.value = '【' + about + 'について】\n';
+  }
+
+  var form = document.getElementById('contactForm');
+  var status = document.getElementById('cf-status');
+  var btn = form.querySelector('button[type="submit"]');
+
+  function show(state, text) { status.dataset.state = state; status.textContent = text; }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var data = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      company: form.company.value.trim(),
+      message: form.message.value.trim()
+    };
+    if (!data.name || !data.email || !data.message) {
+      show('ng', 'お名前・メールアドレス・お問い合わせ内容をご入力ください。');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      show('ng', 'メールアドレスの形式をご確認ください。');
+      return;
+    }
+    btn.disabled = true; btn.textContent = '送信中...'; show('', '');
+    try {
+      var res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        form.reset();
+        show('ok', 'お問い合わせありがとうございます。2営業日以内にご連絡いたします。');
+      } else {
+        show('ng', '送信に失敗しました。お手数ですが info@surc.online まで直接ご連絡ください。');
+      }
+    } catch (err) {
+      show('ng', '送信に失敗しました。お手数ですが info@surc.online まで直接ご連絡ください。');
+    } finally {
+      btn.disabled = false; btn.textContent = '送信する';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
