@@ -70,6 +70,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// 他ページから /#contact のようにアンカー付きで来たとき、GSAP の演出で
+// ページの長さが読み込み後に伸びるため、ブラウザ既定の着地位置が手前にずれる
+// （実測: 問い合わせ欄 31,011px に対し 16,878px で止まっていた）。
+// レイアウトが落ち着いた頃に改めて飛ばす。ユーザーが自分で動かしたらやめる。
+if (location.hash.length > 1) {
+    let userMoved = false;
+    const stop = () => { userMoved = true; };
+    ['wheel', 'touchstart', 'keydown'].forEach(ev => window.addEventListener(ev, stop, { once: true, passive: true }));
+    const jump = () => {
+        if (userMoved) return;
+        const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (target) target.scrollIntoView({ block: 'start' });
+    };
+    window.addEventListener('load', () => {
+        [300, 1000, 2000].forEach(ms => setTimeout(jump, ms));
+    });
+}
+
 // YouTube: クリックされて初めて iframe を差し込む（ファサード方式）
 // 初期表示ではYouTubeへ一切通信せず、クッキーも発生しない。
 const ytFrame = document.getElementById('ytFrame');
