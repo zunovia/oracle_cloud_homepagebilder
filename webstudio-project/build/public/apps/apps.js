@@ -109,12 +109,12 @@ document.querySelectorAll('[data-yt-playlist], [data-yt-video]').forEach((facade
         });
 
         last = [
-            'SafeCam 概算見積り（1拠点・税抜）',
+            'SafeCam 概算見積り（1拠点・税込）',
             '・録画機（Raspberry Pi）: ' + yen(P.piMin) + '〜' + yen(P.piMax),
             '・電源・ケーブル類: ' + yen(P.power),
             '・SafeCam ソフトウェア ' + el.softline.textContent + ': ' + el.soft.textContent,
             '・カメラ ' + el.camline.textContent + ': ' + el.cam.textContent,
-            '合計: ' + el.total.textContent + '（税抜）',
+            '合計: ' + el.total.textContent + '（税込）',
             '※ ランニングは電気代のみ（月100円前後）',
         ].join('\n');
     }
