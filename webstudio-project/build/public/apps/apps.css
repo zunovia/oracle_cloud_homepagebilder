@@ -65,6 +65,15 @@
     --header-bg: #2A1714;
 }
 
+/* Luckarise: アイコンの夜色 × 灯りの琥珀 */
+.theme-luckarise {
+    --brand: #946010;
+    --brand-dark: #6E470B;
+    --brand-tint: #FBF1DE;
+    --brand-ink: #FFFFFF;
+    --header-bg: #181C26;
+}
+
 /* 経理DX伴走支援: 帳簿らしい落ち着いたブロンズ */
 .theme-keiri {
     --brand: #7A5F14;
