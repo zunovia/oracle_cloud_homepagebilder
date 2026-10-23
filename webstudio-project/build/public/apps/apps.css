@@ -65,6 +65,15 @@
     --header-bg: #2A1714;
 }
 
+/* Choppiri: アイコンの若葉色 */
+.theme-choppiri {
+    --brand: #2E7A52;
+    --brand-dark: #1F5A3B;
+    --brand-tint: #E8F4ED;
+    --brand-ink: #FFFFFF;
+    --header-bg: #16251D;
+}
+
 /* Luckarise: アイコンの夜色 × 灯りの琥珀 */
 .theme-luckarise {
     --brand: #946010;
