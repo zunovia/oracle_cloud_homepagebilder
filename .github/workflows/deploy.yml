@@ -8,6 +8,8 @@ on:
       - 'Dockerfile'
       - 'docker-compose.yml'
       - 'nginx/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -23,9 +25,23 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # set -e: どこかで失敗したらそこで止め、ジョブを失敗（赤）にする。
+          # 以前は git pull が失敗しても古いコードのまま build が進み「成功」と表示されていた。
+          # pull ではなく fetch + reset --hard にするのは、GitHub 側で履歴が書き換えられても
+          # サーバーを必ず origin と同じ状態に揃えるため（.env など git 管理外のファイルは消えない）。
           script: |
+            set -e
             cd ~/webstudio-site
-            git pull origin claude/recreate-personal-website-OuXDy
+            git fetch origin claude/recreate-personal-website-OuXDy
+            git reset --hard origin/claude/recreate-personal-website-OuXDy
+            git log -1 --oneline
             docker compose build
             docker compose up -d
             docker compose ps
+            # 起動直後は応答しないことがあるので、最大30秒待ってからサイトが返事をするか確かめる
+            for i in $(seq 1 15); do
+              if docker compose exec -T webstudio wget -q --spider http://127.0.0.1:3000/; then break; fi
+              if [ "$i" = 15 ]; then echo "サイトが応答しません"; docker compose logs --tail 50 webstudio; exit 1; fi
+              sleep 2
+            done
+            docker compose exec -T webstudio node -p "'nodemailer ' + require('nodemailer/package.json').version"
