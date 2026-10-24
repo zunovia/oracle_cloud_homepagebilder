@@ -792,19 +792,19 @@
                 <form class="contact-form fade-in-left" id="contactForm">
                     <div class="field">
                         <label for="cf-name">お名前 <span class="req">必須</span></label>
-                        <input type="text" id="cf-name" name="name" autocomplete="name" required>
+                        <input type="text" id="cf-name" name="name" autocomplete="name" maxlength="100" required>
                     </div>
                     <div class="field">
                         <label for="cf-email">メールアドレス <span class="req">必須</span></label>
-                        <input type="email" id="cf-email" name="email" autocomplete="email" inputmode="email" required>
+                        <input type="email" id="cf-email" name="email" autocomplete="email" inputmode="email" maxlength="254" required>
                     </div>
                     <div class="field">
                         <label for="cf-company">会社名・団体名 <span class="opt">任意</span></label>
-                        <input type="text" id="cf-company" name="company" autocomplete="organization">
+                        <input type="text" id="cf-company" name="company" autocomplete="organization" maxlength="100">
                     </div>
                     <div class="field">
                         <label for="cf-message">お問い合わせ内容 <span class="req">必須</span></label>
-                        <textarea id="cf-message" name="message" rows="6" required></textarea>
+                        <textarea id="cf-message" name="message" rows="6" maxlength="5000" required></textarea>
                     </div>
                     <button type="submit">送信する</button>
                     <!-- 送信結果はJSでclassを付け外しするだけなので、読み上げ用にaria-liveを置く -->
