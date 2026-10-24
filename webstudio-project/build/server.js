@@ -41,6 +41,24 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+// 同じ送信者（IPアドレス）から送れるのは1日（日本時間）2回まで。
+// このサーバーは1プロセスで動くのでメモリで数える（再起動すると0に戻る）
+const DAILY_LIMIT = 2;
+const LIMIT_MESSAGE = '本日の送信回数の上限（2回）に達しました。お急ぎの場合は info@surc.online まで直接ご連絡ください。';
+const submissionCounts = new Map();
+let countsDay = '';
+
+function countSubmission(ip) {
+  const day = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+  if (day !== countsDay) {
+    submissionCounts.clear();
+    countsDay = day;
+  }
+  const count = (submissionCounts.get(ip) || 0) + 1;
+  submissionCounts.set(ip, count);
+  return count;
+}
+
 app.post('/api/contact', async (req, res) => {
   const { name, email, company, message } = req.body || {};
 
@@ -70,6 +88,12 @@ app.post('/api/contact', async (req, res) => {
     return res.status(400).json({ error: '有効なメールアドレスを入力してください' });
   }
 
+  // 前段の nginx が X-Real-IP を送信元の実IPで上書きして渡してくる
+  const ip = req.headers['x-real-ip'] || req.socket.remoteAddress;
+  if (countSubmission(ip) > DAILY_LIMIT) {
+    return res.status(429).json({ error: LIMIT_MESSAGE });
+  }
+
   try {
     await transporter.sendMail({
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
@@ -97,18 +121,9 @@ app.post('/api/contact', async (req, res) => {
   } catch (err) {
     console.error('Email send error:', err.message);
     console.error('Email send error details:', err.code, err.responseCode, err.command);
+    // 送れなかった分は回数に数えない
+    if (submissionCounts.has(ip)) submissionCounts.set(ip, Math.max(0, submissionCounts.get(ip) - 1));
     res.status(500).json({ error: 'メール送信に失敗しました' });
-  }
-});
-
-// SMTP接続テスト（デバッグ用）
-app.get('/api/contact/test', async (req, res) => {
-  try {
-    await transporter.verify();
-    res.json({ success: true, message: 'SMTP接続OK' });
-  } catch (err) {
-    console.error('SMTP verify error:', err.message, err.code);
-    res.status(500).json({ success: false, error: err.message, code: err.code });
   }
 });
 

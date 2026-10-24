@@ -163,6 +163,9 @@ if (contactForm) {
 
         successMsg.classList.remove('show');
         errorMsg.classList.remove('show');
+        // 送信回数の上限（429）のときだけ文言を差し替えるので、元の文言を覚えておく
+        if (!errorMsg.dataset.defaultText) errorMsg.dataset.defaultText = errorMsg.textContent;
+        errorMsg.textContent = errorMsg.dataset.defaultText;
         submitBtn.disabled = true;
         submitBtn.textContent = '送信中...';
 
@@ -185,6 +188,10 @@ if (contactForm) {
                 inputs.forEach(input => { input.value = ''; });
                 setTimeout(() => { successMsg.classList.remove('show'); }, 8000);
             } else {
+                if (res.status === 429) {
+                    const data = await res.json().catch(() => ({}));
+                    if (data.error) errorMsg.textContent = data.error;
+                }
                 errorMsg.classList.add('show');
                 setTimeout(() => { errorMsg.classList.remove('show'); }, 8000);
             }
