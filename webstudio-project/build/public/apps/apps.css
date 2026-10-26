@@ -65,6 +65,24 @@
     --header-bg: #2A1714;
 }
 
+/* センタリン: アイコンの黒 × 照準のオレンジ */
+.theme-centerin {
+    --brand: #B9481F;
+    --brand-dark: #8A3415;
+    --brand-tint: #FCEDE6;
+    --brand-ink: #FFFFFF;
+    --header-bg: #0B0C10;
+}
+
+/* 成分レンズ: アイコンの紺 × レンズの青 */
+.theme-seibunlens {
+    --brand: #1F6BC9;
+    --brand-dark: #154E94;
+    --brand-tint: #E8F1FD;
+    --brand-ink: #FFFFFF;
+    --header-bg: #0F1C33;
+}
+
 /* Choppiri: アイコンの若葉色 */
 .theme-choppiri {
     --brand: #2E7A52;
