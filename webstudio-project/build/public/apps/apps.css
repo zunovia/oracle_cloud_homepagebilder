@@ -65,6 +65,15 @@
     --header-bg: #2A1714;
 }
 
+/* TABrec: アイコンの黒 × ロゴの青 */
+.theme-tabrec {
+    --brand: #1E68CC;
+    --brand-dark: #164F9C;
+    --brand-tint: #E8F1FD;
+    --brand-ink: #FFFFFF;
+    --header-bg: #07080C;
+}
+
 /* センタリン: アイコンの黒 × 照準のオレンジ */
 .theme-centerin {
     --brand: #B9481F;
