@@ -1751,6 +1751,16 @@ body {
     line-height: 1.8;
 }
 
+.profile-info-value a {
+    color: var(--primary);
+    font-weight: 600;
+    text-underline-offset: 3px;
+}
+
+.profile-info-value a:hover {
+    color: var(--primary-dark);
+}
+
 .profile-strengths {
     max-width: 800px;
     margin: 0 auto 4rem;
